@@ -1,0 +1,15 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const script=fs.readFileSync(path.join(__dirname,'../src/app.js'),'utf8');
+const context={};vm.createContext(context);vm.runInContext(script,context);const C=context.StudioCore;
+let s=C.demo(),p=s.posts[1];assert.equal(C.next(p),'Ready to schedule');
+let edited=C.revise(p,{...p,caption:'Updated caption'});assert.equal(edited.version,3);assert.equal(edited.approval,'Pending');assert.equal(edited.stage,'Draft');assert.equal(C.next(edited),'Awaiting approval');
+assert.equal(C.next({...p,rights:false}),'Review checks');assert.equal(C.next({...p,approvedVersion:1}),'Awaiting approval');
+assert.equal(C.next({...p,stage:'Published'}),'Add published URL');assert.equal(C.next({...p,stage:'Published',url:'https://example.com'}),'Published');assert.equal(C.next({...p,date:'2026-02-30'}),'Complete draft');
+assert.equal(C.revise(p,{...p,facts:false}).version,2);
+assert.equal(C.metrics(s.results.P001).interactions,48);assert.equal(C.metrics(s.results.P001).rate,.06);
+assert.equal(C.metrics({...s.results.P001,saves:null}).interactions,null);assert.equal(C.metrics({...s.results.P001,reach:0}).rate,null);
+assert.equal(C.metrics({reach:100,likes:0,comments:0,saves:0,shares:0}).rate,0);
+assert.equal(C.validate(JSON.parse(JSON.stringify(s))).posts.length,3);
+assert.throws(()=>C.validate({...s,posts:[s.posts[0],s.posts[0]]}));assert.throws(()=>C.validate({...s,posts:[{...p,version:0}]}));assert.throws(()=>C.validate({schema:1}));
+const clean=C.validate({...s,results:{P001:{reach:-1,likes:'bad'}}});assert.equal(clean.results.P001.reach,null);
+console.log('PASS: 18 checks covering approval gates, revision reset, invalid dates, published URL, missing/zero metrics and backup validation.');

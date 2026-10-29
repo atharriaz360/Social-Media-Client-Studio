@@ -1,0 +1,36 @@
+{
+ "name": "brief to approved. Client Studio",
+ "short_name": "Client Studio",
+ "id": "./",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "any",
+ "background_color": "#FBF8F4",
+ "theme_color": "#FBF8F4",
+ "description": "Private, offline content studio: client brief, content plan, versioned approvals and reports.",
+ "categories": [
+  "productivity",
+  "business"
+ ],
+ "icons": [
+  {
+   "src": "icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+brief to approved. / Client Studio / Edition 04 (v4.0)
+Designed by KaelLabs.
+
+Licence for the original purchaser. You may use the studio, documents and included
+original artwork for your own business and completed client work. Please do not
+share, resell or redistribute the files themselves.
+
+The sample client names, approval records and metrics are fictional. Do not present
+them as customer evidence. No sales result or platform eligibility is promised.
+
+Fonts embedded in the HTML file: Inter and Newsreader, SIL Open Font Licence 1.1.
+
+Local workspace storage has no encryption, account authentication, network sync or
+multi-user permissions. Keep client data and backups secure. Export backups regularly.
+Provided without a warranty of fitness or uninterrupted operation.

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="light" class="no-transition">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>brief to approved. · Client Studio</title>
+<meta name="description" content="A private, offline content studio for social media managers: client brief, content plan, versioned approvals and reports.">
+<meta name="theme-color" content="#FBF8F4">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Client Studio">
+<script>try{if("scrollRestoration" in history)history.scrollRestoration="manual";var t=JSON.parse(localStorage.getItem("brief-approved-ui-v5")||"{}");document.documentElement.setAttribute("data-theme",t.theme||"light");if(t.focus)document.documentElement.classList.add("focus-mode")}catch(e){}</script>
+<!--PWA-->
+<!--
+  brief to approved. Client Studio v__VERSION__ · Designed by KaelLabs
+  Licence for the original purchaser: see LICENSE.txt. Please do not share or resell.
+  Fonts: Inter, Newsreader. SIL Open Font Licence 1.1, embedded.
+-->
+<style>/*CSS*/</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar" hidden>Live demo · example client · changes are not saved. <a href="#settings">Learn more</a></div><a class="skip" href="#main">Skip to workspace</a>
+<aside class="sidebar" id="sidebar">
+ <a class="brand" href="#overview" aria-label="Studio overview"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/></svg></span><span class="brand-word"><b id="brand-name">JUNIPER STUDIO</b></span></a>
+ <nav id="nav" aria-label="Studio"></nav>
+ <div class="side-quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.7 5 5 1.7-5 1.7-1.7 5-1.7-5-5-1.7 5-1.7ZM18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6Z"/></svg><p>Great content moves<br>clients forward.”</p><small>— Let’s get yours approved.</small></div>
+ <button class="ws-card" id="ws-card" type="button" data-view="settings"><span class="avatar" id="ws-avatar">JS</span><span class="ws-name"><b id="ws-name">Juniper Studio</b><small id="ws-mode">Fictional demo</small></span></button>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="shell">
+ <header class="topbar"><a class="studio-brand" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/></svg><span id="studio-brand-name">JUNIPER STUDIO</span></a><button id="mobile-menu" class="icon-btn only-sm" type="button" aria-label="Open navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><span class="crumb only-sm" id="crumb">Overview</span><div class="top-actions"><button class="search-pill" id="cmd-open" type="button" aria-label="Search anything (⌘K)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20.5 20.5-4.2-4.2M10.8 17.5a6.7 6.7 0 1 0 0-13.4 6.7 6.7 0 0 0 0 13.4Z"/></svg><span>Search anything...</span></button><button class="icon-btn bell" type="button" data-view="approvals" aria-label="Approvals waiting"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15ZM10 20.5a2 2 0 0 0 4 0"/></svg><i id="bell-dot" hidden></i></button><button class="icon-btn studio-people" type="button" data-view="team" aria-label="Team / Members"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0"/></svg></button><details class="profile-menu"><summary aria-label="Workspace menu"><span class="profile-avatar" id="profile-avatar">JS</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary><div class="profile-options"><a href="#outcomes">Key outcomes</a><a href="#pipeline">Pipeline detail</a><a href="#team">Team / Members</a><a href="#settings">Settings</a><button id="theme" type="button">Switch theme</button><button id="focus-toggle" type="button">Focus mode</button><button type="button" data-add>New content</button></div></details></div></header>
+ <main id="main" tabindex="-1"></main>
+</div>
+
+<dialog id="editor" class="sheet" aria-labelledby="editor-title"><form id="post-form" autocomplete="off">
+ <div class="sheet-top"><span class="sheet-crumb"><span id="editor-ws">Studio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><b id="editor-title">New content</b></span><button type="button" class="icon-btn close" aria-label="Close editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+ <input name="id" type="hidden">
+ <div class="sheet-body">
+  <label class="sr-label" for="f-title">Post title</label><input id="f-title" class="title-input" name="title" required maxlength="140" placeholder="Post title">
+  <label class="sr-label" for="f-caption">Caption</label><textarea id="f-caption" class="caption-input" name="caption" rows="4" required maxlength="5000" placeholder="Write the caption…"></textarea>
+  <div class="props">
+   <label class="prop"><span>Channel</span><select name="channel"><option>Instagram</option><option>LinkedIn</option><option>TikTok</option><option>Facebook</option><option>Pinterest</option><option>YouTube</option></select></label>
+   <label class="prop"><span>Date</span><input name="date" type="date" required></label>
+   <label class="prop"><span>Role</span><select name="role"><option>Explain</option><option>Show</option><option>Invite</option></select></label>
+   <label class="prop"><span>Cover</span><select name="cover"><option value="soup">Soup art</option><option value="menu">Menu art</option><option value="coffee">Coffee art</option></select></label>
+   <label class="prop"><span>Stage</span><select name="stage"><option>Draft</option><option>Scheduled</option><option>Published</option></select></label>
+  </div>
+  <div class="field-grid">
+   <label class="field">Asset reference<input name="asset" required placeholder="File name or accessible link"></label>
+   <label class="field">Published URL<input name="url" type="url" placeholder="https://"></label>
+  </div>
+  <div class="checks"><label class="toggle"><input name="facts" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Facts checked</b><small>Claims match the brief</small></span></label><label class="toggle"><input name="rights" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Asset rights checked</b><small>Usage confirmed</small></span></label></div>
+ </div>
+ <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
+</form></dialog>
+
+<dialog id="approval" class="sheet sheet-sm" aria-labelledby="approval-h"><form id="approval-form" autocomplete="off">
+ <div class="sheet-top"><span class="sheet-crumb"><span>Approval</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><b id="approval-h">Record decision</b></span><button type="button" class="icon-btn close" aria-label="Close approval"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+ <div class="sheet-body"><p class="approval-context" id="approval-context"></p><input name="id" type="hidden">
+  <div class="seg-choice" role="radiogroup" aria-label="Decision"><label><input type="radio" name="decision" value="Approved" checked><span>Approved</span></label><label><input type="radio" name="decision" value="Changes requested"><span>Changes requested</span></label></div>
+  <label class="field">Approver<input name="person" required maxlength="100"></label>
+  <label class="field">Evidence<input name="evidence" required maxlength="500" placeholder="Dated message reference or document link"></label>
+ </div>
+ <div class="sheet-foot"><p class="hint">Records a decision you already received. It does not send a request or verify identity.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary">Record</button></div></div>
+</form></dialog>
+
+<dialog id="cmdk" class="cmdk" aria-label="Command menu"><div class="cmdk-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.3-4.3M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"/></svg><input id="cmdk-q" placeholder="Type a command or search content…" aria-label="Command" autocomplete="off" role="combobox" aria-controls="cmdk-list" aria-expanded="true"><kbd>esc</kbd></div><div id="cmdk-list" class="cmdk-list" role="listbox"></div></dialog>
+
+<input id="import-file" type="file" accept="application/json,.json" hidden><div class="toast" role="status" aria-live="polite" id="toast"></div>
+<script>/*JS*/</script></body></html>

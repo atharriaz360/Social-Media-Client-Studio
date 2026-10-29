@@ -1,0 +1,218 @@
+[
+  [
+    "01 / THE STUDIO",
+    "A calmer place\nto do good work.",
+    "A practical local workspace for the journey from brief to approved content.",
+    [
+      [
+        "One home for the moving parts",
+        "Use Overview to see the work, Content board to edit it, Approvals to record decisions and Reports to review the results. The client brief gives every post a shared starting point."
+      ],
+      [
+        "Your first five minutes",
+        "Open Studio.html in a desktop browser. Start with the fictional Juniper example. Edit P001, complete its fact check, then record a practice approval. Change the caption again and see the approval clear."
+      ]
+    ],
+    "Know what this is",
+    "A local browser workspace. It does not send approval requests, authenticate clients, sync accounts or publish posts. Keep those actions in your existing tools.",
+    "board"
+  ],
+  [
+    "02 / CLIENT CLARITY",
+    "Before the caption,\nask the useful question.",
+    "A clear brief gives the creative work something solid to stand on.",
+    [
+      [
+        "Ask for the essentials",
+        "Confirm the offer, audience, goal, voice, call to action, approver, timezone and usable assets. Record facts and restrictions in Client brief. Leave unknown information open and ask the client."
+      ],
+      [
+        "Choose a useful goal",
+        "For Juniper Cafe, the goal is to explain the weekday lunch offer to local office workers. Likes alone do not establish cafe visits. Ask what the client can measure before promising a result."
+      ]
+    ],
+    "Try this question",
+    "What should someone understand or do after seeing this post? Ask for one answer, then use it to choose the content role.",
+    "facts"
+  ],
+  [
+    "03 / THE CONTENT PLAN",
+    "Give each idea\na little purpose.",
+    "Build a manageable plan around assets the client can actually provide.",
+    [
+      [
+        "Explain. Show. Invite.",
+        "Explain answers a useful question. Show demonstrates a real product or process. Invite gives one clear next step. Choose the mix around the goal; do not assume one ratio works for every client."
+      ],
+      [
+        "Keep the record together",
+        "Create a content card with a title, channel, planned date, role, caption and asset reference. A unique ID and version travel with that record. Calendar shows the dates without sending reminders."
+      ]
+    ],
+    "Make it achievable",
+    "Start with three posts and available assets. A small plan you can deliver beats a full calendar built on missing photos and unconfirmed offers.",
+    "board"
+  ],
+  [
+    "04 / THE DRAFT",
+    "Make it sound\nlike them.",
+    "A strong caption is specific, clear and rooted in confirmed facts.",
+    [
+      [
+        "Use a voice cue",
+        "Write a few practical rules: warm, understated, short sentences, one action. Use approved writing samples when you have permission. Avoid generic hype that could belong to any business."
+      ],
+      [
+        "Edit for a single action",
+        "Ask the reader to do one thing: view the menu, save the tip or contact the business. Verify prices, hours, offer conditions and destinations. Do not invent testimonials, availability or performance claims."
+      ]
+    ],
+    "The Juniper example",
+    "Instead of \u201cthe city\u2019s best lunch, guaranteed in five minutes,\u201d use \u201cAsk us about today\u2019s soup, served 12-3. Find the current menu at the counter.\u201d",
+    "before"
+  ],
+  [
+    "05 / THE REVIEW",
+    "A beautiful draft\nstill needs a check.",
+    "Separate factual review, asset permission and client approval.",
+    [
+      [
+        "Facts checked",
+        "Compare every material claim with the client brief or a reliable confirmation. Open the destination link. Choose Facts checked only after doing the review, not because the copy sounds plausible."
+      ],
+      [
+        "Asset rights checked",
+        "Open the final asset and confirm it can be used for this client and channel. Check permission for people, brands and third-party material where relevant. A file in a shared folder is not automatically licensed."
+      ]
+    ],
+    "Two checks. Then approval.",
+    "The workspace keeps the record at Review checks until both checkboxes are complete. These are self-recorded checks, not independent certification.",
+    "check"
+  ],
+  [
+    "06 / THE FINAL YES",
+    "Approval belongs\nto a version.",
+    "Keep the exact content and the decision attached to one another.",
+    [
+      [
+        "Ask outside the workspace",
+        "Send the content ID, version, caption, final asset and proposed date through your agreed client channel. Ask the named approver for Approved or Changes requested. Silence is not a recorded approval."
+      ],
+      [
+        "Record the real decision",
+        "In Approvals, enter the person, evidence reference and decision. The workspace stores the approved version. If you change the title, caption, channel, date, role, cover or asset, it increases the version and clears approval."
+      ]
+    ],
+    "The important distinction",
+    "Recording a name is not identity verification. This local workspace stores an approval you received elsewhere; it does not replace an authenticated client portal.",
+    "version"
+  ],
+  [
+    "07 / FEEDBACK",
+    "Less guessing.\nBetter revisions.",
+    "Turn broad feedback into a clear decision and a bounded next step.",
+    [
+      [
+        "Make vague feedback concrete",
+        "If the client says \u201cmore premium,\u201d ask which change they mean. Offer two directions: shorter copy with a close-up, or a warmer explanation of the service. Avoid endless rewrites around an undefined adjective."
+      ],
+      [
+        "Keep new scope visible",
+        "Separate corrections, voice changes and new work. If a request adds a campaign or channel, refer to your actual agreement. Confirm the added work, fee and date before starting it. This kit does not supply a legal contract."
+      ]
+    ],
+    "A useful message",
+    "For this post, do you prefer a shorter product-led version or a warmer story-led version? I will revise once you confirm and send the new version for approval.",
+    "note"
+  ],
+  [
+    "08 / THE HANDOFF",
+    "Ready here.\nScheduled there.",
+    "Use the approved record to prepare a careful manual publishing handoff.",
+    [
+      [
+        "Check the final preview",
+        "Open the approved asset and copy. In your scheduler verify the account, date, timezone, crop, links, tags, subtitles and accessibility text. If the content changes materially, request approval again."
+      ],
+      [
+        "Record the live item",
+        "Choose Scheduled only after your scheduler confirms it. Once published, check the live item and add its URL. Choosing Published without an HTTP or HTTPS URL keeps the action at Add published URL."
+      ]
+    ],
+    "No surprise automation",
+    "The app tracks your production stage. It does not connect to social accounts, send content, schedule posts, upload assets or verify that a URL is live.",
+    "workflow"
+  ],
+  [
+    "09 / THE REPORT",
+    "Good reports\nmake the next step clear.",
+    "Keep numbers honest, comparable and connected to a decision.",
+    [
+      [
+        "Match the source and period",
+        "Enter one post-level row for the reporting period. Record the platform source and extraction date. Use zero for a measured zero and leave unavailable figures blank. Do not mix plays, impressions and reach as if they were identical."
+      ],
+      [
+        "Know what the rate means",
+        "Interactions = likes + comments + saves + shares, only when all four are supplied. Interaction rate by reach = interactions / reach. A missing input or zero reach leaves the rate unavailable."
+      ]
+    ],
+    "One sample calculation",
+    "Reach 800; likes 26; comments 4; saves 12; shares 6. Interactions = 48. Interaction rate by reach = 6.0%. These are fictional training figures.",
+    "chart"
+  ],
+  [
+    "10 / THE NEXT CYCLE",
+    "One observation.\nOne experiment.",
+    "A small, useful learning loop is better than an overconfident story.",
+    [
+      [
+        "Describe before interpreting",
+        "State what the data shows, then separate your interpretation. More saves on one post does not prove why people saved it. Summed reach across posts is not a count of unique people."
+      ],
+      [
+        "Agree one test",
+        "Choose a question, a comparable set of posts and a measure before starting. For Juniper, try another useful menu explainer and compare saves across similar posts. Small organic samples are noisy."
+      ]
+    ],
+    "A client-ready update",
+    "The soup explainer received 12 saves in this sample. Next cycle, test another practical lunch explainer. Please confirm next week\u2019s soup and send a current counter photo.",
+    "chart"
+  ],
+  [
+    "11 / YOUR WORK, SAFE",
+    "A little backup.\nA lot less worry.",
+    "Local storage is convenient. A downloaded backup gives you control.",
+    [
+      [
+        "Export after each session",
+        "The app saves in this browser when local storage is available. Browser settings, clearing data or moving files may affect access. Export JSON to keep the complete workspace. CSV exports the content plan only."
+      ],
+      [
+        "Import with care",
+        "Settings lets you restore a valid Studio v2 backup up to 5 MB and 500 posts. Import replaces the current workspace after confirmation. Backups can contain client information, so store and share them carefully."
+      ]
+    ],
+    "A quick restore test",
+    "Export your fictional demo, create an empty workspace and import the backup. Check the client name, captions, approval versions and result figures. Practice before relying on the process for real work.",
+    "backup"
+  ],
+  [
+    "12 / YOUR FIRST CYCLE",
+    "Small checks.\nA strong finish.",
+    "Use this final pass at the point of work.",
+    [
+      [
+        "Before the final yes",
+        "Confirm the brief, date and timezone. Check facts and rights. Send the exact caption and asset with ID and version. Record the approver, evidence and matching version."
+      ],
+      [
+        "Before the report",
+        "Verify the live post and URL. Collect comparable figures. Keep missing data blank. Check one row by hand. State limits and agree one next experiment. Export the final workspace backup."
+      ]
+    ],
+    "Leave the desk ready",
+    "Export a backup after the final changes. Keep the approved assets, client decisions and report in the client archive. Start the next cycle from a clear brief.",
+    "check"
+  ]
+]
