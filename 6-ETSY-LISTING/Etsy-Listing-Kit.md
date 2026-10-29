@@ -34,23 +34,24 @@ No trademarks (Notion, Canva, Instagram brand use only as a planning topic in "i
 - Primary colour: Purple. Secondary: White.
 - Remove "Occasion: New Business" unless Etsy actually offers it for that category.
 
-## 4. Photo order (files are already named in upload order)
-1. `01-Hero.jpg`
-2. `02-Approvals.jpg`
-3. `03-Content-Board.jpg`
-4. `04-What-You-Get.jpg`
+## 4. Photo order (v3, upload from `Listing-v3/`, files already numbered)
+1. `01-Hero.jpg` (v3: Overview screen, devices ~2x larger, no callout/seal, "Brief · Calendar · Approvals · Reports · in one app")
+2. `02-All-Views.jpg` (all-in-one proof: nine real screens, right after the hero's "in one app" promise)
+3. `03-Approvals.jpg` (the unique feature: versioned yes)
+4. `04-Content-Board.jpg`
 5. `05-Calendar-Reports.jpg`
 6. `06-Phone.jpg`
-7. `07-Client-Documents.jpg`
-8. `08-Client-Brief.jpg`
-9. `09-All-Views.jpg` (plain real-preview image)
-10. `10-Private-Offline.jpg`
-Video: `Listing-Video.mp4` (15 s, 1440×1080, no audio). 0–2 s: six loose ends. 2 s: all six check off at once. 3.3–12.3 s: six features on real screens (MacBook, iPhone, iPad). 12.3–15 s: hero.
+7. `07-Client-Brief.jpg`
+8. `08-Client-Documents.jpg`
+9. `09-Private-Offline.jpg`
+10. `10-What-You-Get.jpg`
+Video: `Listing-Video.mp4` (unchanged).
+Hero rule (VERIFIED 2026-10-30): Etsy's narrow search grid serves the first photo as a 4:5 centre crop (il_510x638, object-fit cover). Keep all hero text and devices inside x 600–2400 of the 3000 px width. v3 title spans x 669–2339.
 
 ## 5. Alt text (≤ 250 each)
 **01-Hero**
 ```
-Social media manager planner app on a MacBook and iPhone showing the client approvals screen, with a close-up of a post approved at version 2, plus pay once, works offline and desktop and phone labels.
+Social media manager planner app on a MacBook and iPhone showing the overview screen with the next step, coming-up posts, approvals and visual library, with brief, calendar, approvals and reports in one app.
 ```
 **02-Approvals**
 ```

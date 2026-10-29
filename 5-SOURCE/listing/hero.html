@@ -3,40 +3,28 @@
 @font-face{font-family:IN;src:url(inter-latin-wght-normal.woff2);font-weight:100 900}
 *{margin:0;padding:0;box-sizing:border-box}
 body{width:3000px;height:2250px;position:relative;overflow:hidden;background:url(plate.png);font-family:IN}
-.vig{position:absolute;inset:0;background:radial-gradient(ellipse 75% 70% at 50% 55%,rgba(0,0,0,0) 55%,rgba(40,20,70,.16) 100%)}
-.top{position:absolute;left:0;right:0;top:92px;text-align:center;color:#1C1533}
-.kick{font-weight:650;font-size:46px;letter-spacing:.2em;color:#4A2F98}
-h1{font-family:NR;font-weight:500;font-size:176px;line-height:.98;margin-top:34px;letter-spacing:-.012em}
-h1 em{display:block;font-style:italic;color:#5536B0}
-.prom{font-weight:500;font-size:62px;margin-top:40px;color:#2A2240;letter-spacing:-.005em}
-.ease{margin-top:26px;font-weight:600;font-size:40px;color:#4A2F98;letter-spacing:.06em}
-.ease b{color:#9C8AD8;font-weight:500;margin:0 22px}
-.seal{position:absolute;left:640px;top:880px;width:330px;height:330px;border-radius:50%;background:#24174A;color:#fff;
- display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-8deg);
- box-shadow:0 30px 60px rgba(30,15,60,.35), inset 0 0 0 10px rgba(255,255,255,.08)}
-.seal .a{font-family:NR;font-size:112px;line-height:.9}
-.seal .b{font-weight:650;font-size:34px;letter-spacing:.1em;margin-top:14px;color:#D9CCFF}
-.chips{position:absolute;left:0;right:0;top:1990px;display:flex;justify-content:center;gap:22px}
-.chip{background:#24174A;color:#fff;font-weight:600;font-size:42px;padding:24px 36px;border-radius:999px;box-shadow:0 18px 40px rgba(30,15,60,.28);white-space:nowrap}
+/* soft light wash behind the headline so type stays crisp; subtle edge vignette for depth */
+.wash{position:absolute;left:0;right:0;top:0;height:760px;background:linear-gradient(180deg,rgba(246,241,252,.82) 0%,rgba(246,241,252,.55) 70%,rgba(246,241,252,0) 100%)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse 70% 72% at 50% 58%,rgba(0,0,0,0) 58%,rgba(40,20,70,.20) 100%)}
+.top{position:absolute;left:0;right:0;top:70px;text-align:center;color:#160F2E}
+.kick{font-weight:700;font-size:44px;letter-spacing:.2em;color:#4A2F98}
+h1{font-family:NR;font-weight:500;font-size:178px;line-height:.95;margin-top:26px;letter-spacing:-.015em}
+h1 em{display:block;font-style:italic;color:#5332B4}
+.sub{margin-top:30px;font-weight:600;font-size:56px;color:#22193F;letter-spacing:-.005em}
+.sub b{color:#9C8AD8;font-weight:500;margin:0 16px}
+.chips{position:absolute;left:0;right:0;top:2002px;display:flex;justify-content:center;gap:24px}
+.chip{background:#1F1442;color:#fff;font-weight:650;font-size:46px;padding:26px 40px;border-radius:999px;box-shadow:0 18px 40px rgba(30,15,60,.30);white-space:nowrap}
 .chip i{font-style:normal;color:#C9B8FF;margin-right:16px}
-.call{position:absolute;left:640px;top:1560px;width:1040px;border-radius:30px;background:#fff;padding:14px 18px 10px;
- box-shadow:0 40px 80px rgba(30,15,60,.30),0 0 0 4px #7E62D6}
-.call img{width:100%;display:block}
-.tag{position:absolute;left:680px;top:1508px;background:#7E62D6;color:#fff;font-weight:650;font-size:34px;letter-spacing:.08em;padding:12px 26px;border-radius:999px;z-index:2}
 </style></head><body>
-<div class="vig"></div>
+<div class="wash"></div><div class="vig"></div>
 <div class="top">
  <div class="kick">FOR FREELANCE SOCIAL MEDIA MANAGERS</div>
  <h1>Social Media Manager<em>Planner App</em></h1>
- <div class="prom">Every client yes, locked to the exact version.</div>
- <div class="ease">BRIEF<b>→</b>CHECKS<b>→</b>APPROVED<b>→</b>REPORT</div>
+ <div class="sub">Brief<b>·</b>Calendar<b>·</b>Approvals<b>·</b>Reports<b>·</b>in one app</div>
 </div>
-<div class="seal"><div class="a">1 app</div><div class="b">+ 6 CLIENT<br>DOCUMENTS</div></div>
-<div class="tag">EDIT IT &amp; THE YES RESETS</div>
-<div class="call"><img src="callout.png"></div>
 <div class="chips">
  <div class="chip"><i>✓</i>Pay once · no subscription</div>
- <div class="chip"><i>✓</i>Works offline · no login</div>
+ <div class="chip"><i>✓</i>Works offline</div>
  <div class="chip"><i>✓</i>Desktop + phone</div>
 </div>
 </body></html>

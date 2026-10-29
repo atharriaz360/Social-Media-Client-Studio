@@ -16,3 +16,6 @@ SPECS = {
 for r in ['overview', 'content', 'calendar', 'approvals', 'brief', 'reports']:
     SPECS['v_' + r] = dict(plate=1, S=1.75, ox=546, oy=-10, dev=[dict(kind='laptop', route=r, q=LAPTOP_OCC), dict(kind='phone', route=r)])
 SPECS['v_dark'] = dict(plate=1, S=1.75, ox=546, oy=-10, dev=[dict(kind='laptop', route='overview', theme='dark', q=LAPTOP_OCC), dict(kind='phone', route='overview', theme='dark')])
+# v3 hero: bigger devices, richest real screen (overview) on both devices
+SPECS['01-Hero-v3'] = dict(plate=1, S=1.98, ox=178, oy=-196,
+    dev=[dict(kind='laptop', route='overview', q=LAPTOP_OCC), dict(kind='phone', route='overview')])
