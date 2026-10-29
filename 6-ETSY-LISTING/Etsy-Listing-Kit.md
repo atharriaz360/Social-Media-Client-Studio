@@ -1,28 +1,30 @@
-# Social Media Manager Planner App: Etsy Listing Kit (2026-10-30)
+# Social Media Manager Planner App: Etsy Listing Kit v3 (2026-10-30, search-visibility fix)
 Files: `6-ETSY-LISTING/Listing/`. Paste in this order. Change everything in ONE edit, then leave it for ~3 weeks.
 
-## 1. Title (13 words, 96 / 140, passes Etsy's "14 words or less" tip)
+## 1. Title (13 words, 94 / 140, passes Etsy's 14-words tip)
 ```
-Social Media Manager Planner App, Client Approval Tracker, Content Calendar, SMM Onboarding Docs
+Social Media Manager Planner App, Content Calendar, Client Approval Tracker, Brief to Approved
 ```
-"Client portal" and "offline" moved to tags/description (tag 13 = smm client portal).
+v3: product name "Brief to Approved" added at the END (it was in no title/tag, so Etsy could never match a search for it). Buyer keywords stay first.
 
 ## 2. Tags (13, all ≤ 20 chars)
 | # | Tag | Len |
 |---|---|---|
 | 1 | social media planner | 20 |
-| 2 | smm planner | 11 |
+| 2 | social media manager | 20 |
 | 3 | content calendar | 16 |
-| 4 | social media manager | 20 |
+| 4 | content calendar app | 20 |
 | 5 | client approval | 15 |
 | 6 | content approval | 16 |
-| 7 | instagram planner | 17 |
-| 8 | social media report | 19 |
-| 9 | client welcome kit | 18 |
-| 10 | smm onboarding | 14 |
-| 11 | freelancer planner | 18 |
-| 12 | content planner | 15 |
-| 13 | smm client portal | 17 |
+| 7 | approval tracker | 16 |
+| 8 | smm client portal | 17 |
+| 9 | smm onboarding | 14 |
+| 10 | social media report | 19 |
+| 11 | content planner | 15 |
+| 12 | social media app | 16 |
+| 13 | brief to approved | 17 |
+
+v3 swaps: OUT smm planner (returns generic paper planners), instagram planner (pulls Canva/Instagram-template shoppers + trademark risk), freelancer planner, client welcome kit (Canva-template intent). IN content calendar app, approval tracker, social media app (app-intent buyers), brief to approved (your product name).
 
 Dropped from v1: Digital Download, Client Studio App, Content Creator Hub, SMM Dashboard, Social Media Toolkit, Freelance Business, SMM Template (format/invented/vague words, or ones that pull in Canva-template shoppers).
 No trademarks (Notion, Canva, Instagram brand use only as a planning topic in "instagram planner").
@@ -93,7 +95,7 @@ Social media manager planner app video: six loose ends like approvals in DMs and
 
 ## 6. Description (paste as-is)
 ```
-Social media manager planner app for freelancers: client brief, content calendar, approval tracker and monthly reports in one offline file. Pay once. No subscription. No login.
+Brief to Approved is a social media manager planner app for freelancers: client brief, content calendar, client approval tracker and monthly reports in one offline file. Pay once. No subscription. No login.
 
 Every client yes is saved against the exact caption version. Edit an approved post and the version goes up and the approval resets, so you always know what the client actually said yes to.
 
@@ -148,7 +150,13 @@ GOOD TO KNOW
 • Digital download: nothing is shipped.
 • Do not resell or share the files.
 
-Questions? Message me on Etsy.
+━━ NEED A HAND or Questions? ━━
+Message KaelLabs on Etsy. I reply as soon as I can, usually within 24 hours.
+
+Prefer paper? See the ADHD Planner Printable in this shop.
+
+Designed and built by me (KaelLabs). AI tools assisted with parts of the code, images and listing text. Every feature was reviewed and tested by hand.
+
 ```
 Why these changes:
 - Keywords come first.
@@ -163,3 +171,16 @@ Why these changes:
 | 6 client document layouts | VERIFIED: v1 kit list |
 | No sync between devices | VERIFIED: video-v2 notes ("app stores data per browser") |
 | Ranking impact | UNKNOWN until Etsy stats arrive |
+
+## 8. Search-visibility diagnosis (checked live on Etsy, 2026-10-30)
+- Searching the listing's OWN exact title on Etsy: NOT FOUND in the first 24 results.
+- Control: ADHD Digital Planner, ADHD Printable Toolkit and Freelancer Toolkit each rank #1 for their exact titles.
+- "content approval tracker" (953 results), "client approval tracker", "social media manager planner app": not in the first 34–47 results.
+- So the listing is currently not in Etsy search at all. It is the newest listing in the shop and was re-edited today, so the most likely cause is that Etsy has not finished re-indexing it.
+
+## 9. What to do, in order
+1. Paste the v3 title, tags and first description line now, in ONE edit (this is the last edit).
+2. Wait 48–72 hours. Do not edit again in that window (every edit restarts indexing).
+3. Re-test: search the exact v3 title on Etsy while logged out (or in a private window). It should appear at #1, like the shop's other listings.
+4. Still missing after 72 h? Click "Renew" on the listing ($0.20). Still missing after another 24 h? Message Etsy Support (Help → Contact support → "listing not appearing in search") with the listing ID 4605525930. Last resort: Copy the listing, publish the copy, deactivate this one.
+5. After it's indexed, the boosts that move ranking: first sales and 5-star reviews, clicks on the hero photo, and favourites. Send it to past buyers / your audience in the first week, and make sure the shop's ADHD listings link to it ("Prefer an app for client work? See Brief to Approved").
