@@ -15,7 +15,7 @@ Run these from inside `5-SOURCE`:
 |---|---|
 | `python3 brand/make_brand.py` | Logo, mark and app icons into `brand/out/` and `../4-BRAND/` (letters outlined, no fonts needed to view) |
 | `python3 build.py` | Writes `../1-SELL-THIS/Brief-to-Approved.html` (+ `LICENSE.txt`, `Documents/`), `../2-HOST-ONLINE/*` (index, manifest, service worker, icons, Documents) and `../3-HOST-DEMO/index.html` |
-| `python3 guide/make_guide.py` | Writes the 2-page `../1-SELL-THIS/Brief-to-Approved-Start-Here.pdf` with a fresh screenshot of the built app |
+| `python3 guide/make_guide.py` | Writes the 2-page dark Start Here PDF `../1-SELL-THIS/Brief-to-Approved-Start-Here.pdf` (clickable online link, fresh app screenshot) |
 
 Optional: set `PW_CHROMIUM=/path/to/chrome` to use a specific Chromium for the guide and release test.
 
@@ -26,7 +26,7 @@ Optional: set `PW_CHROMIUM=/path/to/chrome` to use a specific Chromium for the g
 - `src/app.js`: all logic. `StudioCore` (next step, metrics, revise, validate, demo seed) first, then views, actions, events, init.
 - `src/img/`: original SVG art, embedded as data URIs by `build.py` (`ART`).
 - `docs/`: buyer documents copied into `Documents/` by the build (PDF guide, client documents, editable HTML, XLSX).
-- `legacy-docs-build/`: earlier scripts that produced `docs/` (not part of `build.py`; paths may need updating before reuse).
+- `listing/`: scripts for the Etsy hero image and listing video (see `listing/README.md`).
 
 ## Releasing an update
 

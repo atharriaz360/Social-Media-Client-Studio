@@ -1,52 +1,196 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>brief to approved. · Start here</title>
-<style>/*FONTS*/</style>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Client Studio — Start Here</title>
 <style>
-:root{--sans:"Inter Variable",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--serif:Newsreader,"Iowan Old Style","New York",Georgia,serif;--bg:#fbf8f4;--panel:#fffdfa;--line:#eee7df;--ink:#221e2c;--ink-2:#3e3849;--muted:#6f6879;--accent:#8a72d0;--deep:#5f4ba3;--soft:#f1ebfa;--soft-2:#e7dcf7;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#121019;--panel:#18151f;--line:#26212f;--ink:#f3effa;--ink-2:#d8d1e6;--muted:#9c94ad;--accent:#ad99f3;--deep:#c6b7fa;--soft:#272040;--soft-2:#322850;color-scheme:dark}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
-header{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
-.brand{display:flex;align-items:center;gap:12px}.mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font:400 21px/1 var(--serif);background:radial-gradient(circle at 30% 25%,#cbb9f2,#9a82da 55%,#7d65c4)}
-.brand b{font:400 19px/1.1 var(--serif);display:block}.brand small{font-size:12.5px;color:var(--muted)}
-nav{display:flex;gap:22px;align-items:center;font-size:14px;color:var(--ink-2)}
-.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:13px;font-weight:500;color:#fff;background:linear-gradient(180deg,#9b84dc,#8169cc);box-shadow:inset 0 1px 0 #ffffff33,0 8px 22px #7d65c445}
-.btn.sm{height:38px;padding:0 15px;font-size:14px;border-radius:11px}
-.btn.ghost{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px #4a35700f;border:1px solid var(--line)}
-.hero{padding:56px 0 40px;text-align:center}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--deep)}
-h1{font:400 clamp(44px,6.4vw,78px)/1.02 var(--serif);letter-spacing:-.025em;margin:16px 0 18px}h1 em{font-style:italic;color:var(--deep)}
-.lead{font-size:18px;color:var(--ink-2);max-width:560px;margin:0 auto}
-.actions{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-.micro{margin-top:16px;font-size:13px;color:var(--muted)}
-.shot{margin:44px auto 0;border-radius:22px;padding:10px;background:linear-gradient(160deg,var(--soft),var(--panel));border:1px solid var(--soft-2);box-shadow:0 30px 80px #3a28602a,0 8px 20px #3a286014}
-.shot img{display:block;width:100%;border-radius:14px;border:1px solid var(--line)}
-.cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
-section.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:64px 0 24px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 1px 2px #4a35700a,0 8px 28px #4a35700b}
-.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--soft);color:var(--deep);margin-bottom:16px}.ico svg{width:22px;height:22px}
-.card h3{font:400 23px/1.2 var(--serif);margin:0 0 8px}.card p{margin:0;color:var(--muted);font-size:14.5px}
-h2{font:400 36px/1.15 var(--serif);letter-spacing:-.015em;margin:56px 0 18px}
-.res{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.res a{display:flex;align-items:center;gap:16px;padding:18px 22px;border-top:1px solid var(--line)}.res a:first-child{border-top:0}.res a:hover{background:var(--soft)}
-.res b{font:400 19px/1.2 var(--serif);display:block}.res small{color:var(--muted);font-size:13.5px}.res span.t{flex:1}
-.tag{font-size:11.5px;font-weight:600;letter-spacing:.06em;color:var(--deep);background:var(--soft);padding:4px 9px;border-radius:999px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.steps div{padding:22px;border-radius:18px;background:linear-gradient(160deg,var(--soft),var(--panel));border:1px solid var(--soft-2)}
-.steps i{font:400 30px/1 var(--serif);color:var(--deep);font-style:normal}.steps p{margin:10px 0 0;color:var(--ink-2);font-size:14.5px}
-footer{margin:64px 0 0;padding:26px 0 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-@page{size:A4;margin:0}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:13px}.wrap{padding:0 40px}nav{display:none}.hero{padding:18px 0 0}h1{font-size:56px}.shot{margin-top:28px}section.grid{break-before:page;padding-top:40px;grid-template-columns:repeat(3,1fr)!important}.steps{grid-template-columns:repeat(3,1fr)!important}h2{margin:30px 0 14px;font-size:30px}.card{padding:18px}.res a{padding:12px 18px}footer{margin-top:30px;padding-bottom:0}} /* documented: print overrides responsive single column */
-@media (max-width:820px){section.grid,.steps{grid-template-columns:1fr}nav a:not(.btn){display:none}.hero{padding-top:28px}}
-</style></head>
-<body><div class="wrap">
-<header><a class="brand" href="START-HERE.html"><img class="mark" src="__MARK__" alt=""><span><b>brief to approved.</b><small>Content Studio</small></span></a><nav><a href="#included">What’s included</a><a href="Brief-to-Approved.html#settings">Backup</a><a class="btn sm" href="Brief-to-Approved.html">Open studio <svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></nav></header>
-<section class="hero"><div class="eyebrow">Your client content workspace</div><h1>From first brief<br>to <em>final yes.</em></h1><p class="lead">Brief, content plan, approvals and reports in one calm place. Every post shows its single next step.</p><div class="actions"><a class="btn" href="Brief-to-Approved.html">Open my studio <svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a class="btn ghost" href="Documents/Visual-Field-Guide.pdf">Read the quick-start guide</a></div><p class="micro">Starts with a fictional practice client · No account needed · Export backups to keep your work</p>
-<div class="shot"><img src="__SHOT__" alt="The Client Studio overview screen with the next step, pipeline progress, coming up, approvals and client north star"></div><p class="cap">Actual app screen, shown with the included fictional practice client.</p></section>
-<section class="grid"><div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 4.5H7A1.5 1.5 0 0 0 5.5 6v13A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V6A1.5 1.5 0 0 0 17 4.5h-2M9 3.5h6v3H9zM8.5 11h7M8.5 14.5h7"/></svg></div><h3>Plan with clarity</h3><p>A client brief you can return to, content cards and a calendar coloured by stage.</p></div><div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM8.5 12.2l2.3 2.3 4.7-4.8"/></svg></div><h3>Keep the right version</h3><p>Fact and rights checks unlock approval. Editing approved copy creates a new version and asks again.</p></div><div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16M9 16v-4M14 16V8M19 16v-6"/></svg></div><h3>Finish thoughtfully</h3><p>Post-level reports, printable client documents and JSON backups you control.</p></div></section>
-<h2 id="included">Everything in your collection</h2>
-<div class="res"><a href="Brief-to-Approved.html"><span class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M3.5 10.5 12 4l8.5 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-4v-6h-6v6H5A1.5 1.5 0 0 1 3.5 19Z"/></svg></span><span class="t"><b>Client Studio</b><small>Overview, content, calendar, approvals, brief, assets and reports</small></span><span class="tag">HTML</span></a><a href="Documents/Visual-Field-Guide.pdf"><span class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M12 6.5C9.5 4.5 6.5 4 3.5 4.5v14c3-.5 6 0 8.5 2 2.5-2 5.5-2.5 8.5-2v-14c-3-.5-6 0-8.5 2Zm0 0v14"/></svg></span><span class="t"><b>Visual field guide</b><small>14 pages of diagrams, review checks and examples</small></span><span class="tag">PDF</span></a><a href="Documents/Client-Documents.pdf"><span class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4.5 4.5v11.5a1 1 0 0 1-1 1H7a1.5 1.5 0 0 1-1.5-1.5V5A1.5 1.5 0 0 1 7 3.5ZM14 3.5V8h4.5"/></svg></span><span class="t"><b>Client document collection</b><small>Six coordinated layouts, from welcome packet to monthly report</small></span><span class="tag">PDF</span></a><a href="Documents/Editable-Documents.html"><span class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="m4 20 4-1 11-11-3-3L5 16Zm10-13 3 3"/></svg></span><span class="t"><b>Editable documents</b><small>Edit in the browser, then save HTML or print to PDF</small></span><span class="tag">HTML</span></a><a href="Documents/Spreadsheet-Companion.xlsx"><span class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"/></svg></span><span class="t"><b>Spreadsheet companion</b><small>Five-tab workbook with live task counts</small></span><span class="tag">XLSX</span></a></div>
-<h2>Your first ten minutes</h2>
-<div class="steps"><div><i>1</i><p>Open the studio and follow “Your one next step” on the practice client.</p></div><div><i>2</i><p>Record a practice decision, then edit the caption and watch approval reset.</p></div><div><i>3</i><p>Export a backup, then start an empty workspace for your real client.</p></div></div>
-<footer><span>brief to approved. · Client Studio · Edition 04</span><span>Local files · Manual publishing · No cloud account sync</span></footer>
-</div></body></html>
+/*FONTS*/
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #0d1726; color: #f7eedb; font-family: 'Inter Variable', -apple-system, sans-serif;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.pg { width: 210mm; height: 297mm; padding: 13mm 15mm; position: relative; overflow: hidden; page-break-after: always;
+  background: radial-gradient(ellipse at 88% 0%, #1c2b42 0%, #101c30 46%, #0b1422 92%); }
+.pg:last-child { page-break-after: auto; }
+.glow { position: absolute; top: -70mm; right: -50mm; width: 170mm; height: 170mm; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.14) 0%, rgba(212,175,55,0) 65%); }
+.glow2 { position: absolute; bottom: -80mm; left: -60mm; width: 160mm; height: 160mm; border-radius: 50%;
+  background: radial-gradient(circle, rgba(154,130,218,.12) 0%, rgba(154,130,218,0) 65%); }
+.logo-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5mm; position: relative; }
+.logo-left { display: flex; align-items: center; gap: 3.5mm; }
+.logo-left img { width: 13.5mm; height: 13.5mm; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); }
+.logo-left .n { font: 400 24pt/1 'Newsreader', Georgia, serif; color: #fffaf0; letter-spacing: .2px; }
+.logo-left .t { font-weight: 700; font-size: 7pt; letter-spacing: .22em; text-transform: uppercase; color: #d4af6a; margin-top: 1.4mm; }
+.kpill { display: flex; align-items: center; gap: 2.8mm; padding: 1.6mm 3.4mm 1.6mm 1.8mm; border-radius: 4mm;
+  background: rgba(23,39,68,.5); border: 1px solid rgba(212,175,106,.25); }
+.kpill img { width: 6.5mm; height: 6.5mm; border-radius: 1.5mm; display: block; box-shadow: 0 0 0 1px #d4af6a77; }
+.kpill span { font: italic 400 10.5pt 'Newsreader', Georgia, serif; color: #e7c777; }
+h1 { font: 400 29pt/1.1 'Newsreader', Georgia, serif; margin: 0 0 2.2mm; color: #fffaf0; letter-spacing: -.3px; }
+h1 em { color: #f5d28a; font-style: italic; }
+.subtitle { margin: 0 0 4.8mm; font-size: 9.8pt; line-height: 1.5; color: #c4cfdf; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-bottom: 3.5mm; }
+.box { background: rgba(20,33,56,.68); border: 1px solid rgba(212,175,106,.26); border-radius: 3.8mm; padding: 3.8mm 4.5mm;
+  font-size: 8.7pt; line-height: 1.48; color: #cfd9e8; box-shadow: 0 3px 12px rgba(0,0,0,.2); margin-bottom: 3.5mm; }
+.row .box { margin-bottom: 0; }
+.box h2 { font: 400 13pt/1 'Newsreader', Georgia, serif; color: #f5d28a; margin: 0 0 2.6mm; letter-spacing: .2px; }
+.box ol, .box ul { margin: 0; padding-left: 4.8mm; }
+.box li { margin-bottom: 1.6mm; }
+.box li:last-child { margin-bottom: 0; }
+.box b { color: #fffaf0; font-weight: 650; }
+.box p { margin: 0; }
+.note { margin-top: 2mm !important; font-size: 8.1pt; color: #a8b9cf; }
+.warn { border-color: rgba(212,175,106,.5); background: rgba(30,36,48,.74); }
+.link-box { border: 1.5px solid rgba(212,175,106,.45); border-radius: 4mm; padding: 4mm 4.8mm; margin-bottom: 3.5mm;
+  background: linear-gradient(135deg, rgba(23,38,66,.92), rgba(14,24,42,.96)); display: flex; align-items: center; gap: 5mm;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+.link-left { flex: 1; }
+.link-cap { font-size: 7.2pt; letter-spacing: .2em; text-transform: uppercase; color: #f5d28a; font-weight: 700; margin-bottom: 1.8mm; }
+.link-url { font-weight: 700; font-size: 11.6pt; line-height: 1.25; color: #fff; margin-bottom: 2.6mm; word-break: break-all; text-decoration: none; display: block; }
+.link-btn { display: inline-block; background: linear-gradient(135deg, #f4d993, #d9a93f); color: #101c31; font-weight: 750; font-size: 9pt;
+  padding: 2.1mm 5mm; border-radius: 3mm; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,.3); margin-bottom: 2.2mm; }
+.link-desc { margin: 0; font-size: 8pt; line-height: 1.42; color: #b8c7db; }
+.shot { width: 58mm; flex-shrink: 0; border-radius: 2.4mm; overflow: hidden; border: 1px solid rgba(212,175,106,.35);
+  box-shadow: 0 4px 14px rgba(0,0,0,.4); display: block; }
+.shot img { width: 100%; display: block; }
+.p2-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4mm; position: relative; }
+.p2-head h2 { font: 400 23pt/1 'Newsreader', Georgia, serif; color: #fffaf0; margin: 0; }
+.q b.h { display: block; margin-top: 2.4mm; color: #f5d28a; font-size: 9pt; font-weight: 650; }
+.q b.h:first-of-type { margin-top: 0; }
+.thanks-box { padding: 4.2mm 5.5mm; border-radius: 3.8mm; text-align: center;
+  background: linear-gradient(135deg, rgba(28,42,66,.88), rgba(16,26,44,.94)); border: 1px solid rgba(212,175,106,.4); box-shadow: 0 3px 14px rgba(0,0,0,.25); }
+.thanks-box .ttl { font: 400 15pt/1 'Newsreader', Georgia, serif; color: #f5d28a; margin-bottom: 2mm; }
+.thanks-box .body { font-size: 8.7pt; line-height: 1.48; color: #d6dfeb; max-width: 160mm; margin: 0 auto; }
+.thanks-box .body b { color: #fffaf0; }
+.thanks-box .hearts { font-size: 12pt; color: #e07a5f; letter-spacing: 2.4mm; margin-top: 2.4mm; }
+.thanks-box .step { font-size: 8pt; color: #e7c777; letter-spacing: .05em; margin-top: 1.8mm; }
+.foot { position: absolute; left: 15mm; right: 15mm; bottom: 8.5mm; font-size: 8pt; color: #92a2ba; display: flex;
+  justify-content: space-between; border-top: 1px solid rgba(212,175,106,.18); padding-top: 2.5mm; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="pg">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="logo-bar">
+    <div class="logo-left">
+      <img src="__MARK__" alt="">
+      <div><div class="n">Client Studio</div><div class="t">brief to approved. · Social media manager planner</div></div>
+    </div>
+    <div class="kpill"><img src="__KMARK__" alt=""><span>by KaelLabs</span></div>
+  </div>
+
+  <h1>Welcome to Client Studio.<br>Every client yes, <em>on record.</em></h1>
+  <p class="subtitle">Thank you for your purchase. You'll be inside your studio in about a minute. There's no account, no subscription and nothing to install: brief, content, approvals and reports in one private app.</p>
+
+  <div class="row">
+    <div class="box">
+      <h2>On your computer</h2>
+      <ol>
+        <li>Unzip <b>Brief-to-Approved-Digital-Download.zip</b>. Move the folder somewhere permanent, like Documents. Don't open files from inside the ZIP.</li>
+        <li>Double-click <b>Brief-to-Approved.html</b>. It opens in your browser and works offline.</li>
+        <li>Bookmark it. Always open it the same way, in the same browser.</li>
+      </ol>
+    </div>
+    <div class="box">
+      <h2>On your phone or tablet</h2>
+      <ol>
+        <li>Tap <b>Open Client Studio Online</b> below (needs internet the first time).</li>
+        <li><b>iPhone / iPad</b>: Safari → Share → <b>Add to Home Screen</b>. <b>Android</b>: Chrome → ⋮ → <b>Install app</b>.</li>
+        <li>Each device keeps its own workspace. Move work between them with a backup file.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="link-box">
+    <div class="link-left">
+      <div class="link-cap">Your private online link</div>
+      <a class="link-url" href="__URL__">__URLTEXT__</a>
+      <a class="link-btn" href="__URL__">Open Client Studio Online &rarr;</a>
+      <p class="link-desc">The same app, ready for your phone. Everything you enter saves privately in that browser on that device. Nothing is uploaded to any server or shared with KaelLabs.</p>
+    </div>
+    <a class="shot" href="__URL__"><img src="__SHOT__" alt="Client Studio overview"></a>
+  </div>
+
+  <div class="box">
+    <h2>Your first minute</h2>
+    <ol>
+      <li><b>Overview</b>: the studio opens with a fictional practice client, Juniper Studio. Read <b>Here's your one next step</b>.</li>
+      <li><b>Content</b>: open a post and tap <b>Run checks</b>. Tick Facts and Rights. Approval stays locked until both are done.</li>
+      <li><b>Approvals</b>: tap <b>Record decision</b> and add who approved, when and where (email, DM). Edit approved copy and the version goes up and the yes resets.</li>
+      <li><b>Reports</b>: add reach and interactions; engagement rate calculates itself. <b>Print / PDF</b> for your client.</li>
+      <li><b>Ready for real work?</b> Settings → <b>Start empty workspace</b>, then fill in the <b>Client Brief</b>.</li>
+    </ol>
+    <p class="note">Desktop tip: press <b>⌘K</b> / <b>Ctrl+K</b> to jump anywhere. Avatar menu → <b>Switch theme</b> for dark mode.</p>
+  </div>
+
+  <div class="box warn">
+    <h2>The one rule: your work lives in your browser</h2>
+    <p>Client Studio saves in the browser you use, on that device. <b>Use the same browser and the same file location.</b> Export a backup weekly and before clearing anything: Settings → <b>Export JSON backup</b>. Private browsing, cleared browser data or a lost device can erase work. Your computer and your phone are separate workspaces; they don't sync. Backups may contain client information, so store them safely.</p>
+  </div>
+
+  <div class="foot"><span>Client Studio · brief to approved. · by KaelLabs</span><span>Page 1 of 2</span></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="pg">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="p2-head">
+    <h2>Good to know</h2>
+    <div class="kpill"><img src="__KMARK__" alt=""><span>Client Studio by KaelLabs</span></div>
+  </div>
+
+  <div class="row">
+    <div style="display:flex;flex-direction:column;gap:3.5mm">
+      <div class="box" style="margin-bottom:0">
+        <h2>What's inside</h2>
+        <ul>
+          <li><b>Brief-to-Approved.html</b>: the app, 9 views: Overview, Content board (6 stages, list or board, CSV export), Calendar, Approvals, Client Brief (10 fields), Assets, Reports, Guide &amp; Templates, Settings.</li>
+          <li><b>Start Here</b>: this guide.</li>
+          <li><b>Documents/Client-Documents.pdf</b>: 6 A4 layouts: Welcome Packet, Client Brief, Strategy Snapshot, Content Review, Monthly Report, Project Handoff.</li>
+          <li><b>Documents/Editable-Documents.html</b>: type your client's details in the browser, then print or save.</li>
+          <li><b>Documents/Visual-Field-Guide.pdf</b>: 14 pages of workflows and checklists.</li>
+          <li><b>Documents/Spreadsheet-Companion.xlsx</b>: 5 tabs.</li>
+          <li><b>LICENSE.txt</b>: use for your business and client work.</li>
+        </ul>
+      </div>
+      <div class="box" style="margin-bottom:0">
+        <h2>Works with</h2>
+        <p>Built for current Chrome, Safari, Edge and Firefox on Mac, Windows, iPad, iPhone and Android. Every release passes automated checks in Chromium, including phone width on every view; other browsers are not separately tested. The spreadsheet needs Excel, Google Sheets or Numbers.</p>
+      </div>
+    </div>
+
+    <div class="box q" style="margin-bottom:0">
+      <h2>Troubleshooting</h2>
+      <b class="h">"My work is gone!"</b>
+      You probably opened the studio in a different browser, moved the HTML file, or used private browsing. Open it the way you did before, or Settings → <b>Import backup</b>.
+      <b class="h">New computer or phone?</b>
+      Old device: Settings → <b>Export JSON backup</b>. New device: open the studio → Settings → <b>Import backup</b>.
+      <b class="h">"Local save is unavailable"</b>
+      The browser is blocking storage (often private mode). Export a backup before closing, then open in a normal window.
+      <b class="h">"Another tab changed this workspace"</b>
+      The studio is open twice. Export from this tab, close it, then reload the other.
+      <b class="h">How do I print a report?</b>
+      Reports → <b>Print / PDF</b>. Choose Save as PDF, A4, 100% scale.
+      <b class="h">Start over or see the demo again?</b>
+      Settings → Reset: <b>Start empty workspace</b> or <b>Reload fictional demo</b>. Export your work first.
+      <b class="h">Does my client log in?</b>
+      No. You record approvals you received by email or DM. It is a private record, not a shared portal or e-signature.
+    </div>
+  </div>
+
+  <div class="box" style="font-size:8.2pt;line-height:1.42;margin-top:3.5mm">
+    <b style="color:#d4af6a">Record-keeping tool only.</b> Client Studio organises your briefs, content, approvals and reports. Numbers come from what you enter; it does not connect to Instagram or any social account and does not post for you. Sample client, names and figures are fictional.
+  </div>
+
+  <div class="thanks-box">
+    <div class="ttl">Thank you for supporting our small studio!</div>
+    <div class="body">We built Client Studio so freelance social media managers can stop chasing approvals through DMs and inboxes. We hope it makes your client work calmer and clearer. <b>If it helps you, please leave an honest review on Etsy</b>. It means the world to an independent maker and helps other social media managers find a calmer way to work.</div>
+    <div class="hearts">&hearts; &hearts; &hearts; &hearts; &hearts;</div>
+    <div class="step">Etsy &rarr; You &rarr; Purchases and reviews &rarr; Leave a review</div>
+  </div>
+
+  <div class="foot"><span>Client Studio v__VERSION__ · KaelLabs · 2026</span><span>Page 2 of 2</span></div>
+</div>
+</body>
+</html>

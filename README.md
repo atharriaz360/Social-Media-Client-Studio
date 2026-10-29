@@ -1,28 +1,22 @@
 # brief to approved. Client Studio: v4.0
 
-A private, offline content studio for social media managers (client brief, content plan, versioned approvals, reports). Sold on Etsy by KaelLabs.
+Social media manager planner app: client brief, content plan, versioned approvals and reports. Offline single HTML file. Sold on Etsy by KaelLabs.
 
 | Folder | What it's for |
 |---|---|
-| `1-SELL-THIS/` | Upload to Etsy as digital files: `Brief-to-Approved-Digital-Download.zip` (contains `Brief-to-Approved.html`, `Brief-to-Approved-Start-Here.pdf`, `LICENSE.txt`, `Documents/`) |
-| `2-HOST-ONLINE/` | Drag the whole folder onto app.netlify.com/drop. It becomes the buyer's phone link (installable, works offline). Not deployed yet |
-| `3-HOST-DEMO/` | Optional live demo (example client, nothing saved). Drag onto a NEW Netlify site |
-| `4-BRAND/` | Logo, mark and app icons |
-| `5-SOURCE/` | Source code, tests, guide and brand scripts (see `5-SOURCE/README-DEV.md`) |
-| `6-ETSY-LISTING/` | Listing images (10 JPGs + video), `_Review/` sheets, and `Etsy-Listing-Kit.md` (optimized title, 13 tags, image alt text, full description) |
-| `_ARCHIVE-2026-10-29-old-listing/` | Old Edition-02 listing images, research, release review. Safe to delete after new listing ships |
+| `1-SELL-THIS/` | Upload `Brief-to-Approved-Digital-Download.zip` to Etsy as the digital file. It contains the app, `Brief-to-Approved-Start-Here.pdf`, `LICENSE.txt` and `Documents/`. |
+| `2-HOST-ONLINE/` | Buyer's online/phone version (installable, saves on the device). Live at https://social-media-client-studio-2-online.vercel.app (linked in the Start Here PDF). |
+| `3-HOST-DEMO/` | Optional live demo (fictional client, nothing saved). |
+| `4-BRAND/` | Logo, mark and app icons. |
+| `5-SOURCE/` | App source, tests, Start Here generator (`guide/`), listing image/video scripts (`listing/`). See `5-SOURCE/README-DEV.md`. |
+| `6-ETSY-LISTING/` | `Listing/`: 10 photos in upload order + `Listing-Video.mp4`. `Etsy-Listing-Kit.md`: title, 13 tags, alt text, description. `_Screens-Latest/`: real app screenshots used by the images. |
 
 ## Rebuild everything
 
 ```
 cd 5-SOURCE
-npm install                        # restores node_modules
-python3 brand/make_brand.py        # only if the logo changes
+npm install
 npm run build && npm test && npm run test:release
 python3 guide/make_guide.py        # Start Here PDF
-npm run pack
+npm run pack                       # ZIP, byte-verified
 ```
-
-## Before publishing
-
-Old listing images archived 2026-10-29. Read `_ARCHIVE-2026-10-29-old-listing/6-ETSY-LISTING/Release-Review.md` (Etsy AI-instructions rule). Re-run `npm run pack` so the ZIP matches the current build.
