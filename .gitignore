@@ -50,6 +50,8 @@ out/
 *.patch
 *.orig
 *.log
+*.tgz
+*.tar.gz
 
 # Design/Asset temp files
 *.tmp
