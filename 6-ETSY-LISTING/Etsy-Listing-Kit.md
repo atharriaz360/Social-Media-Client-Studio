@@ -1,4 +1,4 @@
-Social Media Planner App for Freelancers, Content Calendar Template, Client Approval Tracker, Monthly Report
+Social Media Manager Planner App, Client Approval Tracker, Content Calendar and Monthly Report, No Subscription
  View on Etsy
 Copy
 
@@ -54,11 +54,14 @@ Edit Listing image 9
 Edit Listing image 10
 
 
+Edit Listing image 11
+
+
 
 No file chosen
 Add photos
 Add photos
-10 remaining
+9 remaining
 
 Thumbnails
 Thumbnails are cropped versions of your primary listing photo that show up across Etsy. Make adjustments to preview the most common thumbnail sizes that shoppers will see.
@@ -78,8 +81,8 @@ Title
 
 Make sure your title is easy to understand and clearly describes what you’re selling.
 
-Social Media Planner App for Freelancers, Content Calendar Template, Client Approval Tracker, Monthly Report
-108/140
+Social Media Manager Planner App, Client Approval Tracker, Content Calendar and Monthly Report, No Subscription
+111/140
 Digital files 
 
 
@@ -101,74 +104,63 @@ By adding files to this listing, you guarantee that you have rights to the conte
 Note to buyers for digital items
 
 
-Thank you for your purchase! ✨ HOW TO GET YOUR FILES 1. Go to Etsy → You → Purchases and orders, then click &quot;Download files&quot; next to your order. 2. If your download is a ZIP, unzip it first. 3. Open the &quot;Start Here&quot; or instructions file if one is included. HOW TO USE - PDFs and printables: open on any device, or print at home. - Planners and apps (HTML): open the file in Chrome, Safari, Edge or Firefox. They work offline and don&#39;t need an account. Digital items can&#39;t be returned, but if a file won&#39;t open, message me and I&#39;ll fix it. I usually reply within 24 hours. Personal use only. No sharing or resale. Enjoy! 💛
-Thank you for your purchase! ✨ HOW TO GET YOUR FILES 1. Go to Etsy → You → Purchases and orders, then click &quot;Download files&quot; next to your order. 2. If your download is a ZIP, unzip it first. 3. Open the &quot;Start Here&quot; or instructions file if one is included. HOW TO USE - PDFs and printables: open on any device, or print at home. - Planners and apps (HTML): open the file in Chrome, Safari, Edge or Firefox. They work offline and don&#39;t need an account. Digital items can&#39;t be returned, but if a file won&#39;t open, message me and I&#39;ll fix it. I usually reply within 24 hours. Personal use only. No sharing or resale. Enjoy! 💛
+Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orders → Download files. 2. Unzip the ZIP and move the folder somewhere permanent, like Documents. 3. Open Brief-to-Approved-Start-Here.pdf, then double-click Brief-to-Approved.html. Your work saves in that browser on that device, so export a JSON backup after each session (Settings → Export JSON backup). Personal use only. Please do not share, resell or redistribute the files. File won't open? Message me through Etsy with your device and browser. I usually reply within 24 hours.
 
 Description 
 What makes your item special? Buyers will only see the first few lines unless they expand the description.
 
-Social media planner app for freelance social media managers, with a content calendar, client brief, client approval tracker and monthly reports in one offline workspace. Pay once. No subscription. No account. No bank or social media login.
+Every client yes, on record. Brief-to-Approved is a social media manager planner app for freelancers: client brief, content board, content calendar, client approval tracker and monthly reports in one file. Pay once. No subscription. No account.
 
-Stop managing content plans across scattered spreadsheets, emails and DMs. Keep your client information, post ideas, content stages, approval records and reporting together.
+No more hunting through emails, DMs and spreadsheets to prove what a client signed off on.
 
-WHAT MAKES BRIEF-TO-APPROVED DIFFERENT?
-Every client approval is recorded against the exact content version they approved. If you edit an approved caption, its version increases and the previous approval resets. This helps you tell apart content that was approved and content that still needs client review.
+WHY IT'S DIFFERENT
+- Each approval is saved against the exact content version the client approved.
+- Edit an approved caption and the version goes up and the approval resets, so you never post copy the client didn't see.
+- Facts and Rights checks must be ticked before a post can be approved.
 
-WHO IS IT FOR?
+WHO IT'S FOR
 - Freelance social media managers with one to a few clients
-- Independent content managers and marketing freelancers
-- Small creative studios managing client content
-- Freelancers who want a structured content approval workflow without another monthly subscription
+- Independent content and marketing freelancers
+- Small creative studios that send content to clients for review
 
-WHAT'S INCLUDED IN THE APP
-- Overview: see your next task, upcoming posts and pending approvals
-- Content board: manage posts through six stages, Draft, Checks, Needs Approval, Ready, Scheduled and Live. Switch between board and list views. Search, filter and export your content to CSV
-- Content calendar: view monthly content plans with colours for each post's stage. Select a date to create a post
-- Client approval tracker: record the approver, approval date, channel and content version. Complete facts and rights checks before approval
-- Client brief: collect client information using 10 guided fields and a progress indicator
-- Asset library: organize client visuals and photos. Includes four sample images
-- Monthly reports: record reach, interactions and engagement rate per post. Print or save reports as A4 PDF
-- Guides and templates: follow a five-minute practice workflow and use the included client documents
-- Settings and backups: customize your studio name, switch between light and dark themes, export CSV data and create or restore JSON backups
+INSIDE THE APP
+- Overview: your next step, upcoming posts and pending approvals
+- Content board: six stages from Draft to Live, board or list view, search, filter and CSV export
+- Content calendar: a monthly view coloured by stage. Click a date to add a post
+- Approval tracker: who approved, when, through which channel and which version
+- Client brief: 10 guided fields with a progress indicator
+- Asset library: keep client visuals together. Four sample images included
+- Monthly reports: enter reach and interactions, engagement rate calculates for you. Print or save as A4 PDF
+- Settings: studio name, light and dark theme, CSV export, JSON backup and restore
 
-WHAT YOU RECEIVE
-One ZIP digital download containing:
-1. Brief-to-Approved.html: complete planner application
-2. Start Here Guide: 2-page PDF with setup instructions and private online access link for phone and tablet
-3. Client Documents: six A4 PDF layouts (Welcome Packet, Client Brief, Strategy Snapshot, Content Review, Monthly Report, Project Handoff)
-4. Editable Documents: browser-based HTML versions you can complete and print
-5. Visual Field Guide: 14-page PDF
-6. Spreadsheet Companion: XLSX workbook with five tabs
-7. Licence: use for your own business and client work
+WHAT YOU GET
+- Brief-to-Approved.html: the full app in one file
+- Start Here PDF (2 pages): setup steps plus a private online link for phone and tablet
+- Client Documents PDF: six A4 layouts (Welcome Packet, Client Brief, Strategy Snapshot, Content Review, Monthly Report, Project Handoff)
+- Editable Documents: HTML versions you can fill in and print
+- Visual Field Guide PDF (14 pages)
+- Spreadsheet Companion (XLSX)
+- Personal use licence
 
-HOW TO START
-1. Download the ZIP from Etsy Purchases.
-2. Extract the files.
-3. Open Brief-to-Approved.html in your browser.
-4. Explore the fictional demo client.
-5. Reset the demo workspace and add your own clients and content.
-For phone and tablet access, follow the private link in the Start Here guide and add the app to your home screen.
+START IN ABOUT A MINUTE
+1. Download from Etsy Purchases and unzip.
+2. Open Brief-to-Approved.html in your browser.
+3. Explore the fictional demo client, then choose Settings → Start empty workspace.
+Phone or tablet: open the private link in the Start Here PDF and add it to your home screen.
 
-IMPORTANT DETAILS
-- No subscription, account or login required.
-- Works offline after download when using the local application.
-- Your information is stored in your browser on that device.
-- Data does not automatically sync between devices.
-- Export backups regularly. Clearing browser data can erase locally stored information.
-- The approval tracker records approvals received through external channels such as email and DMs. It is not a shared client login portal.
-- It does not publish or schedule posts to social media platforms.
-- The XLSX workbook requires Excel, Google Sheets or Numbers.
-- Sample clients, names and numbers are fictional.
+GOOD TO KNOW
+- Your work saves privately in your browser on your device.
+- One-click JSON backup and restore lets you move work between devices.
+- The downloaded HTML file runs offline. The phone link opens once online, then lives on your home screen.
+- Log approvals you receive by email or DM in seconds.
+- The XLSX opens in Excel, Google Sheets or Numbers.
+- Comes with a practice demo client so you can learn the workflow first.
 
 DIGITAL DOWNLOAD
-This is a digital product. No physical item will be shipped. Files are licensed for use in your own business and client work. Redistribution, resale or sharing of the original files is not permitted.
+No physical item ships. Personal use only. Please do not share, resell or redistribute the files.
 
-ABOUT THE DESIGN
+HOW IT'S MADE
 Designed and built by me at KaelLabs. AI tools assisted with parts of the code, images and listing text.
-
-MORE FROM KAELLABS
-- Invoice Tracker & Client CRM App: invoices, payments and client records
-- Small Business Planner Printable for Freelancers: 40-page fillable business toolkit
 
 NEED HELP?
 Message KaelLabs through Etsy with your device and browser. I usually reply within 24 hours.
@@ -194,17 +186,17 @@ Shape, colour, style, function, etc.
 Add
 social media planner
 content calendar
-content planner
-social media manager
-instagram planner
-post planner
 smm planner
-creator planner
-editorial calendar
-social media content
-content workflow
 client approval
 approval tracker
+social media manager
+content planner
+post planner
+editorial calendar
+freelancer planner
+client workflow
+monthly report
+content tracker
 All 13 used
 Price and inventory
 Set your item price, and how many are available for sale.
