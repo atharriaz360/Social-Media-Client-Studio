@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>brief to approved. · Client Studio</title>
 <meta name="description" content="A private, offline content studio for social media managers: client brief, content plan, versioned approvals and reports.">
-<meta name="theme-color" content="#FBF8F4">
+<meta name="theme-color" content="#fdfcfe">
 <meta name="color-scheme" content="light dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Client Studio">
-<script>try{if("scrollRestoration" in history)history.scrollRestoration="manual";var t=JSON.parse(localStorage.getItem("brief-approved-ui-v5")||"{}");document.documentElement.setAttribute("data-theme",t.theme||"light");if(t.focus)document.documentElement.classList.add("focus-mode")}catch(e){}</script>
+<script>try{if("scrollRestoration" in history)history.scrollRestoration="manual";var t=JSON.parse(localStorage.getItem("brief-approved-ui-v5")||"{}");document.documentElement.setAttribute("data-theme",t.theme||"light");var dk=t.theme==="dark"||(t.theme==="auto"&&matchMedia("(prefers-color-scheme: dark)").matches);document.querySelector('meta[name="theme-color"]').setAttribute("content",dk?"#121019":"#fdfcfe");if(t.focus)document.documentElement.classList.add("focus-mode")}catch(e){}</script>
 <!--PWA-->
 <!--
   brief to approved. Client Studio v__VERSION__ · Designed by KaelLabs
   Licence for the original purchaser: see LICENSE.txt. Please do not share or resell.
-  Fonts: Inter, Newsreader. SIL Open Font Licence 1.1, embedded.
+  Fonts: system fonts only.
 -->
 <style>/*CSS*/</style>
 </head>
@@ -32,6 +32,7 @@
  <header class="topbar"><a class="studio-brand" href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/></svg><span id="studio-brand-name">JUNIPER STUDIO</span></a><button id="mobile-menu" class="icon-btn only-sm" type="button" aria-label="Open navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><span class="crumb only-sm" id="crumb">Overview</span><div class="top-actions"><button class="search-pill" id="cmd-open" type="button" aria-label="Search anything (⌘K)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20.5 20.5-4.2-4.2M10.8 17.5a6.7 6.7 0 1 0 0-13.4 6.7 6.7 0 0 0 0 13.4Z"/></svg><span>Search anything...</span></button><button class="icon-btn bell" type="button" data-view="approvals" aria-label="Approvals waiting"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15ZM10 20.5a2 2 0 0 0 4 0"/></svg><i id="bell-dot" hidden></i></button><button class="icon-btn studio-people" type="button" data-view="team" aria-label="Team / Members"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0"/></svg></button><details class="profile-menu"><summary aria-label="Workspace menu"><span class="profile-avatar" id="profile-avatar">JS</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary><div class="profile-options"><a href="#outcomes">Key outcomes</a><a href="#pipeline">Pipeline detail</a><a href="#team">Team / Members</a><a href="#settings">Settings</a><button id="theme" type="button">Switch theme</button><button id="focus-toggle" type="button">Focus mode</button><button type="button" data-add>New content</button></div></details></div></header>
  <main id="main" tabindex="-1"></main>
 </div>
+<nav class="tabbar" id="tabbar" aria-label="Quick navigation"></nav>
 
 <dialog id="editor" class="sheet" aria-labelledby="editor-title"><form id="post-form" autocomplete="off">
  <div class="sheet-top"><span class="sheet-crumb"><span id="editor-ws">Studio</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><b id="editor-title">New content</b></span><button type="button" class="icon-btn close" aria-label="Close editor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>

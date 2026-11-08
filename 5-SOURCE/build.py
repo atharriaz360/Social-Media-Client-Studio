@@ -1,6 +1,6 @@
 """brief to approved. build: python3 build.py  →  ../1-SELL-THIS/Brief-to-Approved.html (+ LICENSE, Documents),
 ../2-HOST-ONLINE/* (index, manifest, service worker, icons, Documents) and ../3-HOST-DEMO/index.html.
-Needs: npm install (fonts), Python 3.9+. Run brand/make_brand.py first if brand/out is missing."""
+Needs: Python 3.9+ (system fonts only). Run brand/make_brand.py first if brand/out is missing."""
 import base64, hashlib, json, pathlib, shutil
 VERSION = '4.0'
 W = pathlib.Path(__file__).resolve().parent
@@ -8,15 +8,11 @@ NM = W / 'node_modules'
 SELL, HOST, DEMO = W.parent / '1-SELL-THIS', W.parent / '2-HOST-ONLINE', W.parent / '3-HOST-DEMO'
 B = W / 'brand' / 'out'
 b64 = lambda p: base64.b64encode(pathlib.Path(p).read_bytes()).decode()
-face = lambda fam, w, p: f"@font-face{{font-family:'{fam}';font-style:normal;font-weight:{w};font-display:swap;src:url(data:font/woff2;base64,{b64(NM/p)}) format('woff2')}}\n"
-fonts = (face('Inter Variable', '100 900', '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') +
-         face('Newsreader', '400', '@fontsource/newsreader/files/newsreader-latin-400-normal.woff2') +
-         face('Newsreader', '500', '@fontsource/newsreader/files/newsreader-latin-500-normal.woff2'))
 IMG = W / 'src/img'
 def svg(n):
     photo = IMG / f'{n}.jpg'
     return 'data:image/jpeg;base64,' + b64(photo) if photo.exists() else 'data:image/svg+xml;base64,' + b64(IMG / f'{n}.svg')
-css = (W / 'src/styles.css').read_text().replace('/*FONTS*/', fonts).replace('__HERO_ART__', svg('hero-art'))
+css = (W / 'src/styles.css').read_text().replace('__HERO_ART__', svg('hero-art'))
 art = json.dumps({k: svg(k) for k in ('soup', 'menu', 'coffee', 'studio-art', 'thumb-soup', 'thumb-coffee', 'thumb-menu', 'thumb-approval')})
 js = f"const ART={art};\n" + (W / 'src/app.js').read_text().replace('__VERSION__', VERSION)
 shell = (W / 'src/shell.html').read_text().replace('__VERSION__', VERSION)

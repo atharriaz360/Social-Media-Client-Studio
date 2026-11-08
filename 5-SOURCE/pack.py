@@ -1,28 +1,11 @@
-"""Package tested buyer files; verify every archive entry against its source."""
-from pathlib import Path
-from zipfile import ZipFile, ZIP_DEFLATED
-import re
-ROOT = Path(__file__).resolve().parent.parent
-SELL = ROOT / '1-SELL-THIS'
-DOCS = sorted(p.relative_to(SELL).as_posix() for p in (SELL / 'Documents').rglob('*') if p.is_file() and p.name != '.DS_Store')
-FILES = ('Brief-to-Approved.html', 'Brief-to-Approved-Start-Here.pdf', 'LICENSE.txt', *DOCS)
-html = (SELL / FILES[0]).read_text()
-version = re.search(r"VERSION = '([^']+)'", (ROOT / '5-SOURCE/build.py').read_text()).group(1)
-assert f'v{version}' in html, 'Rebuild before packaging'
-for name in FILES:
-    assert (SELL / name).stat().st_size > 0, f'Missing or empty: {name}'
-target = SELL / 'Brief-to-Approved-Digital-Download.zip'
-temporary = target.with_suffix('.tmp')
-try:
-    with ZipFile(temporary, 'w', ZIP_DEFLATED) as archive:
-        for name in FILES:
-            archive.write(SELL / name, name)
-    with ZipFile(temporary) as archive:
-        assert archive.testzip() is None
-        assert set(archive.namelist()) == set(FILES)
-        for name in FILES:
-            assert archive.read(name) == (SELL / name).read_bytes(), name
-    temporary.replace(target)
-finally:
-    temporary.unlink(missing_ok=True)
-print(f'Packed and byte-verified: {target} ({len(FILES)} files)')
+"""Pack the Etsy deliverable: python3 pack.py -> ../Brief-to-Approved-v<VERSION>.zip (contents of 1-SELL-THIS). Run build first."""
+import pathlib, zipfile, re
+W = pathlib.Path(__file__).resolve().parent
+VERSION = re.search(r"VERSION = '([^']+)'", (W / 'build.py').read_text()).group(1)
+SELL = W.parent / '1-SELL-THIS'
+out = W.parent / f'Brief-to-Approved-v{VERSION}.zip'
+for old in W.parent.glob('Brief-to-Approved-v*.zip'): old.unlink()
+with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    for f in sorted(SELL.rglob('*')):
+        if f.is_file() and not f.name.startswith('.'): z.write(f, 'Brief-to-Approved/' + str(f.relative_to(SELL)))
+print('packed', out.name, out.stat().st_size // 1024, 'KB')

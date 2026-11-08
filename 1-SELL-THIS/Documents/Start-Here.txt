@@ -1,0 +1,30 @@
+brief to approved. Client Studio  ·  Start Here  ·  Designed by KaelLabs
+
+WHAT'S INSIDE
+- Brief-to-Approved.html  ·  the whole app in one file
+- LICENSE.txt             ·  personal licence for the original purchaser
+- Documents/Start-Here.txt ·  this guide
+
+SETUP (1 minute)
+1. Unzip the download.
+2. Double-click Brief-to-Approved.html. It opens in your browser.
+   Works offline. No account, no install, no subscription.
+3. Phone: AirDrop / send the file to your phone and open it in your browser.
+
+FIRST ACTION
+The app opens with a fictional example client (Juniper Studio).
+Look around, then Settings → "Start empty workspace" to begin with your own client.
+
+BACKUP (important)
+Your work is saved in this browser on this device only.
+Settings → "Export JSON backup" after each session. Keep the file safe.
+To restore or move devices: Settings → "Import backup".
+Clearing browser data, private windows or a different browser will not show your work.
+
+LIMITS
+- One browser, one device at a time. No cloud sync, no sharing link.
+- Approvals record a decision you already received. It does not send requests or verify identity.
+- Reports describe numbers you enter. It does not connect to social platforms.
+
+SUPPORT
+Message KaelLabs through Etsy with your order number and browser name.
