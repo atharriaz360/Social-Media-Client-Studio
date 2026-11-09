@@ -7,7 +7,7 @@ FONTS = (f"@font-face{{font-family:NR;src:url(data:font/woff2;base64,{b64(F+'new
          f"@font-face{{font-family:IN;font-weight:100 900;src:url(data:font/woff2;base64,{b64(F+'inter-latin-wght-normal.woff2')})}}")
 CHECK = '<svg viewBox="0 0 24 24" width="1em" height="1em"><circle cx="12" cy="12" r="12" fill="#6A4FC4"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 IMG = {
- '03-Content-Board': dict(pos='left', w=1000, chip='Posts scattered across DMs and docs?', h='Every post,<br><em>draft to live.</em>',
+ '04-Content-Board': dict(pos='left', w=1000, chip='Posts scattered across DMs and docs?', h='Every post,<br><em>draft to live.</em>',
      sub='One card per post moves through six clear stages, on desktop and phone.',
      bullets=['List or board view', 'Search, filter, export CSV', 'Due date + version on every card']),
  '05-Calendar-Reports': dict(pos='top', chip='Where did the month go?', h='Plan the month. <em>Report what happened.</em>',
@@ -16,7 +16,7 @@ IMG = {
  '06-Phone': dict(pos='right', w=1000, chip='Away from your desk?', h='Made for your<br><em>phone,</em> too.',
      sub='Every view adapts to a phone screen, in light or dark mode.',
      bullets=['All 9 views fit phone screens', 'Light and dark mode', 'Add it to your Home Screen']),
- '10-Private-Offline': dict(pos='left', w=900, chip='Client data in another cloud app?', h='Private by design.<br><em>Works offline.</em>',
+ '09-Private-Offline': dict(pos='left', w=900, chip='Client data in another cloud app?', h='Private by design.<br><em>Works offline.</em>',
      sub='One HTML file. Your work saves in your browser: no account, no sign-up.',
      bullets=['No account, no subscription', 'One-click JSON backup and restore', 'Export content to CSV'],
      note='Browser storage can be cleared. Export a backup after each session.'),
