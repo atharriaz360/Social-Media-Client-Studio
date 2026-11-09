@@ -43,4 +43,4 @@ Data key `brief-approved-studio-v2` (schema 2) and UI key `brief-approved-ui-v5`
 `npm run test:release` opens the built file in Chromium: single-file check, all routes, escaped input,
 approve + revision reset, backup/clear/restore, pre-paint theme, phone width on every route, demo never saves,
 no browser errors. Screenshots go to `test-results/`.
-`npm run pack` zips the HTML, Start Here PDF, licence and Documents, verifying each entry byte for byte.
+`npm run pack` writes `../1-SELL-THIS/Brief-to-Approved-Digital-Download.zip` (HTML, Start Here PDF, licence, Documents), deletes any older ZIP and verifies each entry byte for byte.

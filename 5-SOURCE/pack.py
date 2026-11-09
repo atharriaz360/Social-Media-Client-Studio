@@ -1,11 +1,20 @@
-"""Pack the Etsy deliverable: python3 pack.py -> ../Brief-to-Approved-v<VERSION>.zip (contents of 1-SELL-THIS). Run build first."""
-import pathlib, zipfile, re
+"""Pack the Etsy deliverable: python3 pack.py -> ../1-SELL-THIS/Brief-to-Approved-Digital-Download.zip
+Run build.py and guide/make_guide.py first. Replaces the previous ZIP; verifies every entry byte for byte."""
+import pathlib, zipfile
 W = pathlib.Path(__file__).resolve().parent
-VERSION = re.search(r"VERSION = '([^']+)'", (W / 'build.py').read_text()).group(1)
 SELL = W.parent / '1-SELL-THIS'
-out = W.parent / f'Brief-to-Approved-v{VERSION}.zip'
-for old in W.parent.glob('Brief-to-Approved-v*.zip'): old.unlink()
-with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-    for f in sorted(SELL.rglob('*')):
-        if f.is_file() and not f.name.startswith('.'): z.write(f, 'Brief-to-Approved/' + str(f.relative_to(SELL)))
-print('packed', out.name, out.stat().st_size // 1024, 'KB')
+NAME = 'Brief-to-Approved-Digital-Download.zip'
+FILES = ['Brief-to-Approved.html', 'Brief-to-Approved-Start-Here.pdf', 'LICENSE.txt',
+         'Documents/Client-Documents.pdf', 'Documents/Visual-Field-Guide.pdf',
+         'Documents/Editable-Documents.html', 'Documents/Spreadsheet-Companion.xlsx']
+for old in list(W.parent.glob('Brief-to-Approved-v*.zip')) + list(SELL.glob('*.zip')): old.unlink()
+out = SELL / NAME; tmp = SELL / (NAME + '.tmp')
+with zipfile.ZipFile(tmp, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    for f in FILES: z.write(SELL / f, f)
+with zipfile.ZipFile(tmp) as z:
+    assert z.testzip() is None and sorted(z.namelist()) == sorted(FILES)
+    for f in FILES: assert z.read(f) == (SELL / f).read_bytes(), f
+tmp.replace(out)
+mb = out.stat().st_size / 1e6
+assert mb < 20, 'Etsy limit is 20 MB per file'
+print('packed', out.name, f'{mb:.2f} MB,', len(FILES), 'files, byte-verified')

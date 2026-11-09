@@ -104,7 +104,7 @@ By adding files to this listing, you guarantee that you have rights to the conte
 Note to buyers for digital items
 
 
-Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orders → Download files. 2. Unzip the ZIP and move the folder somewhere permanent, like Documents. 3. Open Brief-to-Approved-Start-Here.pdf, then double-click Brief-to-Approved.html. Your work saves in that browser on that device, so export a JSON backup after each session (Settings → Export JSON backup). Personal use only. Please do not share, resell or redistribute the files. File won't open? Message me through Etsy with your device and browser. I usually reply within 24 hours.
+Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orders → Download files. 2. Unzip the ZIP and move the folder somewhere permanent, like Documents. 3. Open Brief-to-Approved-Start-Here.pdf, then double-click Brief-to-Approved.html. Your work saves in that browser on that device, so export a JSON backup after each session (Settings → Export JSON backup). Licensed for use in your own business. Please do not share, resell or redistribute the original files. File won't open? Message me through Etsy with your device and browser. I usually reply within 24 hours.
 
 Description 
 What makes your item special? Buyers will only see the first few lines unless they expand the description.
@@ -140,7 +140,7 @@ WHAT YOU GET
 - Editable Documents: HTML versions you can fill in and print
 - Visual Field Guide PDF (14 pages)
 - Spreadsheet Companion (XLSX)
-- Personal use licence
+- Business use licence (LICENSE.txt)
 
 START IN ABOUT A MINUTE
 1. Download from Etsy Purchases and unzip.
@@ -149,15 +149,16 @@ START IN ABOUT A MINUTE
 Phone or tablet: open the private link in the Start Here PDF and add it to your home screen.
 
 GOOD TO KNOW
-- Your work saves privately in your browser on your device.
-- One-click JSON backup and restore lets you move work between devices.
+- Your work saves privately in your browser on your device. Nothing is uploaded.
+- It does not sync between devices. Your computer and phone are separate workspaces.
+- Export a JSON backup regularly. Clearing browser data or private browsing can erase work. Restore the backup to move work to another device.
 - The downloaded HTML file runs offline. The phone link opens once online, then lives on your home screen.
 - Log approvals you receive by email or DM in seconds.
 - The XLSX opens in Excel, Google Sheets or Numbers.
 - Comes with a practice demo client so you can learn the workflow first.
 
 DIGITAL DOWNLOAD
-No physical item ships. Personal use only. Please do not share, resell or redistribute the files.
+No physical item ships. Licensed for use in your own business. Please do not share, resell or redistribute the original files. No lifetime updates are promised.
 
 HOW IT'S MADE
 Designed and built by me at KaelLabs. AI tools assisted with parts of the code, images and listing text.
