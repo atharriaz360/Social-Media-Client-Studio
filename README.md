@@ -9,7 +9,7 @@ Social media manager planner app: client brief, content plan, versioned approval
 | `3-HOST-DEMO/` | Optional live demo (fictional client, nothing saved). |
 | `4-BRAND/` | Logo, mark and app icons. |
 | `5-SOURCE/` | App source, tests, Start Here generator (`guide/`), listing image/video scripts (`listing/`). See `5-SOURCE/README-DEV.md`. |
-| `6-ETSY-LISTING/` | `Listing/`: 11 photos in upload order (incl. `03-Visual-Preview-or-Excerpt.jpg`) + `Listing-Video.mp4`. `Etsy-Listing-Kit.md`: title, 13 tags, alt text, description. `_Screens-Latest/`: real app screenshots used by the images. |
+| `6-ETSY-LISTING/` | `Listing/`: 11 photos in upload order (01–11, `08-Main-Page-Unedited.jpg` = unedited screenshot) + `Listing-Video.mp4`. `Etsy-Listing-Kit.md`: title, 13 tags, alt text, description. `_Screens-Latest/`: real app screenshots used by the images. |
 
 ## Rebuild everything
 
