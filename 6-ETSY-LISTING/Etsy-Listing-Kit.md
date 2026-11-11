@@ -1,4 +1,4 @@
-# Etsy Listing Kit: Brief-to-Approved v4.0
+# Etsy Listing Kit: Social-Media-Manager  v4.0
 
 Copy-paste source for the live Etsy listing. Edit this file in place; no copies.
 
@@ -39,9 +39,9 @@ WHO IT'S FOR
 - Anyone who wants an approval workflow without a monthly subscription
 
 WHAT YOU GET
-Brief-to-Approved-Digital-Download.zip:
-1. Brief-to-Approved.html: the full app in one file
-2. Brief-to-Approved-Start-Here.pdf: 2-page setup guide with a private link for phone and tablet
+Social-Media-Manager -Digital-Download.zip:
+1. Social-Media-Manager .html: the full app in one file
+2. Social-Media-Manager -Start-Here.pdf: 2-page setup guide with a private link for phone and tablet
 3. Documents/Client-Documents.pdf: 6 A4 layouts (Welcome Packet, Client Brief, Strategy Snapshot, Content Review, Monthly Report, Project Handoff)
 4. Documents/Editable-Documents.html: fill in and print in your browser
 5. Documents/Visual-Field-Guide.pdf: 14 pages of workflows and checklists
@@ -50,7 +50,7 @@ Brief-to-Approved-Digital-Download.zip:
 
 HOW TO START
 1. Download the ZIP from Etsy Purchases and unzip it.
-2. Open Brief-to-Approved.html in your browser.
+2. Open Social-Media-Manager .html in your browser.
 3. Explore the demo client, then choose Settings → Start empty workspace.
 Phone or tablet: open the private link in the Start Here PDF and add it to your home screen.
 
@@ -79,13 +79,13 @@ Digital download. Nothing is shipped. Pay once.
 ## Note to buyers (digital items)
 
 ```
-Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orders → Download files. 2. Unzip the ZIP and move the folder somewhere permanent, like Documents. 3. Open Brief-to-Approved-Start-Here.pdf, then double-click Brief-to-Approved.html. Your work saves in that browser on that device, so export a JSON backup after each session (Settings → Export JSON backup). Personal use only. Please do not share, resell or redistribute the original files. File won't open? Message me through Etsy with your device and browser.
+Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orders → Download files. 2. Unzip the ZIP and move the folder somewhere permanent, like Documents. 3. Open Social-Media-Manager -Start-Here.pdf, then double-click Social-Media-Manager .html. Your work saves in that browser on that device, so export a JSON backup after each session (Settings → Export JSON backup). Personal use only. Please do not share, resell or redistribute the original files. File won't open? Message me through Etsy with your device and browser.
 ```
 
 ## Digital files (max 5, max 20 MB each)
 
-1. `1-SELL-THIS/Brief-to-Approved-Digital-Download.zip`
-2. `1-SELL-THIS/Brief-to-Approved-Start-Here.pdf`
+1. `1-SELL-THIS/Social-Media-Manager -Digital-Download.zip`
+2. `1-SELL-THIS/Social-Media-Manager -Start-Here.pdf`
 
 ## Photos (upload order, from `Listing/`)
 
@@ -95,47 +95,47 @@ Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orde
 
 1. `01-Hero.jpg`
 ```
-Brief-to-Approved social media planner app on a laptop and phone: overview with next step, content stages, upcoming posts and client approvals. Chips read pay once, works offline, desktop and phone.
+Social-Media-Manager  social media planner app on a laptop and phone: overview with next step, content stages, upcoming posts and client approvals. Chips read pay once, works offline, desktop and phone.
 ```
 2. `02-All-Views.jpg`
 ```
-All nine Brief-to-Approved app screens: overview, content board, content calendar, client approval tracker, client brief, asset library, monthly reports, guide and settings, with fictional data.
+All nine Social-Media-Manager  app screens: overview, content board, content calendar, client approval tracker, client brief, asset library, monthly reports, guide and settings, with fictional data.
 ```
 3. `03-Phone.jpg`
 ```
-Brief-to-Approved planner on two phones in light and dark mode: the overview with the next step, and the client approvals list with record decision buttons.
+Social-Media-Manager  planner on two phones in light and dark mode: the overview with the next step, and the client approvals list with record decision buttons.
 ```
 4. `04-Approvals.jpg`
 ```
-Brief-to-Approved client approval tracker on a laptop: needs a decision, blocked by checks and approved, with facts and rights checks and the approved content version for each post.
+Social-Media-Manager  client approval tracker on a laptop: needs a decision, blocked by checks and approved, with facts and rights checks and the approved content version for each post.
 ```
 5. `05-Content-Board.jpg`
 ```
-Brief-to-Approved content board on a laptop and phone: posts move through draft, checks, needs approval, ready and scheduled, with list or board view, search, filter and CSV export.
+Social-Media-Manager  content board on a laptop and phone: posts move through draft, checks, needs approval, ready and scheduled, with list or board view, search, filter and CSV export.
 ```
 6. `06-Calendar-Reports.jpg`
 ```
-Brief-to-Approved content calendar on a tablet, coloured by post stage, beside a phone showing the monthly report with reach, interactions and engagement rate.
+Social-Media-Manager  content calendar on a tablet, coloured by post stage, beside a phone showing the monthly report with reach, interactions and engagement rate.
 ```
 7. `07-Client-Brief.jpg`
 ```
-Brief-to-Approved client brief with ten guided fields such as goal, audience, offer, voice and approver, plus the asset library with four sample food and coffee photos.
+Social-Media-Manager  client brief with ten guided fields such as goal, audience, offer, voice and approver, plus the asset library with four sample food and coffee photos.
 ```
 8. `08-Main-Page-Unedited.jpg`
 ```
-Unedited screenshot of the Brief-to-Approved overview: next step card, six content stages from draft to live, upcoming Instagram posts, a post awaiting client approval and a visual library.
+Unedited screenshot of the Social-Media-Manager  overview: next step card, six content stages from draft to live, upcoming Instagram posts, a post awaiting client approval and a visual library.
 ```
 9. `09-Client-Documents.jpg`
 ```
-Brief-to-Approved guide and templates screen on a laptop above printed A4 client documents for social media managers, including a welcome packet and client brief layout.
+Social-Media-Manager  guide and templates screen on a laptop above printed A4 client documents for social media managers, including a welcome packet and client brief layout.
 ```
 10. `10-Private-Offline.jpg`
 ```
-Brief-to-Approved in dark mode on a tablet and phone: overview and settings with JSON backup, restore and CSV export. The planner runs offline in your browser with no account.
+Social-Media-Manager  in dark mode on a tablet and phone: overview and settings with JSON backup, restore and CSV export. The planner runs offline in your browser with no account.
 ```
 11. `11-What-You-Get.jpg`
 ```
-What you get in the Brief-to-Approved digital download: app HTML file, 2-page Start Here guide, client documents PDF, 14-page visual field guide, editable documents, spreadsheet and licence.
+What you get in the Social-Media-Manager  digital download: app HTML file, 2-page Start Here guide, client documents PDF, 14-page visual field guide, editable documents, spreadsheet and licence.
 ```
 
 ## Listing settings (as recorded from Etsy, 29 Oct 2026)
