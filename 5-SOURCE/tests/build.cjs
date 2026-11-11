@@ -1,5 +1,5 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
-const base=path.resolve(__dirname,'../..'),source=fs.readFileSync(path.join(base,'5-SOURCE/src/app.js'),'utf8').replaceAll('__VERSION__','4.0');
+const base=path.resolve(__dirname,'../..'),source=fs.readFileSync(path.join(base,'5-SOURCE/src/app.js'),'utf8').replaceAll('__VERSION__',require('../package.json').version.replace(/\.0$/,'' ));
 for(const [name,demo] of [['1-SELL-THIS/Brief-to-Approved.html',false],['2-HOST-ONLINE/index.html',false],['3-HOST-DEMO/index.html',true]]){
  const html=fs.readFileSync(path.join(base,name),'utf8');
  assert(html.includes(source.replaceAll("'__DEMO__'",demo?"'1'":"'0'")),name+' stale source');

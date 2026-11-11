@@ -1,4 +1,4 @@
-# brief to approved. Client Studio: v4.0
+# brief to approved. Client Studio: v4.1
 
 Social media manager planner app: client brief, content plan, versioned approvals and reports. Offline single HTML file. Sold on Etsy by KaelLabs.
 

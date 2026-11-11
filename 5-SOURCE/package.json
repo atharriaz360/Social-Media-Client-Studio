@@ -1,6 +1,6 @@
 {
   "name": "brief-to-approved",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "private": true,
   "description": "Source for brief to approved. Client Studio (single-file offline content studio). Run: npm install && python3 build.py",
   "devDependencies": {

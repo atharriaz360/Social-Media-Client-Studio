@@ -24,7 +24,7 @@
 <aside class="sidebar" id="sidebar">
  <a class="brand" href="#overview" aria-label="Studio overview"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/></svg></span><span class="brand-word"><b id="brand-name">JUNIPER STUDIO</b></span></a>
  <nav id="nav" aria-label="Studio"></nav>
- <div class="side-quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.7 5 5 1.7-5 1.7-1.7 5-1.7-5-5-1.7 5-1.7ZM18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6Z"/></svg><p>Great content moves<br>clients forward.”</p><small>— Let’s get yours approved.</small></div>
+ <div class="side-quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.7 5 5 1.7-5 1.7-1.7 5-1.7-5-5-1.7 5-1.7ZM18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6Z"/></svg><p>From draft to review</p><small>Track feedback and decisions.</small></div>
  <button class="ws-card" id="ws-card" type="button" data-view="settings"><span class="avatar" id="ws-avatar">JS</span><span class="ws-name"><b id="ws-name">Juniper Studio</b><small id="ws-mode">Fictional demo</small></span></button>
 </aside>
 <div class="scrim" id="scrim" hidden></div>
@@ -49,13 +49,29 @@
   </div>
   <div class="field-grid">
    <label class="field">Asset reference<input name="asset" required placeholder="File name or accessible link"></label>
+   <label class="field">Post image<input name="mediaFile" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG or WebP. Images are resized for review.</small></label>
+   <label class="field"><span>Current image</span><span id="attached-image-name">No image attached</span><span><input name="removeMedia" type="checkbox"> Remove image</span></label>
+   <label class="field">Review due<input name="reviewDue" type="date"></label>
    <label class="field">Published URL<input name="url" type="url" placeholder="https://"></label>
   </div>
   <div class="checks"><label class="toggle"><input name="facts" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Facts checked</b><small>Claims match the brief</small></span></label><label class="toggle"><input name="rights" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Asset rights checked</b><small>Usage confirmed</small></span></label></div>
  </div>
- <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
+ <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover, image or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
 </form></dialog>
 
+<dialog id="versions" class="sheet" aria-labelledby="versions-title">
+ <div class="sheet-top"><b id="versions-title">Version history</b><button class="btn close" type="button">Close</button></div>
+ <div class="sheet-body" id="version-body"></div>
+</dialog>
+<dialog id="review-pack-dialog" class="sheet" aria-labelledby="review-pack-title">
+ <div class="sheet-top"><b id="review-pack-title">Review pack</b><button class="btn close" type="button">Close</button></div>
+ <div class="sheet-body" id="review-preview"></div>
+ <div class="sheet-foot"><p class="hint">Save as PDF in the print dialog. Mark as sent after you share it.</p>
+ <div class="sheet-actions"><button class="btn" type="button" id="mark-review-sent">Mark as sent</button>
+ <button class="btn btn-primary" type="button" id="print-review-pack">Print / PDF</button></div></div>
+</dialog>
+
+<div id="review-print" hidden></div>
 <dialog id="approval" class="sheet sheet-sm" aria-labelledby="approval-h"><form id="approval-form" autocomplete="off">
  <div class="sheet-top"><span class="sheet-crumb"><span>Approval</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><b id="approval-h">Record decision</b></span><button type="button" class="icon-btn close" aria-label="Close approval"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
  <div class="sheet-body"><p class="approval-context" id="approval-context"></p><input name="id" type="hidden">

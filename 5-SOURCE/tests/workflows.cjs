@@ -3,7 +3,7 @@ const script=fs.readFileSync(path.join(__dirname,'../src/app.js'),'utf8');
 function boot(initial={},failSave=false){
  const nodes=new Map(),events={},storage={...initial},downloads=[];
  function node(key){if(!nodes.has(key))nodes.set(key,{id:key.startsWith('#')?key.slice(1):'',innerHTML:'',textContent:'',value:'',dataset:{},files:[],open:false,classList:{add(){},remove(){},toggle(){},contains(){return false}},setAttribute(){},addEventListener(k,f){this[k]=f},showModal(){this.open=true},close(){this.open=false},click(){downloads.push(this)},reset(){for(const f of Object.values(this.elements||{})){f.value='';f.checked=false}},getAttribute(k){return this[k]}});return nodes.get(key)}
- const fields=['id','title','channel','date','role','caption','asset','cover','stage','url','facts','rights'];
+ const fields=['id','title','channel','date','role','caption','asset','cover','stage','url','facts','rights','reviewDue','removeMedia','mediaFile'];
  node('#post-form').elements=Object.fromEntries(fields.map(k=>[k,{value:'',checked:false}]));
  node('#approval-form').elements=Object.fromEntries(['id','person','decision','evidence'].map(k=>[k,{value:''}]));
  class FormData{constructor(form){this.form=form}*[Symbol.iterator](){for(const [k,v] of Object.entries(this.form.elements))if(!['facts','rights'].includes(k))yield[k,v.value]}}
@@ -21,7 +21,7 @@ a.sandbox.location.hash='#calendar';a.events.hashchange();a.click({addDate:'2026
 assert.equal(a.node('#post-form').elements.date.value,'2026-11-17');assert(a.node('#editor').open);
 a.fill('#post-form',{title:'New calendar item',caption:'A clear caption',asset:'client-photo.jpg',channel:'Instagram',role:'Explain',cover:'soup',stage:'Draft'});
 a.submit('#post-form');let item=a.saved().posts.find(p=>p.title==='New calendar item');assert(item);assert.equal(item.date,'2026-11-17');assert.equal(item.version,1);assert.equal(item.facts,false);assert(a.node('#main').innerHTML.includes('New calendar item'));assert(!a.node('#editor').open);
-const reloaded=boot(a.storage);assert(reloaded.node('#main').innerHTML.includes('Your one next step'));
+const reloaded=boot(a.storage);assert(reloaded.node('#main').innerHTML.includes('class="hero-text"'));
 // Approval gate -> checks -> approval -> scheduling -> revision clears approval.
 a.click({approve:item.id});assert(!a.node('#approval').open);
 a.click({edit:item.id});a.node('#post-form').elements.facts.checked=true;a.node('#post-form').elements.rights.checked=true;a.submit('#post-form');

@@ -2,7 +2,7 @@
 ../2-HOST-ONLINE/* (index, manifest, service worker, icons, Documents) and ../3-HOST-DEMO/index.html.
 Needs: Python 3.9+ (system fonts only). Run brand/make_brand.py first if brand/out is missing."""
 import base64, hashlib, json, pathlib, shutil
-VERSION = '4.0'
+VERSION = '4.1'
 W = pathlib.Path(__file__).resolve().parent
 NM = W / 'node_modules'
 SELL, HOST, DEMO = W.parent / '1-SELL-THIS', W.parent / '2-HOST-ONLINE', W.parent / '3-HOST-DEMO'

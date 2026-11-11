@@ -15,7 +15,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <!--
-  brief to approved. Client Studio v4.0 · Designed by KaelLabs
+  brief to approved. Client Studio v4.1 · Designed by KaelLabs
   Personal use only. See LICENSE.txt. Please do not share or resell.
   Fonts: system fonts only.
 -->
@@ -420,6 +420,147 @@ dialog{color:var(--ink)}
  html{scroll-padding-bottom:96px}
 }
 @media(max-width:360px){.tab-label{font-size:10.5px}.tabbar{left:8px;right:8px}}
+
+.review-select{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--ink)}
+.version-card{padding-block:1rem;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.version-card img{display:block;max-width:100%;max-height:24rem;object-fit:contain;margin:.75rem 0}
+.version-caption{white-space:pre-wrap}
+[name=mediaFile]{max-width:100%;min-width:0}
+.review-brand{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@page review-pack{size:A4;margin:15mm}
+@media print{
+ body:has(#review-pack-dialog[open])>*:not(#review-print){display:none!important}
+ body:has(#review-pack-dialog[open]) #review-print{display:block!important;page:review-pack;padding:0;color:#111;background:#fff;font:12pt/1.45 system-ui,sans-serif}
+ .review-print-post{break-before:page;overflow-wrap:anywhere}
+ .review-print-post:first-of-type{break-before:auto}
+ #review-print h1,#review-print h3{color:#111}
+ #review-print img{max-height:115mm;break-inside:avoid}
+}
+
+/* Keep the next action prominent and let long post titles wrap. */
+.home .hero{height:auto;min-height:260px}
+.home .hero h2{font-size:clamp(32px,4vw,54px);line-height:1.02;overflow-wrap:anywhere}
+.hero-post{display:block;margin-top:.22em;font-size:.63em;line-height:1.18}
+.home .hero p{font-size:14px;line-height:1.45;margin-top:9px}
+.home .hero .eyebrow,.home .hero-meta{font-size:11px}
+.page-head h1,.section-mode .page-head h1{font-size:clamp(30px,3.25vw,44px);line-height:1.06;overflow-wrap:anywhere}
+.page-head .sub,.section-mode .page-head p.sub{font-size:13px;line-height:1.45}
+.page-head .hello{font-size:13px}
+@media(max-width:900px){
+ .home .hero{min-height:270px}
+ .home .hero h2{font-size:clamp(32px,6vw,46px)}
+}
+
+/* Overview and work screens */
+.brief-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px;align-items:start}
+.dashboard-grid{margin-top:16px}
+.dashboard-grid .card{height:auto;min-height:0}
+.dashboard-grid .coming-card .muted-s{margin:0 0 12px}
+.agenda-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;padding:12px 0;text-align:left;color:var(--ink);border-bottom:1px solid var(--line)}
+.agenda-row{background:none;border-width:0 0 1px;cursor:pointer}
+.agenda-row:last-child{border-bottom:0}
+.agenda-row:hover{color:var(--accent)}
+.agenda-date,.agenda-row small{color:var(--muted);font-size:12px}
+.agenda-row b{min-width:0;overflow-wrap:anywhere}
+.brief-panel h2{font-size:17px;margin-bottom:10px}
+.brief-grid{margin-top:0}
+.brief-panel{display:grid;gap:12px;padding:18px}
+.brief-panel .field{min-width:0}
+.brief-panel .field small,.approval-detail,.approval-evidence{color:var(--muted);font-size:13px}
+.brief-progress{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.brief-progress progress{width:90px;accent-color:var(--accent)}
+.approval-detail,.approval-evidence{margin-top:4px;overflow-wrap:anywhere}
+.approval-evidence summary{cursor:pointer}
+.approval-evidence p{margin:5px 0 0}
+.a-act{flex-wrap:wrap;justify-content:flex-end}
+.content-list .row{min-height:82px}
+.report-page .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media screen and (max-width:720px){
+ .brief-grid{grid-template-columns:1fr}
+ .report-page .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .report-page .kpis .kpi:last-child{grid-column:1/-1}
+ .report-table table,.report-table tbody{display:block;min-width:0;width:100%}
+ .report-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .report-table tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:10px 12px;gap:6px;border-bottom:1px solid var(--line)}
+ .report-table td,.report-table td.n{display:flex;align-items:center;justify-content:space-between;gap:5px;min-width:0;padding:5px 0;border:0;text-align:left}
+ .report-table td:first-child{grid-column:1/-1;font-size:14px}
+ .report-table td[data-label]::before{content:attr(data-label);text-transform:capitalize;font-size:11px;color:var(--muted)}
+ .report-table td input{width:48%;min-width:0;padding:4px}
+}
+
+#review-pack:disabled{opacity:.55;cursor:default}
+
+.dashboard-grid{display:grid;gap:12px}
+.dashboard-grid .agenda-row{grid-template-columns:60px minmax(0,1fr) minmax(0,110px)}
+.dashboard-grid .agenda-row small{text-align:right;overflow-wrap:anywhere}
+@media(max-width:480px){
+ .dashboard-grid .agenda-row{grid-template-columns:46px minmax(0,1fr) minmax(0,80px);gap:8px}
+}
+
+.dashboard-grid .trio{height:auto;align-items:stretch}
+.dashboard-grid .trio .card{min-height:170px}
+.dashboard-grid .crow{grid-template-columns:auto minmax(0,1fr);text-align:left}
+.dashboard-grid .crow .c-text{min-width:0;overflow-wrap:anywhere}
+.dashboard-grid .north-card{overflow-wrap:anywhere}
+.dashboard-grid .visual-card{min-height:0}
+
+/* Shared surfaces and spacing */
+@media screen{
+ .page-head,.section-mode .page-head{padding-inline:clamp(16px,2.1vw,30px)}
+ .page-pad,.section-mode .page-pad{padding-inline:clamp(16px,2.1vw,30px)}
+ .page-pad .card,.page-pad .pipeline,.report-page .kpis{border-radius:16px}
+ .page-pad .card-head{column-gap:10px}
+ .home .hero{border-radius:18px}
+ .home .hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,23,92,.34),transparent 72%)}
+ .dashboard-grid .trio .card{min-height:0}
+ .dashboard-grid .trio{align-items:start}
+ .dashboard-grid .visual-card .vgrid{min-height:0}
+ .dashboard-grid .visual-card .vtile{height:auto;min-height:0;aspect-ratio:1.65}
+ .dashboard-grid .visual-card .vtile img{width:100%;height:100%;object-fit:cover}
+ .section-mode .page-head .sub{max-width:65ch}
+ .btn:focus-visible,.crow:focus-visible,.vtile:focus-visible,.pstep:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+}
+.report-paper{display:none}
+@page performance-report{size:A4 portrait;margin:14mm}
+@media print{
+ .skip{display:none!important}
+ html:has(.report-paper):not(:has(#review-pack-dialog[open])),
+ body:has(.report-paper):not(:has(#review-pack-dialog[open])){
+  width:auto!important;max-width:none!important;min-height:0!important;height:auto!important;
+  margin:0!important;overflow:visible!important;background:#fff!important;scrollbar-gutter:auto
+ }
+ body:has(.report-paper):not(:has(#review-pack-dialog[open]))>*:not(.shell),
+ body:has(.report-paper):not(:has(#review-pack-dialog[open])) .shell>*:not(#main),
+ body:has(.report-paper):not(:has(#review-pack-dialog[open])) #main>*:not(.report-paper){display:none!important}
+ body:has(.report-paper) .shell,body:has(.report-paper) #main{
+  display:block!important;margin:0!important;padding:0!important;width:auto!important;min-height:0!important;overflow:visible!important
+ }
+ .report-paper{
+  display:block;page:performance-report;color:#201930;background:#fff;
+  font:10pt/1.45 system-ui,sans-serif;overflow-wrap:anywhere
+ }
+ .report-paper header{padding-bottom:10pt;border-bottom:2pt solid #593598}
+ .report-paper header h1{font-size:25pt;line-height:1.1;margin:3pt 0}
+ .paper-brand{color:#593598;font-size:10pt;font-weight:700}
+ .paper-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8pt;margin:14pt 0;break-inside:avoid}
+ .paper-summary div{padding:8pt;border:1pt solid #ddd5ea;border-radius:6pt}
+ .paper-summary dt{font-size:9pt}
+ .paper-summary dd{margin:3pt 0 0;font-size:17pt;font-weight:700}
+ .report-paper h2{font-size:14pt;margin:14pt 0 5pt;break-after:avoid}
+ .report-paper table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-size:8pt}
+ .report-paper col.paper-post{width:30%}
+ .report-paper thead{display:table-header-group}
+ .report-paper tr{break-inside:avoid}
+ .report-paper th,.report-paper td{padding:5pt 2pt;border-bottom:1px solid #ddd5ea;text-align:right;vertical-align:top}
+ .report-paper thead th{font-size:7pt;text-transform:capitalize;color:#493364;letter-spacing:0}
+ .report-paper tr>:first-child{text-align:left;padding-right:5pt}
+ .report-paper th small{display:block;font-size:7pt;font-weight:400;color:#625771}
+ .paper-key{font-size:8pt;margin-top:5pt}
+ .paper-notes h3{font-size:10pt;margin:8pt 0 2pt;break-after:avoid}
+ .paper-notes p{white-space:pre-wrap}
+}
+
+@media screen{.home .hero{display:flex;align-items:center;width:100%}.home .hero-actions{margin-top:18px}}
 </style>
 </head>
 <body>
@@ -427,7 +568,7 @@ dialog{color:var(--ink)}
 <aside class="sidebar" id="sidebar">
  <a class="brand" href="#overview" aria-label="Studio overview"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/></svg></span><span class="brand-word"><b id="brand-name">JUNIPER STUDIO</b></span></a>
  <nav id="nav" aria-label="Studio"></nav>
- <div class="side-quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.7 5 5 1.7-5 1.7-1.7 5-1.7-5-5-1.7 5-1.7ZM18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6Z"/></svg><p>Great content moves<br>clients forward.”</p><small>— Let’s get yours approved.</small></div>
+ <div class="side-quote"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.7 5 5 1.7-5 1.7-1.7 5-1.7-5-5-1.7 5-1.7ZM18.5 15l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6Z"/></svg><p>From draft to review</p><small>Track feedback and decisions.</small></div>
  <button class="ws-card" id="ws-card" type="button" data-view="settings"><span class="avatar" id="ws-avatar">JS</span><span class="ws-name"><b id="ws-name">Juniper Studio</b><small id="ws-mode">Fictional demo</small></span></button>
 </aside>
 <div class="scrim" id="scrim" hidden></div>
@@ -452,13 +593,29 @@ dialog{color:var(--ink)}
   </div>
   <div class="field-grid">
    <label class="field">Asset reference<input name="asset" required placeholder="File name or accessible link"></label>
+   <label class="field">Post image<input name="mediaFile" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG or WebP. Images are resized for review.</small></label>
+   <label class="field"><span>Current image</span><span id="attached-image-name">No image attached</span><span><input name="removeMedia" type="checkbox"> Remove image</span></label>
+   <label class="field">Review due<input name="reviewDue" type="date"></label>
    <label class="field">Published URL<input name="url" type="url" placeholder="https://"></label>
   </div>
   <div class="checks"><label class="toggle"><input name="facts" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Facts checked</b><small>Claims match the brief</small></span></label><label class="toggle"><input name="rights" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Asset rights checked</b><small>Usage confirmed</small></span></label></div>
  </div>
- <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
+ <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover, image or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
 </form></dialog>
 
+<dialog id="versions" class="sheet" aria-labelledby="versions-title">
+ <div class="sheet-top"><b id="versions-title">Version history</b><button class="btn close" type="button">Close</button></div>
+ <div class="sheet-body" id="version-body"></div>
+</dialog>
+<dialog id="review-pack-dialog" class="sheet" aria-labelledby="review-pack-title">
+ <div class="sheet-top"><b id="review-pack-title">Review pack</b><button class="btn close" type="button">Close</button></div>
+ <div class="sheet-body" id="review-preview"></div>
+ <div class="sheet-foot"><p class="hint">Save as PDF in the print dialog. Mark as sent after you share it.</p>
+ <div class="sheet-actions"><button class="btn" type="button" id="mark-review-sent">Mark as sent</button>
+ <button class="btn btn-primary" type="button" id="print-review-pack">Print / PDF</button></div></div>
+</dialog>
+
+<div id="review-print" hidden></div>
 <dialog id="approval" class="sheet sheet-sm" aria-labelledby="approval-h"><form id="approval-form" autocomplete="off">
  <div class="sheet-top"><span class="sheet-crumb"><span>Approval</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><b id="approval-h">Record decision</b></span><button type="button" class="icon-btn close" aria-label="Close approval"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
  <div class="sheet-body"><p class="approval-context" id="approval-context"></p><input name="id" type="hidden">
@@ -482,8 +639,42 @@ const text=(v,max=5000)=>typeof v==='string'?v.slice(0,max):'';
 const dateOK=v=>/^\d{4}-\d{2}-\d{2}$/.test(v)&&!isNaN(Date.parse(v+'T12:00:00Z'))&&new Date(v+'T12:00:00Z').toISOString().slice(0,10)===v;
 function next(p){if(!p.title||!p.caption||!p.asset||!dateOK(p.date))return 'Complete draft';if(!p.facts||!p.rights)return 'Review checks';if(p.approval!=='Approved'||p.approvedVersion!==p.version||!p.approver||!p.evidence)return p.approval==='Changes requested'?'Changes requested':'Awaiting approval';if(p.stage==='Published')return /^https?:\/\//i.test(p.url)?'Published':'Add published URL';return p.stage==='Scheduled'?'Scheduled':'Ready to schedule'}
 function metrics(m){const all=['likes','comments','saves','shares'].every(k=>Number.isSafeInteger(m[k])&&m[k]>=0);const sum=all?m.likes+m.comments+m.saves+m.shares:null;const interactions=Number.isSafeInteger(sum)?sum:null;return{interactions,rate:interactions!==null&&m.reach>0?interactions/m.reach:null,clickRate:Number.isFinite(m.clicks)&&m.reach>0?m.clicks/m.reach:null}}
-function revise(old,v){const changed=['title','caption','asset','channel','date','role','cover'].some(k=>old[k]!==v[k]);return {...old,...v,version:old.version+(changed?1:0),...(changed?{approval:'Pending',approvedVersion:null,approver:'',evidence:'',stage:'Draft'}:{})}}
-function validate(x){if(!x||x.schema!==2||!x.client||!Array.isArray(x.posts)||x.posts.length>500)throw Error('Choose a Studio v2 backup with no more than 500 posts.');let ids=new Set();for(const p of x.posts){if(!p||!/^P[0-9a-z-]{1,50}$/i.test(p.id)||ids.has(p.id)||!Number.isInteger(p.version)||p.version<1||!dateOK(p.date))throw Error('The backup has an invalid ID, version or date.');ids.add(p.id)}let cleaned=JSON.parse(JSON.stringify(x));cleaned.demo=x.demo===true;cleaned.client=Object.fromEntries(Object.entries(x.client).map(([k,v])=>[k,text(v,5000)]));cleaned.posts=x.posts.map(p=>({...p,id:p.id,title:text(p.title,140),channel:['Instagram','LinkedIn','TikTok','Facebook','Pinterest','YouTube'].includes(p.channel)?p.channel:'Instagram',role:['Explain','Show','Invite'].includes(p.role)?p.role:'Explain',date:p.date,caption:text(p.caption),asset:text(p.asset,500),cover:['soup','menu','coffee'].includes(p.cover)?p.cover:'soup',version:p.version,facts:p.facts===true,rights:p.rights===true,approval:['Approved','Changes requested'].includes(p.approval)?p.approval:'Pending',approvedVersion:Number.isInteger(p.approvedVersion)?p.approvedVersion:null,approver:text(p.approver,100),evidence:text(p.evidence,500),stage:['Draft','Scheduled','Published'].includes(p.stage)?p.stage:'Draft',url:text(p.url,1000),history:Array.isArray(p.history)?p.history.slice(-50).map(h=>({date:text(h?.date,40),note:text(h?.note,1000)})):[]}));cleaned.members=Array.isArray(x.members)?x.members.slice(0,100).filter(m=>m&&typeof m.id==='string').map(m=>({id:text(m.id,80),name:text(m.name,100),role:text(m.role,100),note:text(m.note,500)})):[];cleaned.results={};for(const p of cleaned.posts){const raw=x.results?.[p.id]||{},m={};for(const k of ['reach','likes','comments','saves','shares','clicks'])m[k]=raw[k]===null||raw[k]===''||raw[k]===undefined?null:Number.isSafeInteger(raw[k])&&raw[k]>=0?raw[k]:null;cleaned.results[p.id]=m}return cleaned}
+function revise(old,v){const changed=['title','caption','asset','channel','date','role','cover','media'].some(k=>old[k]!==v[k]);return {...old,...v,version:old.version+(changed?1:0),...(changed?{approval:'Pending',approvedVersion:null,approver:'',evidence:'',stage:'Draft'}:{})}}
+const imageData = value => typeof value === 'string' && value.length <= 450000 &&
+ /^data:image\/jpeg;base64,[A-Za-z0-9+/]+={0,2}$/.test(value) ? value : '';
+
+function snapshot(post, recordedAt = new Date().toISOString()) {
+ return {
+  version: post.version, title: post.title, caption: post.caption, channel: post.channel,
+  date: post.date, asset: post.asset, media: imageData(post.media), recordedAt
+ };
+}
+
+function cleanSnapshot(entry) {
+ return {
+  version: entry.version, title: text(entry.title,140), caption: text(entry.caption),
+  channel: text(entry.channel,50), date: dateOK(entry.date) ? entry.date : '',
+  asset: text(entry.asset,500), media: imageData(entry.media), recordedAt: text(entry.recordedAt,40)
+ };
+}
+
+function validate(x, includeClients = true){if(!x||x.schema!==2||!x.client||!Array.isArray(x.posts)||x.posts.length>500)throw Error('Choose a Studio v2 backup with no more than 500 posts.');let ids=new Set();for(const p of x.posts){if(!p||!/^P[0-9a-z-]{1,50}$/i.test(p.id)||ids.has(p.id)||!Number.isInteger(p.version)||p.version<1||!dateOK(p.date))throw Error('The backup has an invalid ID, version or date.');ids.add(p.id)}let cleaned=JSON.parse(JSON.stringify(x));cleaned.demo=x.demo===true;cleaned.client=Object.fromEntries(Object.entries(x.client).map(([k,v])=>[k,text(v,5000)]));cleaned.posts=x.posts.map(p=>({...p,id:p.id,title:text(p.title,140),channel:['Instagram','LinkedIn','TikTok','Facebook','Pinterest','YouTube'].includes(p.channel)?p.channel:'Instagram',role:['Explain','Show','Invite'].includes(p.role)?p.role:'Explain',date:p.date,caption:text(p.caption),asset:text(p.asset,500),cover:['soup','menu','coffee'].includes(p.cover)?p.cover:'soup',version:p.version,facts:p.facts===true,rights:p.rights===true,approval:['Approved','Changes requested'].includes(p.approval)?p.approval:'Pending',approvedVersion:Number.isInteger(p.approvedVersion)?p.approvedVersion:null,approver:text(p.approver,100),evidence:text(p.evidence,500),stage:['Draft','Scheduled','Published'].includes(p.stage)?p.stage:'Draft',url:text(p.url,1000),history:Array.isArray(p.history)?p.history.slice(-50).map(h=>({date:text(h?.date,40),note:text(h?.note,1000)})):[]}));cleaned.posts.forEach((post, i) => {
+ const raw = x.posts[i];
+ post.media = imageData(raw.media);
+ post.reviewDue = dateOK(raw.reviewDue) ? raw.reviewDue : '';
+ post.sentAt = text(raw.sentAt, 40);
+ post.sentVersion = Number.isInteger(raw.sentVersion) ? raw.sentVersion : null;
+ post.versions = Array.isArray(raw.versions) ? raw.versions
+  .filter(entry => entry && Number.isInteger(entry.version) && entry.version > 0 && entry.version <= post.version)
+  .map(cleanSnapshot) : [];
+ post.decisions = Array.isArray(raw.decisions) ? raw.decisions
+  .filter(entry => entry && Number.isInteger(entry.version) && entry.version > 0 && entry.version <= post.version)
+  .map(entry => ({version:entry.version, at:text(entry.at,40), person:text(entry.person,100),
+   decision:text(entry.decision,40), evidence:text(entry.evidence,500)})) : [];
+ });
+ delete cleaned.otherClients;
+ if (includeClients && Array.isArray(x.otherClients)) cleaned.otherClients = x.otherClients.map(other => validate(other,false));
+ cleaned.members=Array.isArray(x.members)?x.members.slice(0,100).filter(m=>m&&typeof m.id==='string').map(m=>({id:text(m.id,80),name:text(m.name,100),role:text(m.role,100),note:text(m.note,500)})):[];cleaned.results={};for(const p of cleaned.posts){const raw=x.results?.[p.id]||{},m={};for(const k of ['reach','likes','comments','saves','shares','clicks'])m[k]=raw[k]===null||raw[k]===''||raw[k]===undefined?null:Number.isSafeInteger(raw[k])&&raw[k]>=0?raw[k]:null;cleaned.results[p.id]=m}return cleaned}
 const demo=()=>({schema:2,demo:true,client:{name:'Juniper Studio',initials:'JS',audience:'Local office workers looking for a simple lunch.',goal:'Help people discover the weekday lunch offer.',offer:'Juniper Cafe weekday lunch, served 12-3.',facts:'Soup changes daily. The current menu is available at the counter. No price, discount or delivery offer has been confirmed.',voice:'Warm, clear and understated. Short sentences. No unverified superlatives.',cta:'View the menu at the counter.',approver:'Avery (fictional)',timezone:'Europe/London',assets:'Client-owned cafe photos. Sample illustrations are included for practice.',period:'November 2026',source:'Fictional practice figures. Replace with verified platform data.',observations:'The soup explainer received 12 saves in this fictional sample. This does not establish why people saved it.',test:'Try one more practical menu explainer, then compare saves across similar posts.',needs:'Confirm next week’s soup and provide a current counter photo.'},posts:[
 {id:'P001',title:'A little lunch inspiration',channel:'Instagram',role:'Explain',date:'2026-11-02',caption:'A warm bowl, a little pause. Ask us about today’s soup, served 12-3. Find the current menu at the counter.',asset:'Juniper soup photo / client to supply',cover:'soup',version:1,facts:false,rights:true,approval:'Pending',approvedVersion:null,approver:'',evidence:'',stage:'Draft',url:'',history:[]},
 {id:'P002',title:'Behind the lunch counter',channel:'Instagram',role:'Show',date:'2026-11-04',caption:'A little look behind lunch. Ask us what is on today, served 12-3.',asset:'Client-owned preparation photo',cover:'coffee',version:2,facts:true,rights:true,approval:'Approved',approvedVersion:2,approver:'Avery (fictional)',evidence:'Practice email / 26 Oct 2026 / version 2',stage:'Draft',url:'',history:[{date:'2026-10-26',note:'Fictional approval recorded for version 2.'}]},
@@ -496,7 +687,7 @@ const ICONS={user:'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 20.5c.8-3.6 3.8-6 7.5
 Object.assign(paths,ICONS,{bubble:'M12 20a8.5 8.5 0 1 0-7.4-4.3L3.5 20.5l4.4-1A8.5 8.5 0 0 0 12 20Z',assetdoc:'M7 3.5h7l4.5 4.5v11.5H5.5V5A1.5 1.5 0 0 1 7 3.5ZM14 3.5V8h4.5M6 16l4-4 4 4 2-2 2.5 3.5M11 8h.01',compass:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm-3-6 2-5 4-2-2 5Z'});
 const arrow=icon('arrow');
 const ART_KEYS=['soup','menu','coffee','studio-art','thumb-soup','thumb-coffee','thumb-menu','thumb-approval'];const artOf=k=>(typeof ART!=='undefined'&&ART[ART_KEYS.includes(k)?k:'soup'])||'';
-const DEMO='0'==='1';const VERSION='4.0';
+const DEMO='0'==='1';const VERSION='4.1';
 let state,storeOK=true,unreadableData=false;if(DEMO)state=demo();else try{const saved=localStorage.getItem(KEY);try{state=saved?validate(JSON.parse(saved)):demo()}catch(err){state=demo();unreadableData=!!saved;storeOK=false}}catch(err){state=demo();storeOK=false}
 let view='overview',search='',filter='All',month=10,year=2026,hlStage='';
 const UIKEY='brief-approved-ui-v5';let ui={theme:'light',focus:false,layout:'list'};
@@ -539,71 +730,158 @@ const YOURS=['Complete draft','Review checks','Changes requested','Ready to sche
 function si(k){return `<i class="si si-${k}" aria-hidden="true"></i>`}
 const status=p=>`<span class="pill t-${tone(p)}"><i></i>${e(next(p))}</span>`;
 const ACTIONS={'Complete draft':['Finish draft','edit'],'Review checks':['Run checks','edit'],'Awaiting approval':['Record decision','approve'],'Changes requested':['Revise','edit'],'Ready to schedule':['Mark scheduled','Scheduled'],'Scheduled':['Mark published','Published'],'Add published URL':['Add live URL','edit'],'Published':['Open','edit']};
-function action(p,cls='btn btn-sm'){const [label,kind]=ACTIONS[next(p)]||['Open','edit'],id=e(p.id);const attr=kind==='edit'?`data-edit="${id}"`:kind==='approve'?`data-approve="${id}"`:`data-stage="${kind}" data-id="${id}"`;return `<button class="${cls}" type="button" ${attr}>${label}</button>`}
-const STEP_COPY={
- 'Complete draft':p=>[`Finish the draft for “${e(p.title||'Untitled')}”`,'Add the missing title, caption, asset reference or a valid date.'],
- 'Review checks':p=>[`Check facts and rights for “${e(p.title)}”`,'Approval unlocks once both checks are complete.'],
- 'Awaiting approval':p=>[`Record the client’s decision on “${e(p.title)}”`,`Version ${p.version} is waiting. Log the decision with its evidence.`],
- 'Changes requested':p=>[`Revise “${e(p.title)}” for version ${p.version+1}`,'Saving the edit creates a new version and asks for a fresh decision.'],
- 'Add published URL':p=>[`Add the live link for “${e(p.title)}”`,'A recorded URL keeps reports matched to the real post.'],
- 'Ready to schedule':p=>[`Schedule “${e(p.title)}”`,'Book it in your platform, then mark it scheduled here.']};
+function action(p,cls='btn btn-sm',override=''){const [label,kind]=ACTIONS[next(p)]||['Open','edit'],id=e(p.id);const attr=kind==='edit'?`data-edit="${id}"`:kind==='approve'?`data-approve="${id}"`:`data-stage="${kind}" data-id="${id}"`;return `<button class="${cls}" type="button" ${attr}>${override||label}</button>`}
 const navs=[['overview','home','Overview'],['content','circleok','Content'],['calendar','calendar','Calendar'],['approvals','bubble','Approvals'],['assets','assetdoc','Assets'],['brief','brief','Client Brief'],['reports','chart','Reports'],['outcomes','trend','Key outcomes'],['library','compass','Guide'],['pipeline','cols','Pipeline detail'],['team','user','Team / Members'],['settings','settings','Settings']];
 function heading(title,sub,act=''){const h=new Date().getHours(),greet=h<12?'Good morning':h<18?'Good afternoon':'Good evening';return `<div class="page-head"><div class="ph-text"><p class="hello">${greet}, ${e(state.client.name||'your studio')}</p><h1 class="serif">${title}</h1>${sub?`<p class="sub">${sub}</p>`:''}</div>${act?`<div class="head-actions">${act}</div>`:''}</div>`}
 const ch=(ico,title,link='',view='',extra='')=>`<div class="card-head"><h2>${ico.startsWith('<')?ico:icon(ico)}<span class="serif">${title}</span></h2>${extra}${link?`<button class="link" type="button" data-view="${view}">${link}</button>`:''}</div>`;
-const cover=(p,cls='thumb')=>`<img class="${cls}" src="${artOf(cls==='approval-thumb'||cls==='a-thumb'?'thumb-approval':({'soup':'thumb-soup','coffee':'thumb-coffee','menu':'thumb-menu'}[p.cover]||p.cover))}" alt="" loading="lazy">`;
+const cover=(p,cls='thumb')=>`<img class="${cls}" src="${imageData(p.media)||artOf(cls==='approval-thumb'||cls==='a-thumb'?'thumb-approval':({'soup':'thumb-soup','coffee':'thumb-coffee','menu':'thumb-menu'}[p.cover]||p.cover))}" alt="" loading="lazy">`;
 const chip=t=>`<span class="chip">${e(t)}</span>`;
 const count=(n,w)=>`${n} ${n===1?w:w+'s'}`;
-function row(p){return `<div class="row t-${tone(p)}">${cover(p,'r-thumb')}<button class="r-title" type="button" data-edit="${e(p.id)}"><b>${e(p.title||'Untitled')}</b><span class="r-cap">${e(p.id)} · v${p.version}</span><span class="r-channel">${si(tone(p))}${e(p.channel)}</span></button><span class="r-details"><span>${formatDate(p.date)}</span><small>${e(p.role)}</small></span><span class="r-next">${e(stageOf(p).label)}</span><span class="r-act">${action(p,'btn btn-sm btn-quiet')}</span></div>`}
+function row(p){return `<div class="row t-${tone(p)}">${cover(p,'r-thumb')}<button class="r-title" type="button" data-edit="${e(p.id)}"><b>${e(p.title||'Untitled')}</b><span class="r-cap">${e(p.channel)} · ${e(p.id)} · v${p.version}</span></button><span class="r-details"><span>${formatDate(p.date)}</span><small>${e(p.role)}</small></span><span class="r-next">${e(stageOf(p).label)}</span><span class="r-act">${action(p,'btn btn-sm btn-quiet')}</span></div>`}
 
 function bcard(p){return `<article class="bcard t-${tone(p)}"><div class="bc-top"><span class="r-id">${e(p.id)}</span><span class="r-date">${formatDate(p.date)}</span></div><button class="bc-title" type="button" data-edit="${e(p.id)}">${si(tone(p))}<b>${e(p.title||'Untitled')}</b></button><div class="bc-meta">${chip(p.channel)}<span class="r-ver">v${p.version}</span>${next(p)==='Changes requested'?'<span class="chip chip-warn">Changes</span>':''}</div><div class="bc-foot">${action(p,'btn btn-sm btn-quiet')}</div></article>`}
 function empty(title='Nothing here yet',sub='Start with the client brief, then add one piece of content.'){return `<div class="empty"><div class="empty-ico">${si('draft')}</div><h2>${title}</h2><p>${sub}</p><div class="empty-actions"><button class="btn btn-primary" type="button" data-add>${icon('plus')} New content</button><button class="btn" type="button" data-view="brief">Open brief</button></div></div>`}
-function stageBar(cur){const total=state.posts.length,waiting=state.posts.filter(p=>next(p)==='Awaiting approval').length;return `<section class="pipeline" aria-label="Pipeline progress"><div class="pipe-l"><p class="pipe-sum"><i></i>${count(total,'post')} <span>·</span> ${waiting} waiting on client</p></div><div class="ptrack">${STAGES.map((s,i)=>{const n=state.posts.filter(p=>stageOf(p).key===s.key).length;return `<button type="button" class="pstep t-${s.key} ${n?'has':'zero'} ${cur===s.key?'cur':''}" data-stagefocus="${s.key}"><span class="pnode">${i+1}</span><b>${s.label}</b><small>(${n})</small>${cur===s.key?'<em>Your next step</em>':''}</button>`}).join('')}</div><button class="link pipe-link" type="button" data-view="pipeline">View full pipeline ${icon('chev')}</button></section>`}
+function stageBar(cur){const total=state.posts.length,waiting=state.posts.filter(p=>next(p)==='Awaiting approval').length;return `<section class="pipeline" aria-label="Pipeline progress"><div class="pipe-l"><p class="pipe-sum"><i></i>${count(total,'post')} <span>·</span> ${waiting} waiting on client</p></div><div class="ptrack">${STAGES.map((s,i)=>{const n=state.posts.filter(p=>stageOf(p).key===s.key).length;return `<button type="button" class="pstep t-${s.key} ${n?'has':'zero'} ${cur===s.key?'cur':''}" data-stagefocus="${s.key}"><span class="pnode">${i+1}</span><b>${s.label}</b><small>(${n})</small></button>`}).join('')}</div><button class="link pipe-link" type="button" data-view="pipeline">View full pipeline ${icon('chev')}</button></section>`}
 function kpis(items){return `<div class="kpis">${items.map(([label,val,note,cls=''])=>`<div class="kpi ${cls}"><span class="kpi-l">${label}</span><strong>${val}</strong><small>${note}</small></div>`).join('')}</div>`}
 
 function overview(){
  const open=state.posts.filter(p=>!['Published','Scheduled'].includes(next(p)));
- const needs=state.posts.filter(p=>stageOf(p).key==='approval');
  const ordered=[...open].sort((a,b)=>URGENCY.indexOf(next(a))-URGENCY.indexOf(next(b))||(a.date||'9').localeCompare(b.date||'9'));
  const p=[...open].filter(x=>YOURS.includes(next(x))).sort((a,b)=>(a.date||'9').localeCompare(b.date||'9')||URGENCY.indexOf(next(a))-URGENCY.indexOf(next(b)))[0]||ordered[0];
- const c=state.client,filled=briefFields.filter(([k])=>String(c[k]||'').trim()).length;
- const approvedNow=state.posts.filter(x=>!['Complete draft','Review checks','Awaiting approval','Changes requested'].includes(next(x))).length;
- let step;
- if(p){const [line,why]=(STEP_COPY[next(p)]||(x=>[`Waiting on “${e(x.title)}”`,'Nothing to do until the client decision arrives.']))(p);step=`<article class="hero t-${tone(p)}"><div class="hero-text"><div class="eyebrow">Your one next step</div><h2 class="serif">${line.replace('for “','for <br>“')}</h2><p>${why}</p><div class="hero-actions">${action(p,'btn btn-accent btn-lg').replace('</button>',' '+arrow+'</button>')}</div><div class="hero-meta"><span>Due ${formatDate(p.date)}</span><span class="sep">·</span><span>${e(next(p))}</span><span class="sep">·</span><span>${e(p.channel)} · v${p.version}</span></div></div><div class="hero-art" aria-hidden="true"></div><button class="hero-go" type="button" data-edit="${e(p.id)}" aria-label="Open details">${arrow}</button></article>`}
- else step=`<article class="hero"><div class="hero-text"><div class="eyebrow">Your one next step</div><h2 class="serif">All clear for today</h2><p>Everything is scheduled or live. Add the next idea when you’re ready.</p><div class="hero-actions"><button class="btn btn-accent btn-lg" type="button" data-add>${icon('plus')} New content</button></div></div><div class="hero-art" aria-hidden="true"></div></article>`;
- const upcoming=[...state.posts].filter(x=>dateOK(x.date)&&!['Published'].includes(next(x))).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
- const coming=`<section class="card coming-card">${ch('calendar','Coming Up')}<div class="clist">${upcoming.map(x=>{const d=new Date(x.date+'T12:00:00Z');return `<button type="button" class="crow" data-edit="${e(x.id)}">${cover(x,'c-thumb')}<span class="c-date"><b>${d.toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'})}</b><small>${d.toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'})}</small></span><span class="c-text"><small class="upcoming-date">${formatDate(x.date)} · ${d.toLocaleDateString('en-US',{weekday:'long',timeZone:'UTC'})}</small><b>${e(x.title)}</b><small>${e(x.channel)}</small></span><span class="role-badge role-${e(x.role.toLowerCase())}">${e(x.role)}</span></button>`}).join('')||'<p class="muted-s">Nothing dated yet.</p>'}</div><button class="link card-footer" type="button" data-view="calendar">View full calendar ${arrow}</button></section>`;
- const yes=`<section class="card yes-card">${ch('flag','Needs a Yes')}<div class="clist">${needs.map(x=>`<button type="button" class="crow" data-approve="${e(x.id)}">${cover(x,'approval-thumb')}<span class="c-text"><b>${e(x.title)}</b><small>${e(x.channel)}</small><small>Due ${formatDate(x.date)}</small></span><span class="decision-badge">${next(x)==='Changes requested'?'Changes requested':'Awaiting approval'}</span></button>`).join('')||'<p class="muted-s">No decisions pending.</p>'}</div><button class="link card-footer" type="button" data-view="approvals">View all approvals ${arrow}</button></section>`;
- const star=`<section class="card north-card">${ch('star','Client North Star','View brief','brief')}<div class="ns"><span class="north-mark" aria-hidden="true">${icon('spark')}</span><div><b>${e(c.name||'Your client')}</b><p>${e(c.goal||'Add the client goal in the brief.')}</p></div></div><div class="ns-stats"><div><small>Brief complete</small><b>${filled}<span>/${briefFields.length}</span></b>${icon('trend')}</div><div><small>Approved now</small><b>${approvedNow}<span>/${state.posts.length}</span></b>${icon('circleok')}</div></div><blockquote class="ns-quote"><span class="quote-mark" aria-hidden="true">“</span><div>${e(c.voice||'Add the brand voice in the brief.')}<cite>— Brand voice</cite></div></blockquote></section>`;
- const lib=`<section class="card visual-card">${ch('image','Visual Library','View all assets','assets')}<div class="vgrid">${[['soup','a little lunch.','The daily soup.'],['menu','Lunch looks good on you.','Lunch menu.'],['coffee','a quiet moment.','Coffee moment.'],['studio-art','A lovely yes.','Studio still life.']].map(([id,t,caption],i)=>`<a class="vtile" href="#assets"><img src="${artOf(id)}" alt="">${i===3?'<span class="tile-check" aria-hidden="true">'+icon('check')+'</span>':''}<span class="vtile-copy"><span class="tile-number">${i+1}.</span><b>${t}</b><small>${caption}</small></span></a>`).join('')}</div></section>`;
- const pct=state.posts.length?approvedNow/state.posts.length:0,R=46,C=2*Math.PI*R;
- const appr=`<section class="card approval-card">${ch('circleok','Approvals')}<div class="ap"><div class="ap-num"><b>${needs.length}</b><span>${needs.length===1?'Approval':'Approvals'} ·</span><small>Awaiting a decision</small></div><svg class="donut" viewBox="0 0 120 120" aria-label="${Math.round(pct*100)}% approved"><circle cx="60" cy="60" r="${R}" class="d-bg"/><circle cx="60" cy="60" r="${R}" class="d-fg" stroke-dasharray="${(C*pct).toFixed(1)} ${C.toFixed(1)}"/><text x="60" y="58" text-anchor="middle">${Math.round(pct*100)}%</text></svg><div class="ap-list">${needs.slice(0,2).map(x=>`<button type="button" data-approve="${e(x.id)}">${cover(x,'approval-thumb')}<span><b>${e(x.title)}</b><small>${e(x.channel)}</small><small>Due ${formatDate(x.date)}</small></span></button>`).join('')||'<small class="muted-s">Nothing waiting.</small>'}</div></div><button class="link card-footer" type="button" data-view="approvals">View approvals ${arrow}</button></section>`;
- return heading('Here’s your one next step.','')+`<div class="page-pad home">${ui.focus?'<section class="focus-notice" aria-label="Focus mode"><div><b>Focus mode is on</b><p>Only your next step is shown. Show the full dashboard to see your other sections.</p></div><button class="btn btn-primary" type="button" data-focus>Show full dashboard</button></section>':''}${step}<div class="focus-hide">${stageBar(p?stageOf(p).key:'')}</div><div class="trio focus-hide">${coming}${yes}${star}</div><div class="duo focus-hide">${lib}${appr}</div></div>`}
+ const needsChecks = p && next(p) === 'Review checks';
+ const heroContent = p
+  ? `<h2 class="serif">${e(p.title||'Untitled')}</h2><p>${needsChecks ? 'Complete both checks to unlock approval.' : e(p.channel) + ' · ' + formatDate(p.date)}</p><div class="hero-actions">${action(p,'btn btn-accent btn-lg',needsChecks?'Check facts &amp; rights':'')}</div>`
+  : `<h2 class="serif">All clear for today</h2><p>Start your next post when you’re ready.</p><div class="hero-actions"><button class="btn btn-accent btn-lg" type="button" data-add>${icon('plus')} New content</button></div>`;
+ const step = `<article class="hero ${p?'t-'+tone(p):''}"><div class="hero-text">${heroContent}</div><div class="hero-art" aria-hidden="true"></div></article>`;
+ const client = state.client;
+ const needs = state.posts.filter(post => stageOf(post).key === 'approval');
+ const approvedNow = state.posts.filter(post => post.approval === 'Approved' && post.approvedVersion === post.version).length;
+ const filled = briefFields.filter(([key]) => String(client[key] || '').trim()).length;
+ const today = isoToday();
+ const dated = state.posts.filter(post => post !== p && !needs.includes(post) && dateOK(post.date) && next(post) !== 'Published');
+ const upcoming = dated.filter(post => post.date >= today).sort((a,b) => a.date.localeCompare(b.date));
+ const earlier = dated.filter(post => post.date < today).sort((a,b) => b.date.localeCompare(a.date));
+ const schedule = [...upcoming,...earlier].slice(0,3);
+ const coming = `<section class="card coming-card">${ch('calendar','Coming Up','Calendar','calendar')}
+  <div class="clist">${schedule.map(post => `<button type="button" class="crow" data-edit="${e(post.id)}">
+   ${cover(post,'c-thumb')}<span class="c-text"><b>${e(post.title)}</b><small>${post.date < today ? 'Planned ' : ''}${formatDate(post.date)} · ${e(stageOf(post).label)}</small></span>
+  </button>`).join('') || '<p class="muted-s">No other posts on the calendar.</p>'}</div></section>`;
+ const approvalsCard = `<section class="card yes-card">${ch('flag','Approvals','Open approvals','approvals')}
+  <div class="clist">${needs.filter(post => post !== p).slice(0,3).map(post => `<button type="button" class="crow" data-${next(post)==='Changes requested'?'edit':'approve'}="${e(post.id)}">
+   ${cover(post,'approval-thumb')}<span class="c-text"><b>${e(post.title)}</b><small>${e(next(post))}</small></span>
+  </button>`).join('') || `<p class="muted-s">${needs.length ? 'See the next action above.' : 'No decisions pending.'}</p>`}</div></section>`;
+ const star=`<section class="card north-card">${ch('star','Client North Star','View brief','brief')}<div class="ns"><span class="north-mark" aria-hidden="true">${icon('spark')}</span><div><b>${e(client.name||'Your client')}</b><p>${e(client.goal||'Add the client goal in the brief.')}</p></div></div><div class="ns-stats"><div><small>Brief complete</small><b>${filled}<span>/${briefFields.length}</span></b>${icon('trend')}</div><div><small>Approved now</small><b>${approvedNow}<span>/${state.posts.length}</span></b>${icon('circleok')}</div></div><blockquote class="ns-quote"><span class="quote-mark" aria-hidden="true">“</span><div>${e(client.voice||'Add the brand voice in the brief.')}<cite>— Brand voice</cite></div></blockquote></section>`;
+ const lib=`<section class="card visual-card">${ch('image','Visual Library','View all assets','assets')}<div class="vgrid">${[['soup','a little lunch.','The daily soup.'],['menu','Lunch looks good on you.','Lunch menu.'],['coffee','a quiet moment.','Coffee moment.'],['studio-art','A lovely yes.','Studio still life.']].map(([id,t,caption])=>`<a class="vtile" href="#assets"><img src="${artOf(id)}" alt=""><span class="vtile-copy"><b>${t}</b><small>${caption}</small></span></a>`).join('')}</div></section>`;
+ return heading('Overview','')+`<div class="page-pad home">${ui.focus?'<section class="focus-notice" aria-label="Focus mode"><div><b>Focus mode is on</b><p>Only your next step is shown. Show the full dashboard to see your other sections.</p></div><button class="btn btn-primary" type="button" data-focus>Show full dashboard</button></section>':''}${step}<div class="dashboard-grid focus-hide">${stageBar(p?stageOf(p).key:'')}<div class="trio">${coming}${approvalsCard}${star}</div>${lib}</div></div>`;
+}
 const matches=p=>(p.title+' '+p.caption+' '+p.id).toLowerCase().includes(search.toLowerCase())&&(filter==='All'||next(p)===filter);
 function area(){const posts=state.posts.filter(matches);if(!state.posts.length)return empty();
  if(ui.layout==='board')return `<div class="board">${STAGES.map(s=>{const items=posts.filter(p=>stageOf(p).key===s.key);return `<section class="col ${hlStage===s.key?'hl':''}" id="col-${s.key}" aria-label="${s.label}"><header>${si(s.key)}<b>${s.label}</b><span class="count">${items.length}</span></header><div class="col-body">${items.map(bcard).join('')||`<div class="col-empty">${s.hint}</div>`}</div></section>`}).join('')}</div>`;
  if(!posts.length)return `<div class="empty slim"><h2>No matching content</h2><p>Try another search or filter.</p></div>`;
- return `<section class="card flush content-list">${ch('board','Content','','',`<span class="count">${count(posts.length,'post')}</span>`)}<div class="rows">${[...posts].sort((a,b)=>a.date.localeCompare(b.date)).map(row).join('')}</div><div class="content-list-footer"><button class="btn btn-primary" type="button" data-add>New content</button></div></section>`}
+ return `<section class="card flush content-list">${ch('board',count(posts.length,'post'))}<div class="rows">${[...posts].sort((a,b)=>a.date.localeCompare(b.date)).map(row).join('')}</div></section>`}
 
-function content(){return heading('Content','Every piece moves from draft to a recorded yes, then live.')+`<div class="page-pad"><div class="toolbar card"><label class="search">${icon('search')}<input id="search" aria-label="Search content" placeholder="Search content" value="${e(search)}"><kbd>/</kbd></label><select id="filter" class="select-sm" aria-label="Filter by status">${['All','Complete draft','Review checks','Awaiting approval','Changes requested','Ready to schedule','Scheduled','Published','Add published URL'].map(v=>`<option ${filter===v?'selected':''}>${v}</option>`).join('')}</select><button class="btn" type="button" data-csv>${icon('download')}<span class="hide-sm">Export CSV</span></button><div class="seg tb-end" role="group" aria-label="Layout"><button type="button" data-layout="list" aria-pressed="${ui.layout!=='board'}">${icon('list')}<span>List</span></button><button type="button" data-layout="board" aria-pressed="${ui.layout==='board'}">${icon('cols')}<span>Board</span></button></div></div><div id="post-grid" class="list-wrap">${area()}</div></div>`}
+function content(){return heading('Content','',`<button class="btn btn-primary" type="button" data-add>${icon('plus')} New content</button>`)+`<div class="page-pad"><div class="toolbar card"><label class="search">${icon('search')}<input id="search" aria-label="Search content" placeholder="Search content" value="${e(search)}"><kbd>/</kbd></label><select id="filter" class="select-sm" aria-label="Filter by status">${['All','Complete draft','Review checks','Awaiting approval','Changes requested','Ready to schedule','Scheduled','Published','Add published URL'].map(v=>`<option value="${v}" ${filter===v?'selected':''}>${v==='All'?'All stages':v}</option>`).join('')}</select><button class="btn" type="button" data-csv aria-label="Export CSV">${icon('download')}<span class="hide-sm">Export CSV</span></button><div class="seg tb-end" role="group" aria-label="Layout"><button type="button" data-layout="list" aria-label="List" aria-pressed="${ui.layout!=='board'}">${icon('list')}<span>List</span></button><button type="button" data-layout="board" aria-label="Board" aria-pressed="${ui.layout==='board'}">${icon('cols')}<span>Board</span></button></div></div><div id="post-grid" class="list-wrap">${area()}</div></div>`}
 function calendar(){const first=new Date(year,month,1).getDay(),days=new Date(year,month+1,0).getDate(),tail=(7-(first+days)%7)%7,t=isoToday();return heading('Calendar',`Planned dates by stage · ${e(state.client.timezone||'Timezone not set')}`,`<button class="btn btn-primary" type="button" data-add>${icon('plus')} New content</button><div class="month-switch"><button class="icon-btn" type="button" data-month="-1" aria-label="Previous month"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><b>${new Date(year,month).toLocaleDateString('en-US',{month:'long',year:'numeric'})}</b><button class="icon-btn" type="button" data-month="1" aria-label="Next month"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>`)+`<div class="page-pad"><section class="card flush">${ch('calendar',new Date(year,month).toLocaleDateString('en-US',{month:'long',year:'numeric'}),'','',`<div class="legend">${STAGES.map(s=>`<span>${si(s.key)}${s.label}</span>`).join('')}</div>`)}<div class="calendar-scroll"><div class="calendar">${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div class="cal-head">${x}</div>`).join('')}${Array.from({length:first},()=>'<div class="cal-cell out"></div>').join('')}${Array.from({length:days},(_,i)=>{let d=`${year}-${String(month+1).padStart(2,'0')}-${String(i+1).padStart(2,'0')}`;return `<div class="cal-cell ${d===t?'today':''}"><button class="cal-day cal-add" type="button" data-add-date="${d}" aria-label="Add content on ${d}" title="Add content on ${d}">${i+1}<span aria-hidden="true"> +</span></button>${state.posts.filter(p=>p.date===d).map(p=>`<button class="cal-event t-${tone(p)}" type="button" data-edit="${e(p.id)}">${si(tone(p))}<span>${e(p.title)}</span></button>`).join('')}</div>`}).join('')}${Array.from({length:tail},()=>'<div class="cal-cell out"></div>').join('')}</div></div></section><p class="foot-note">Select a day or New content to add an item. Dates are a plan. Publish through your chosen platform or scheduler.</p></div>`}
-function approvalRow(p){const blocked=['Complete draft','Review checks'].includes(next(p));const current=!['Complete draft','Review checks','Awaiting approval','Changes requested'].includes(next(p));return `<article class="arow t-${tone(p)}">${cover(p,'a-thumb')}<div class="a-body"><div class="a-title"><button class="r-title-plain" type="button" data-edit="${e(p.id)}">${e(p.title)}</button><span class="r-ver">v${p.version}</span></div><div class="a-meta">${status(p)}<span class="tick ${p.facts?'ok':''}">${p.facts?icon('check'):'<i></i>'}Facts</span><span class="tick ${p.rights?'ok':''}">${p.rights?icon('check'):'<i></i>'}Rights</span>${current?`<span class="tick ok strong">${icon('check')}Approved v${p.version}</span>`:''}</div>${p.evidence?`<div class="evidence">${e(p.approver)} · ${e(p.approval)} ${p.approvedVersion?'v'+p.approvedVersion:''} · ${e(p.evidence)}</div>`:''}${p.history.slice(-2).map(h=>`<div class="evidence faint">${e(h.date)} · ${e(h.note)}</div>`).join('')}</div><div class="a-act">${blocked?`<span class="locked">${icon('lock')}Checks first</span><button class="btn btn-sm" type="button" data-edit="${e(p.id)}">Run checks</button>`:`<button class="btn btn-sm btn-quiet" type="button" data-edit="${e(p.id)}">Edit</button><button class="btn btn-sm ${current?'':'btn-primary'}" type="button" data-approve="${e(p.id)}">${current?'Update decision':'Record decision'}</button>`}</div></article>`}
+function approvalRow(p) {
+ const stage = next(p);
+ const blocked = ['Complete draft','Review checks'].includes(stage);
+ const approved = !blocked && !['Awaiting approval','Changes requested'].includes(stage);
+ const missing = [!p.facts && 'Facts', !p.rights && 'Rights'].filter(Boolean);
+ const detail = stage === 'Complete draft' ? 'Draft incomplete' : blocked ? missing.join(' and ') + ' to check'
+  : stage === 'Changes requested' ? 'Changes requested' : approved && p.approver ? 'Approved by ' + p.approver : '';
+ return `<article class="arow t-${tone(p)}">
+  ${cover(p,'a-thumb')}
+  <div class="a-body"><div class="a-title"><button class="r-title-plain" type="button" data-edit="${e(p.id)}">${e(p.title)}</button><span class="r-ver">v${p.version}</span></div>
+  ${detail ? `<p class="approval-detail">${e(detail)}</p>` : ''}${reviewStatus(p)}
+  ${p.evidence ? `<details class="approval-evidence"><summary>Decision evidence</summary><p>${e(p.evidence)}</p></details>` : ''}</div>
+  <div class="a-act">${blocked ? '' : `<label class="review-select"><input type="checkbox" data-review-pick="${e(p.id)}" aria-label="Select ${e(p.title)} for review pack"> Pack</label>`}
+  <button class="btn btn-sm btn-quiet" type="button" data-versions="${e(p.id)}">Versions</button>
+  ${blocked ? action(p,'btn btn-sm') : `<button class="btn btn-sm ${approved?'':'btn-primary'}" type="button" data-approve="${e(p.id)}">${approved?'Update decision':'Record decision'}</button>`}</div>
+ </article>`;
+}
+function isOverdue(p) {
+ return p.sentVersion === p.version && !!p.reviewDue && p.reviewDue < isoToday() && next(p) === 'Awaiting approval';
+}
+
+function reviewStatus(p) {
+ if (p.sentVersion !== p.version) return '';
+ const overdue = isOverdue(p);
+ return `<div class="evidence"><b>${overdue ? 'Review overdue' : 'Sent for review'}</b> · ${e(p.sentAt.slice(0,10))}${p.reviewDue ? ' · Due '+e(p.reviewDue) : ''}</div>`;
+}
 function approvals(){const g=[['Needs a decision',p=>['Awaiting approval','Changes requested'].includes(next(p))],['Blocked by checks',p=>['Complete draft','Review checks'].includes(next(p))],['Approved',p=>!['Awaiting approval','Changes requested','Complete draft','Review checks'].includes(next(p))]];
- return heading('Approvals','One current version. One named approver. One recorded yes.')+`<div class="page-pad">${state.posts.length?g.map(([label,fn])=>{const items=state.posts.filter(fn);return items.length?`<section class="card flush">${ch(label==='Approved'?'circleok':label==='Blocked by checks'?'lock':'flag',`${label} <span class="count">${items.length}</span>`)}<div class="rows">${items.map(approvalRow).join('')}</div></section>`:''}).join(''):empty()}<p class="foot-note">A local record of an approval received elsewhere. Not a shared client portal or authenticated signature.</p></div>`}
+ return heading('Approvals','Select posts to build a review pack.',`<button class="btn btn-primary no-print" type="button" id="review-pack" disabled>Preview review pack</button>`)+`<div class="page-pad">${state.posts.length?g.map(([label,fn])=>{const items=state.posts.filter(fn).sort((a,b) => Number(isOverdue(b)) - Number(isOverdue(a)));return items.length?`<section class="card flush">${ch(label==='Approved'?'circleok':label==='Blocked by checks'?'lock':'flag',`${label} <span class="count">${items.length}</span>`)}<div class="rows">${items.map(approvalRow).join('')}</div></section>`:''}).join(''):empty()}<p class="foot-note">Record replies from email, DMs or other channels.</p></div>`}
 const briefFields=[['name','Client name','As it should appear on documents'],['audience','Audience','Who are we speaking to?'],['goal','Goal','What should this content help achieve?'],['offer','Offer','The offer, in plain words'],['facts','Confirmed facts','Facts and restrictions you can rely on'],['voice','Voice','How the brand should sound'],['cta','Call to action','One clear next step for followers'],['approver','Approver','Who gives the final decision'],['timezone','Timezone','Used for planned dates'],['assets','Assets','Where files live and how they may be used']];
-function brief(){const filled=briefFields.filter(([k])=>String(state.client[k]||'').trim()).length;return heading('Client brief','The single source of truth for this client. Return to it before every draft.',`<div class="meter" title="${filled} of ${briefFields.length} answered"><span style="--p:${filled/briefFields.length}"></span></div><span class="muted-s">${filled}/${briefFields.length}</span>`)+`<form id="brief-form" class="page-pad"><section class="card flush">${ch('user','Brief details','','',`<span class="g-hint">${filled} of ${briefFields.length} answered</span>`)}<div class="deflist">${briefFields.map(([k,l,h])=>`<label class="defrow"><span class="def-l"><b>${l}</b><small>${h}</small></span>${['name','approver','timezone'].includes(k)?`<input name="${k}" value="${e(state.client[k])}" maxlength="500">`:`<textarea name="${k}" rows="2" maxlength="5000">${e(state.client[k])}</textarea>`}</label>`).join('')}</div></section><div class="form-foot"><button class="btn btn-primary" type="submit">Save brief</button></div></form>`}
-function assets(){return heading('Visual library','Reference-inspired photographs. Replace with client-owned files in real work.')+`<div class="page-pad"><section class="card">${ch('image','Studio photographs','','',`<span class="g-hint">4 photographs · JPG</span>`)}<div class="asset-grid">${[['soup','The daily soup','Peach · still life'],['coffee','A quiet coffee moment','Lavender · cup'],['menu','Lunch looks good on you','Sage · menu'],['studio-art','Studio still life','Cream · studio']].map(([id,title,desc])=>`<article class="asset"><div class="asset-art"><img src="${artOf(id)}" alt="${e(title)} still life photograph"></div><div class="asset-meta"><span><b>${title}</b><small>${desc}</small></span><a class="btn btn-sm btn-quiet" href="${artOf(id)}" download="${id}.jpg">${icon('download')} JPG</a></div></article>`).join('')}</div></section><p class="foot-note">Kit artwork may be used in completed client work. Reselling the source artwork as a separate asset pack is not included.</p></div>`}
+function brief() {
+ const filled = briefFields.filter(([key]) => String(state.client[key] || '').trim()).length;
+ const groups = [
+  ['Strategy',['goal','audience','offer','voice','cta']],
+  ['Client details',['name','approver','timezone','facts','assets']]
+ ];
+ return heading('Client brief','',`<div class="brief-progress"><progress max="${briefFields.length}" value="${filled}" aria-label="Brief completion"></progress><span>${filled} of ${briefFields.length} complete</span></div><button class="btn btn-primary" type="submit" form="brief-form">Save brief</button>`) +
+  `<form id="brief-form" class="page-pad brief-grid">${groups.map(([title,keys]) => `<section class="card brief-panel"><h2>${title}</h2>
+   ${keys.map(key => {
+    const [,label,hint] = briefFields.find(field => field[0] === key);
+    const value = e(state.client[key]);
+    return `<label class="field"><b>${label}</b>${['name','approver','timezone'].includes(key) ?
+     `<input name="${key}" value="${value}" maxlength="500">` :
+     `<textarea name="${key}" rows="${key==='facts'?4:2}" maxlength="5000">${value}</textarea>`}
+     ${['facts','assets','cta'].includes(key) ? `<small>${hint}</small>` : ''}</label>`;
+   }).join('')}</section>`).join('')}</form>`;
+}
+function assets(){return heading('Visual library','Browse sample images for your drafts.')+`<div class="page-pad"><section class="card">${ch('image','Studio photographs','','',`<span class="g-hint">4 photographs · JPG</span>`)}<div class="asset-grid">${[['soup','The daily soup','Peach · still life'],['coffee','A quiet coffee moment','Lavender · cup'],['menu','Lunch looks good on you','Sage · menu'],['studio-art','Studio still life','Cream · studio']].map(([id,title,desc])=>`<article class="asset"><div class="asset-art"><img src="${artOf(id)}" alt="${e(title)} still life photograph"></div><div class="asset-meta"><span><b>${title}</b><small>${desc}</small></span><a class="btn btn-sm btn-quiet" href="${artOf(id)}" download="${id}.jpg">${icon('download')} JPG</a></div></article>`).join('')}</div></section><p class="foot-note">Sample artwork is included for personal use.</p></div>`}
 const num=v=>v===null||v===undefined?'—':Number(v).toLocaleString('en-US');const pct=v=>v===null||v===undefined?'—':(v*100).toFixed(1)+'%';
-function reports(){let valid=state.posts.map(p=>({p,m:state.results[p.id]||{},calc:metrics(state.results[p.id]||{})}));let max=Math.max(1,...valid.map(x=>x.calc.interactions||0));const withData=valid.filter(x=>x.calc.interactions!==null),rates=valid.map(x=>x.calc.rate).filter(r=>r!==null),top=[...withData].sort((a,b)=>b.calc.interactions-a.calc.interactions)[0];
- return heading('Reports',`${e(state.client.period||'Reporting period not set')} · ${state.demo?'Fictional practice data':'Client-entered data'}`,`<button class="btn no-print" type="button" id="print-report">${icon('print')} Print / PDF</button>`)+`<div class="page-pad">${kpis([['Interactions',num(withData.length?withData.reduce((s,x)=>s+x.calc.interactions,0):null),'Likes + comments + saves + shares','kpi-hero'],['Avg. rate by reach',pct(rates.length?rates.reduce((a,b)=>a+b,0)/rates.length:null),'Mean of post rates'],['Posts with results',`${withData.length}<span class="of">/${valid.length}</span>`,'Missing stays blank, not zero'],['Strongest post',top?e(top.p.id):'—',top?e(top.p.title):'Add results to compare']])}
- <section class="card flush">${ch('sheet','Post results','','',`<span class="g-hint">Type whole numbers. Blank means not available.</span>`)}<div class="table-wrap"><table><thead><tr><th>Post</th>${['Reach','Likes','Comments','Saves','Shares','Clicks','Interactions','Rate'].map(x=>'<th class="n">'+x+'</th>').join('')}</tr></thead><tbody>${valid.map(({p,m,calc})=>`<tr><td><span class="t-cell">${si(tone(p))}<span><b>${e(p.title)}</b><small>${e(p.id)} · ${e(p.channel)}</small></span></span></td>${['reach','likes','comments','saves','shares','clicks'].map(k=>`<td class="n"><input type="number" min="0" step="1" inputmode="numeric" aria-label="${e(p.id)} ${k}" data-result="${e(p.id)}" data-key="${k}" value="${m[k]??''}" placeholder="—"></td>`).join('')}<td class="n strong">${num(calc.interactions)}</td><td class="n strong">${pct(calc.rate)}</td></tr>`).join('')}</tbody></table></div></section>
- <p class="foot-note">Interactions count only when all four inputs are present. Rate = interactions ÷ reach; zero reach gives no rate. Don’t sum post reach as unique people.</p>
- <div class="report-grid"><section class="card">${ch('chart','Interactions by post')}<div class="bars">${valid.map(({p,calc})=>`<div class="bar-line"><span class="bl-name">${e(p.title)}</span><span class="bar-track"><span class="bar-fill" style="width:${calc.interactions===null?0:calc.interactions/max*100}%"></span></span><b>${num(calc.interactions)}</b></div>`).join('')}</div><p class="muted-s">${state.demo?'Fictional sample. ':''}Describes the entered posts, not campaign causation.</p></section>
- <section class="card">${ch('pen','Narrative')}<div class="stack">${[['period','Reporting period','input'],['source','Source and extraction date','input'],['observations','What happened?'],['test','What we test next'],['needs','What we need from the client']].map(([k,l,t])=>`<label class="field">${l}${t==='input'?`<input data-client="${k}" value="${e(state.client[k])}">`:`<textarea rows="2" data-client="${k}">${e(state.client[k])}</textarea>`}</label>`).join('')}</div></section></div></div>`}
-function library(){return heading('Guide & templates','Everything that ships alongside the workspace.')+`<div class="page-pad"><section class="card flush">${ch('book','Included resources')}<div class="res">${[['book','Visual field guide','14 pages of diagrams, review checks and worked examples.','Documents/Visual-Field-Guide.pdf','PDF'],['file','Client document collection','Welcome, brief, strategy and reporting layouts.','Documents/Client-Documents.pdf','PDF'],['pen','Editable documents','Edit in the browser, then save HTML or print to PDF.','Documents/Editable-Documents.html','HTML'],['sheet','Spreadsheet companion','A coordinated five-tab workbook with live task counts.','Documents/Spreadsheet-Companion.xlsx','XLSX']].map(([ic,title,desc,url,type])=>`<a class="res-row" href="${url}"><span class="res-ico">${icon(ic)}</span><span class="res-text"><b>${title}</b><small>${desc}</small></span><span class="chip">${type}</span><span class="res-go">${icon('ext')}</span></a>`).join('')}</div></section><section class="card">${ch('star','Five-minute practice loop')}<ol class="loop"><li>Open Content and run checks on P001.</li><li>Record a fictional decision in Approvals.</li><li>Edit the approved caption. The version increases and approval resets.</li><li>In Reports, compare a blank measure with a zero.</li><li>Export a backup and keep it somewhere you can find.</li></ol></section></div>`}
-function settings(){const sec=(t,d,body)=>`<section class="setrow"><div class="set-l"><h2>${t}</h2><p>${d}</p></div><div class="set-r">${body}</div></section>`;return heading('Settings',`Workspace details, appearance and backups · Version ${VERSION}`)+`<div class="page-pad"><section class="card flush">${ch('settings','Studio settings')}<div class="settings">${sec('Workspace','Shown in the sidebar and on documents.',`<form id="settings-form" class="set-form"><label class="field">Studio or client name<input name="name" value="${e(state.client.name)}" maxlength="100" required></label><label class="field">Initials<input name="initials" value="${e(state.client.initials)}" maxlength="3" required></label><div><button class="btn btn-primary" type="submit">Save</button></div></form>`)}${sec('Appearance','Light is the default. Match device follows your system.',`<div class="seg" role="group" aria-label="Theme">${[['light','Light'],['dark','Dark'],['auto','Match device']].map(([k,l])=>`<button type="button" data-theme-set="${k}" aria-pressed="${ui.theme===k}">${l}</button>`).join('')}</div><p class="muted-s keys"><kbd>⌘K</kbd> command menu <kbd>N</kbd> new content <kbd>/</kbd> search <kbd>F</kbd> focus</p>`)}${sec('Backup','Work saves in this browser when storage is available. Moving the file or clearing browser data can hide or erase it. Export after each session.',`<div class="btn-row"><button class="btn btn-primary" type="button" data-backup>${icon('download')} Export JSON backup</button><button class="btn" type="button" id="import">${icon('upload')} Import backup</button><button class="btn" type="button" data-csv>Export content CSV</button><button class="btn" type="button" id="restore-recovery">Restore recovery copy</button>${damagedStore?'<button class="btn" type="button" id="export-original">Export unreadable original</button>':''}</div><p class="muted-s">Import replaces this workspace after confirmation. Backups may contain client information.</p>`)}${sec('Reset','Start empty or reload the fictional demo. Export your current work first.',`<div class="btn-row"><button class="btn btn-danger" type="button" id="clear">Start empty workspace</button><button class="btn" type="button" id="reset">Reload fictional demo</button></div>`)}</div></section></div>`}
-function outcomes(){const c=state.client;return heading('Key outcomes','Keep every draft tied to the client’s goal.')+`<div class="page-pad"><div class="report-grid"><section class="card">${ch('star','North Star')}<div class="stack">${[['goal','North Star statement'],['audience','Who we help'],['offer','What we offer'],['cta','Next step for the audience']].map(([k,l])=>`<label class="field">${l}<textarea rows="3" data-client="${k}">${e(c[k])}</textarea></label>`).join('')}</div></section><section class="card">${ch('trend','What success looks like')}<div class="stack">${[['observations','What we have observed'],['test','What we test next'],['needs','What we need from the client']].map(([k,l])=>`<label class="field">${l}<textarea rows="3" data-client="${k}">${e(c[k])}</textarea></label>`).join('')}</div><button class="link card-footer" type="button" data-view="reports">View measured results ${arrow}</button></section></div><p class="foot-note">Changes save when you leave a field. Use verified observations; results do not prove causation.</p></div>`}
-function pipeline(){return heading('Pipeline detail','A clear handoff from first draft to live content.')+`<div class="page-pad">${stageBar('')}<div class="pipeline-grid">${STAGES.map((s,i)=>{const posts=state.posts.filter(p=>stageOf(p).key===s.key);return `<section class="card pipeline-card t-${s.key}">${ch(si(s.key),`${i+1}. ${s.label}`,'','',`<span class="chip">${posts.length}</span>`)}<p class="muted-s">${s.hint}</p><div class="stack">${posts.map(bcard).join('')||'<p class="col-empty">No content at this stage.</p>'}</div></section>`}).join('')}</div></div>`}
-function team(){const members=state.members||[];return heading('Team / Members','A private contact list for this workspace.')+`<div class="page-pad"><div class="report-grid"><section class="card">${ch('user','Workspace contacts','','',`<span class="chip">${members.length}</span>`)}<div class="stack">${members.map(m=>`<article class="member-row"><span class="avatar">${e(m.name.slice(0,2).toUpperCase())}</span><div><b>${e(m.name)}</b><small>${e(m.role)}</small><p>${e(m.note)}</p></div><button class="btn btn-sm" type="button" data-member-edit="${e(m.id)}">Edit</button><button class="btn btn-sm btn-danger" type="button" data-member-remove="${e(m.id)}">Remove</button></article>`).join('')||'<p class="muted-s">No contacts yet. Add the people involved in your content process.</p>'}</div><p class="foot-note">These are local records. Adding a contact does not invite anyone or grant access.</p></section><section class="card">${ch('plus','Contact details')}<form id="member-form" class="stack"><input type="hidden" name="id"><label class="field">Name<input name="name" maxlength="100" required></label><label class="field">Role<input name="role" maxlength="100" required placeholder="Client approver, writer, designer…"></label><label class="field">Notes<textarea name="note" maxlength="500" rows="3"></textarea></label><div class="btn-row"><button class="btn btn-primary" type="submit">Save contact</button><button class="btn" type="reset">Clear form</button></div></form></section></div><section class="card">${ch('circleok','Current approver')}<p>${e(state.client.approver||'No approver set.')}</p><button class="link card-footer" type="button" data-view="brief">Edit client brief ${arrow}</button></section></div>`}
+const reportMetrics = ['reach','likes','comments','saves','shares','clicks'];
+const reportNotes = [['period','Reporting period','input'],['source','Source and extraction date','input'],
+ ['observations','What happened?'],['test','What we test next'],['needs','What we need from the client']];
+
+function printNotes(values) {
+ const notes = reportNotes.filter(([key]) => String(values[key] || '').trim());
+ return notes.length ? `<h2>Report notes</h2>${notes.map(([key,label]) =>
+  `<div><h3>${label}</h3><p>${e(values[key])}</p></div>`).join('')}` : '';
+}
+
+function refreshReportPrintNotes() {
+ const paper = $('.report-paper');
+ if (!paper) return;
+ const values = Object.fromEntries(reportNotes.map(([key]) => [key,
+  $('.report-page [data-client="'+key+'"]')?.value ?? state.client[key]]));
+ paper.querySelector('.paper-notes').innerHTML = printNotes(values);
+ paper.querySelector('.paper-period').textContent = values.period || 'Reporting period not set';
+}
+
+function printableReport(rows, summary) {
+ return `<article class="report-paper" aria-label="Printable report">
+  <header><p class="paper-brand">${e(state.client.name || 'Client Studio')}</p><h1>Performance report</h1><p><span class="paper-period">${e(state.client.period||'Reporting period not set')}</span> · ${state.demo?'Fictional practice data':'Client-entered data'}</p></header>
+  <dl class="paper-summary">${summary.map(([label,value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl>
+  <h2>Post results</h2>
+  ${rows.length ? `<table><colgroup><col class="paper-post"><col span="8"></colgroup><thead><tr><th scope="col">Post</th>
+   ${[...reportMetrics,'interactions','rate'].map(label => `<th scope="col">${label}</th>`).join('')}</tr></thead>
+   <tbody>${rows.map(({p,m,calc}) => `<tr><th scope="row">${e(p.title)}<small>${e(p.id)} · ${e(p.channel)}</small></th>
+    ${reportMetrics.map(key => `<td>${num(m[key])}</td>`).join('')}<td>${num(calc.interactions)}</td><td>${pct(calc.rate)}</td></tr>`).join('')}</tbody>
+   </table>` : '<p>No posts in this report.</p>'}
+  <p class="paper-key">Interactions = likes + comments + saves + shares. Rate = interactions ÷ reach. A dash marks missing data.</p>
+  <section class="paper-notes">${printNotes(state.client)}</section>
+ </article>`;
+}
+
+function reports(){let valid=state.posts.map(p=>({p,m:state.results[p.id]||{},calc:metrics(state.results[p.id]||{})}));let max=Math.max(1,...valid.map(x=>x.calc.interactions||0));const withData=valid.filter(x=>x.calc.interactions!==null),rates=valid.map(x=>x.calc.rate).filter(r=>r!==null);
+ const subtitle = `${e(state.client.period||'Reporting period not set')} · ${state.demo?'Fictional practice data':'Client-entered data'}`;
+ const summary = [
+  ['Interactions',num(withData.length ? withData.reduce((sum,row)=>sum+row.calc.interactions,0) : null),'Across posts with results','kpi-hero'],
+  ['Avg. engagement rate',pct(rates.length ? rates.reduce((sum,rate)=>sum+rate,0)/rates.length : null),'Average of individual post rates'],
+  ['Posts with results',`${withData.length}<span class="of">/${valid.length}</span>`,'With interaction totals']
+ ];
+ return heading('Reports',subtitle,`<button class="btn no-print" type="button" id="print-report">${icon('print')} Print / PDF</button>`) +
+ printableReport(valid,summary) + `<div class="page-pad report-page">${kpis(summary)}
+ <section class="card flush">${ch('sheet','Post results','','',`<span class="g-hint">Type whole numbers. Blank means not available.</span>`)}<div class="table-wrap report-table" tabindex="0" role="region" aria-label="Editable post results"><table><thead><tr><th>Post</th>${['Reach','Likes','Comments','Saves','Shares','Clicks','Interactions','Rate'].map(x=>'<th class="n">'+x+'</th>').join('')}</tr></thead><tbody>${valid.map(({p,m,calc})=>`<tr><td><span class="t-cell">${si(tone(p))}<span><b>${e(p.title)}</b><small>${e(p.id)} · ${e(p.channel)}</small></span></span></td>${reportMetrics.map(k=>`<td class="n" data-label="${k}"><input type="number" min="0" step="1" inputmode="numeric" aria-label="${e(p.id)} ${k}" data-result="${e(p.id)}" data-key="${k}" value="${m[k]??''}" placeholder="—"></td>`).join('')}<td class="n strong" data-label="Interactions">${num(calc.interactions)}</td><td class="n strong" data-label="Rate">${pct(calc.rate)}</td></tr>`).join('')}</tbody></table></div></section>
+ <p class="foot-note">Interactions = likes + comments + saves + shares. Rate = interactions ÷ reach.</p>
+ <div class="report-grid"><section class="card">${ch('chart','Interactions by post')}<div class="bars">${withData.map(({p,calc})=>`<div class="bar-line"><span class="bl-name">${e(p.title)}</span><span class="bar-track"><span class="bar-fill" style="width:${calc.interactions===null?0:calc.interactions/max*100}%"></span></span><b>${num(calc.interactions)}</b></div>`).join('')||'<p class="muted-s">Add results to compare posts.</p>'}</div></section>
+ <section class="card">${ch('pen','Report notes')}<div class="stack">${reportNotes.map(([k,l,t])=>`<label class="field">${l}${t==='input'?`<input data-client="${k}" value="${e(state.client[k])}">`:`<textarea rows="2" data-client="${k}">${e(state.client[k])}</textarea>`}</label>`).join('')}</div></section></div></div>`}
+function library(){return heading('Guide & templates','Open guides, templates and checklists.')+`<div class="page-pad"><section class="card flush">${ch('book','Included resources')}<div class="res">${[['book','Visual field guide','14 pages of diagrams, review checks and worked examples.','Documents/Visual-Field-Guide.pdf','PDF'],['file','Client document collection','Welcome, brief, strategy and reporting layouts.','Documents/Client-Documents.pdf','PDF'],['pen','Editable documents','Edit in the browser, then save HTML or print to PDF.','Documents/Editable-Documents.html','HTML'],['sheet','Spreadsheet companion','A coordinated five-tab workbook with live task counts.','Documents/Spreadsheet-Companion.xlsx','XLSX']].map(([ic,title,desc,url,type])=>`<a class="res-row" href="${url}"><span class="res-ico">${icon(ic)}</span><span class="res-text"><b>${title}</b><small>${desc}</small></span><span class="chip">${type}</span><span class="res-go">${icon('ext')}</span></a>`).join('')}</div></section><section class="card">${ch('star','Five-minute practice loop')}<ol class="loop"><li>Open Content and run checks on P001.</li><li>Record a fictional decision in Approvals.</li><li>Edit the approved caption. The version increases and approval resets.</li><li>In Reports, compare a blank measure with a zero.</li><li>Export a backup and keep it somewhere you can find.</li></ol></section></div>`}
+function settings(){const sec=(t,d,body)=>`<section class="setrow"><div class="set-l"><h2>${t}</h2><p>${d}</p></div><div class="set-r">${body}</div></section>`;return heading('Settings',`Manage clients, theme and backups · Version ${VERSION}`)+`<div class="page-pad"><section class="card flush">${ch('settings','Studio settings')}<div class="settings">${clientControls()}${sec('Workspace','Shown in the sidebar and on documents.',`<form id="settings-form" class="set-form"><label class="field">Studio or client name<input name="name" value="${e(state.client.name)}" maxlength="100" required></label><label class="field">Initials<input name="initials" value="${e(state.client.initials)}" maxlength="3" required></label><div><button class="btn btn-primary" type="submit">Save</button></div></form>`)}${sec('Appearance','Light is the default. Match device follows your system.',`<div class="seg" role="group" aria-label="Theme">${[['light','Light'],['dark','Dark'],['auto','Match device']].map(([k,l])=>`<button type="button" data-theme-set="${k}" aria-pressed="${ui.theme===k}">${l}</button>`).join('')}</div><p class="muted-s keys"><kbd>⌘K</kbd> command menu <kbd>N</kbd> new content <kbd>/</kbd> search <kbd>F</kbd> focus</p>`)}${sec('Backup','Work saves in this browser when storage is available. Moving the file or clearing browser data can hide or erase it. Export after each session.',`<div class="btn-row"><button class="btn btn-primary" type="button" data-backup>${icon('download')} Export JSON backup</button><button class="btn" type="button" id="import">${icon('upload')} Import backup</button><button class="btn" type="button" data-csv>Export content CSV</button><button class="btn" type="button" id="restore-recovery">Restore recovery copy</button>${damagedStore?'<button class="btn" type="button" id="export-original">Export unreadable original</button>':''}</div><p class="muted-s">Backups include all clients. Import replaces all current clients after confirmation. Backups may contain client information.</p>`)}${sec('Reset','Start empty or reload the fictional demo. Export your current work first.',`<div class="btn-row"><button class="btn btn-danger" type="button" id="clear">Start empty workspace</button><button class="btn" type="button" id="reset">Reload fictional demo</button></div>`)}</div></section></div>`}
+function outcomes(){const c=state.client;return heading('Key outcomes','Track what the content should achieve.')+`<div class="page-pad"><div class="report-grid"><section class="card">${ch('star','North Star')}<div class="stack">${[['goal','North Star statement'],['audience','Who we help'],['offer','What we offer'],['cta','Next step for the audience']].map(([k,l])=>`<label class="field">${l}<textarea rows="3" data-client="${k}">${e(c[k])}</textarea></label>`).join('')}</div></section><section class="card">${ch('trend','What success looks like')}<div class="stack">${[['observations','What we have observed'],['test','What we test next'],['needs','What we need from the client']].map(([k,l])=>`<label class="field">${l}<textarea rows="3" data-client="${k}">${e(c[k])}</textarea></label>`).join('')}</div><button class="link card-footer" type="button" data-view="reports">View measured results ${arrow}</button></section></div><p class="foot-note">Changes save when you leave a field. Use verified observations; results do not prove causation.</p></div>`}
+function pipeline(){return heading('Pipeline detail','See where each post stands.')+`<div class="page-pad">${stageBar('')}<div class="pipeline-grid">${STAGES.map((s,i)=>{const posts=state.posts.filter(p=>stageOf(p).key===s.key);return `<section class="card pipeline-card t-${s.key}">${ch(si(s.key),`${i+1}. ${s.label}`,'','',`<span class="chip">${posts.length}</span>`)}<p class="muted-s">${s.hint}</p><div class="stack">${posts.map(bcard).join('')||'<p class="col-empty">No content at this stage.</p>'}</div></section>`}).join('')}</div></div>`}
+function team(){const members=state.members||[];return heading('Team / Members','Keep workspace contacts together.')+`<div class="page-pad"><div class="report-grid"><section class="card">${ch('user','Workspace contacts','','',`<span class="chip">${members.length}</span>`)}<div class="stack">${members.map(m=>`<article class="member-row"><span class="avatar">${e(m.name.slice(0,2).toUpperCase())}</span><div><b>${e(m.name)}</b><small>${e(m.role)}</small><p>${e(m.note)}</p></div><button class="btn btn-sm" type="button" data-member-edit="${e(m.id)}">Edit</button><button class="btn btn-sm btn-danger" type="button" data-member-remove="${e(m.id)}">Remove</button></article>`).join('')||'<p class="muted-s">No contacts yet. Add the people involved in your content process.</p>'}</div><p class="foot-note">These are local records. Adding a contact does not invite anyone or grant access.</p></section><section class="card">${ch('plus','Contact details')}<form id="member-form" class="stack"><input type="hidden" name="id"><label class="field">Name<input name="name" maxlength="100" required></label><label class="field">Role<input name="role" maxlength="100" required placeholder="Client approver, writer, designer…"></label><label class="field">Notes<textarea name="note" maxlength="500" rows="3"></textarea></label><div class="btn-row"><button class="btn btn-primary" type="submit">Save contact</button><button class="btn" type="reset">Clear form</button></div></form></section></div><section class="card">${ch('circleok','Current approver')}<p>${e(state.client.approver||'No approver set.')}</p><button class="link card-footer" type="button" data-view="brief">Edit client brief ${arrow}</button></section></div>`}
 function render(){const active=document.activeElement,focus=active&&main.contains&&main.contains(active)?{id:active.id,result:active.dataset?.result,key:active.dataset?.key,name:active.name,start:active.selectionStart,end:active.selectionEnd}:null;applyUI();const item=navs.find(x=>x[0]===view)||navs[0];const counts={content:state.posts.filter(p=>!['Published','Scheduled'].includes(next(p))).length,approvals:state.posts.filter(p=>stageOf(p).key==='approval').length};
  $('#nav').innerHTML=navs.filter(x=>!['outcomes','pipeline','team'].includes(x[0])).map(([key,ico,label])=>`<a href="#${key}" aria-label="${label}" class="nav-item ${view===key?'active':''}" ${view===key?'aria-current="page"':''}>${icon(ico)}<span>${label}</span>${counts[key]?`<em class="nav-count">${counts[key]}</em>`:''}</a>`).join('');
  const tb=$('#tabbar');if(tb)tb.innerHTML=[['overview','home','Home'],['content','circleok','Content'],['calendar','calendar','Calendar'],['approvals','bubble','Approvals']].map(([key,ico,label])=>`<a href="#${key}" class="tab ${view===key?'active':''}" ${view===key?'aria-current="page"':''}><span class="tab-ico">${icon(ico)}${counts[key]?`<em class="tab-count">${counts[key]}</em>`:''}</span><span class="tab-label">${label}</span></a>`).join('')+`<button type="button" class="tab ${['overview','content','calendar','approvals'].includes(view)?'':'active'}" data-menu aria-label="More sections"><span class="tab-ico">${icon('more')}</span><span class="tab-label">${['overview','content','calendar','approvals'].includes(view)?'More':e(item[2].split(' ')[0])}</span></button>`;
@@ -615,9 +893,115 @@ function render(){const active=document.activeElement,focus=active&&main.contain
  if(view==='content'&&hlStage){const c=$('#col-'+hlStage);c&&c.scrollIntoView&&c.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});hlStage=''}}
 function closeNav(){const s=$('.sidebar');s&&s.classList.remove('open');const sc=$('#scrim');if(sc)sc.hidden=true}
 function route(){view=location.hash.slice(1)||'overview';if(view==='studio'){view='overview';if(typeof history!=='undefined'&&history.replaceState)history.replaceState(null,'','#overview')}if(!navs.some(x=>x[0]===view))view='overview';render();closeNav();if(typeof scrollTo==='function')scrollTo(0,0)}
-function openEditor(id,date){const p=state.posts.find(x=>x.id===id),f=$('#post-form');f.reset();f.elements.id.value=p?.id||'';$('#editor-title').textContent=p?`${p.id} · v${p.version}`:'New content';for(const k of ['title','channel','date','role','caption','asset','cover','stage','url'])if(p)f.elements[k].value=p[k];if(!p)f.elements.date.value=dateOK(date)?date:isoToday();f.elements.facts.checked=!!p?.facts;f.elements.rights.checked=!!p?.rights;$('#editor').showModal()}
+function openEditor(id,date){const p=state.posts.find(x=>x.id===id),f=$('#post-form');f.reset();f.elements.reviewDue.value=p?.reviewDue||'';
+ $('#attached-image-name').textContent=p?.media?'Image attached':'No image attached';
+ f.elements.removeMedia.disabled=!p?.media;
+ f.elements.id.value=p?.id||'';$('#editor-title').textContent=p?`${p.id} · v${p.version}`:'New content';for(const k of ['title','channel','date','role','caption','asset','cover','stage','url'])if(p)f.elements[k].value=p[k];if(!p)f.elements.date.value=dateOK(date)?date:isoToday();f.elements.facts.checked=!!p?.facts;f.elements.rights.checked=!!p?.rights;$('#editor').showModal()}
 function download(c,name,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([c],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function recovery(){if(DEMO)return true;if(otherTabChanged){toast('Reload before replacing a workspace changed in another tab.');return false}try{localStorage.setItem(KEY+'-recovery',damagedStore?localStorage.getItem(KEY):JSON.stringify(state));damagedStore=false;return true}catch(err){toast('Recovery copy failed. Export a backup before replacing data.');return false}}
+function clientControls() {
+ const options = (state.otherClients || []).map((client, index) =>
+  `<option value="${index}">${e(client.client.name || 'Untitled client')}</option>`).join('');
+ return `<section class="setrow"><div class="set-l"><h2>Clients</h2><p>Each client has a separate brief, posts and reports.</p></div>
+ <div class="set-r"><label class="field">Active client<select id="client-switch"><option value="">${e(state.client.name || 'Untitled client')}</option>${options}</select></label>
+ <button type="button" class="btn" id="new-client">Add client</button></div></section>`;
+}
+
+function activateClient(index, name) {
+ if (!canEdit() || DEMO) return;
+ const {otherClients = [], ...active} = state;
+ const clients = [...otherClients];
+ const target = name ? {schema:2,client:{name,initials:'ST'},posts:[],results:{},demo:false} : clients.splice(index,1)[0];
+ if (!target) return;
+ state = {...target, otherClients:[...clients, active]};
+ search = '';
+ filter = 'All';
+ hlStage = '';
+ save();
+ render();
+}
+
+async function readPostImage(file) {
+ if (!file || !/^(image\/jpeg|image\/png|image\/webp)$/.test(file.type) || file.size > 12000000)
+  throw Error('Choose a JPG, PNG or WebP image under 12 MB.');
+ const url = URL.createObjectURL(file);
+ try {
+  const img = new Image();
+  await new Promise((resolve,reject) => { img.onload=resolve; img.onerror=reject; img.src=url; });
+  const canvas = document.createElement('canvas');
+  const scale = Math.min(1, 1200 / Math.max(img.naturalWidth,img.naturalHeight));
+  canvas.width = Math.max(1,Math.round(img.naturalWidth*scale));
+  canvas.height = Math.max(1,Math.round(img.naturalHeight*scale));
+  const context = canvas.getContext('2d', {alpha:false});
+  context.fillStyle = '#fff';
+  context.fillRect(0,0,canvas.width,canvas.height);
+  context.drawImage(img,0,0,canvas.width,canvas.height);
+  for (const quality of [.85,.65,.45,.25]) {
+   const value = imageData(canvas.toDataURL('image/jpeg',quality));
+   if (value) return value;
+  }
+  throw Error('This image is too detailed. Resize it and try again.');
+ } finally { URL.revokeObjectURL(url); }
+}
+
+function keepSnapshot(post) {
+ post.versions ||= [];
+ if (!post.versions.some(entry => entry.version === post.version)) post.versions.push(snapshot(post));
+}
+
+function snapshotView(entry) {
+ return `<article class="version-card"><h3>${e(entry.title)} · v${entry.version}</h3>
+ <p>${e(entry.channel)} · Publish date ${e(entry.date)}</p>
+ ${entry.media ? `<img src="${imageData(entry.media)}" alt="Post visual">` : `<p>Asset reference: ${e(entry.asset)}</p>`}
+ <p class="version-caption">${e(entry.caption)}</p></article>`;
+}
+
+function showVersions(id) {
+ const post = state.posts.find(item => item.id === id);
+ if (!post) return;
+ const versions = post.versions || [];
+ const current = versions.some(entry => entry.version === post.version) ? [] : [snapshot(post)];
+ const decisions = (post.decisions || []).slice().reverse().map(item =>
+  `<li>v${item.version} · ${e(item.decision)} · ${e(item.person)} · ${e(item.at)}<p>${e(item.evidence)}</p></li>`).join('');
+ $('#version-body').innerHTML = [...versions,...current].reverse().map(snapshotView).join('') +
+  (decisions ? `<h3>Recorded decisions</h3><ul>${decisions}</ul>` : '') +
+  (post.history.length ? `<details><summary>Activity log</summary>${post.history.slice().reverse().map(item =>
+   `<p>${e(item.date)} · ${e(item.note)}</p>`).join('')}</details>` : '');
+ $('#versions').showModal();
+}
+
+let reviewBatch = [];
+
+function previewReviewPack() {
+ if (!canEdit()) return;
+ const selected = new Set([...document.querySelectorAll('[data-review-pick]:checked')].map(input => input.dataset.reviewPick));
+ const posts = state.posts.filter(post => selected.has(post.id));
+ if (!posts.length) return toast('Select at least one post for the review pack.');
+ reviewBatch = posts.map(post => ({id:post.id, version:post.version}));
+ const paper = $('#review-preview');
+ paper.innerHTML = `<header><p class="review-brand">Brief to Approved</p><h1>Content review</h1><p>${e(state.client.name)} · ${isoToday()}</p>
+ <p>Reply with the post ID, version, and your decision: <b>Approve</b> or <b>Request changes</b>. Add notes for any changes.</p></header>` +
+ posts.map(post => `<section class="review-print-post"><p><b>${e(post.id)}</b>${post.reviewDue ? ' · Review by '+e(post.reviewDue) : ''}</p>
+ ${snapshotView(snapshot(post))}</section>`).join('');
+ $('#review-print').innerHTML = paper.innerHTML;
+ $('#review-pack-dialog').showModal();
+}
+
+function markReviewSent() {
+ if (!canEdit()) return;
+ const posts = reviewBatch.map(item => state.posts.find(post => post.id === item.id && post.version === item.version));
+ if (!posts.length || posts.some(post => !post)) return toast('A post has changed. Preview the pack again.');
+ for (const post of posts) {
+  keepSnapshot(post);
+  post.sentAt = new Date().toISOString();
+  post.sentVersion = post.version;
+ }
+ const saved = save();
+ $('#review-pack-dialog').close();
+ render();
+ toast(saved ? 'Review marked as sent.' : 'Review status is in memory only. Export a backup.');
+}
+
 function backup(){download(JSON.stringify(state,null,2),'client-studio-backup.json','application/json');toast('Backup exported.')}
 const csvCell=v=>{let s=String(v??'');if(/^[\s]*[=+@-]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};
 function csv(){const keys=['id','date','channel','role','title','caption','asset','version','approval','approvedVersion','approver','evidence','stage','url'];download([keys.map(csvCell).join(','),...state.posts.map(p=>keys.map(k=>csvCell(p[k])).join(','))].join('\r\n'),'content-plan.csv','text/csv;charset=utf-8');toast('Content CSV exported.')}
@@ -640,6 +1024,14 @@ document.addEventListener('click',ev=>{
  if(b.hasAttribute('data-add'))openEditor();if(b.dataset.addDate)openEditor(null,b.dataset.addDate);if(b.dataset.edit)openEditor(b.dataset.edit);if(b.dataset.view)location.hash=b.dataset.view;if(b.classList.contains('close'))b.closest('dialog').close();
  if(b.dataset.memberEdit){const m=(state.members||[]).find(m=>m.id===b.dataset.memberEdit),f=$('#member-form');if(m&&f){for(const k of ['id','name','role','note'])f.elements[k].value=m[k];f.elements.name.focus()}}
  if(b.dataset.memberRemove&&confirm('Remove this contact? A recovery copy will be kept.')){if(recovery()){state.members=(state.members||[]).filter(m=>m.id!==b.dataset.memberRemove);save();render()}}
+ if(b.dataset.versions)showVersions(b.dataset.versions);
+ if(b.id==='review-pack')previewReviewPack();
+ if(b.id==='print-review-pack')window.print();
+ if(b.id==='mark-review-sent')markReviewSent();
+ if(b.id==='new-client'&&canEdit()&&!DEMO){
+  const name=prompt('Client name')?.trim().slice(0,100);
+  if(name)activateClient(null,name);
+ }
  if(b.dataset.approve)openApproval(b.dataset.approve);
  if(b.dataset.stage)setStage(b.dataset.id,b.dataset.stage);
  if(b.dataset.stagefocus){hlStage=b.dataset.stagefocus;filter='All';search='';ui.layout='board';saveUI();if(view==='content')render();else location.hash='content'}
@@ -653,9 +1045,9 @@ document.addEventListener('click',ev=>{
  if(b.id==='mobile-menu'||b.hasAttribute('data-menu')){const s=$('.sidebar');s.classList.toggle('open');const sc=$('#scrim');if(sc)sc.hidden=!s.classList.contains('open')}
  if(b.id==='restore-recovery'){try{const raw=localStorage.getItem(KEY+'-recovery');if(!raw)return toast('No recovery copy available.');const restored=validate(JSON.parse(raw));if(confirm('Restore the recovery copy? Current work will become the new recovery copy.')&&recovery()){state=restored;save();render();toast('Recovery restored.')}}catch(err){toast('Recovery copy could not be read.')}}
  if(b.id==='export-original'){const raw=localStorage.getItem(KEY);if(raw)download(raw,'original-workspace.json','application/json')}
- if(b.id==='print-report')window.print();if(b.id==='import')$('#import-file').click();
- if(b.id==='clear'&&confirm('Start empty? This replaces the current workspace. Export a backup first.')&&recovery()){state={schema:2,demo:false,client:{name:'Your studio',initials:'ST'},posts:[],results:{}};save();render();toast('Empty workspace ready. Start with the brief.')}
- if(b.id==='reset'&&confirm('Replace this workspace with the fictional demo? Export a backup first.')&&recovery()){state=demo();save();render();toast('Fictional demo restored.')}});
+ if(b.id==='print-report'){refreshReportPrintNotes();window.print();}if(b.id==='import')$('#import-file').click();
+ if(b.id==='clear'&&confirm('Start empty? This replaces the current workspace. Export a backup first.')&&recovery()){state={schema:2,demo:false,client:{name:'Your studio',initials:'ST'},posts:[],results:{},otherClients:state.otherClients};save();render();toast('Empty workspace ready. Start with the brief.')}
+ if(b.id==='reset'&&confirm('Replace this workspace with the fictional demo? Export a backup first.')&&recovery()){state={...demo(),otherClients:state.otherClients};save();render();toast('Fictional demo restored.')}});
 document.addEventListener('keydown',ev=>{const k=(ev.key||'').toLowerCase();
  if((ev.metaKey||ev.ctrlKey)&&k==='k'){ev.preventDefault();const d=$('#cmdk');d.open?d.close():cmdOpen();return}
  const d=$('#cmdk');if(d&&d.open){if(k==='arrowdown'||k==='arrowup'){ev.preventDefault();cmdActive=(cmdActive+(k==='arrowdown'?1:-1)+cmdItems.length)%Math.max(1,cmdItems.length);cmdRender();const on=document.querySelector('.cmdk-item.on');on&&on.scrollIntoView&&on.scrollIntoView({block:'nearest'})}else if(k==='enter'){ev.preventDefault();cmdRun(cmdActive)}return}
@@ -663,13 +1055,44 @@ document.addEventListener('keydown',ev=>{const k=(ev.key||'').toLowerCase();
  if(k==='n'){ev.preventDefault();openEditor()}else if(k==='/'){ev.preventDefault();if(view!=='content')location.hash='content';setTimeout(()=>{const s=$('#search');s&&s.focus&&s.focus()},30)}else if(k==='f'){ev.preventDefault();toggleFocus()}});
 $('#cmdk-q').addEventListener('input',()=>{cmdActive=0;cmdRender()});
 $('#post-form').addEventListener('keydown',ev=>{if(ev.key==='Enter'&&(ev.metaKey||ev.ctrlKey)){ev.preventDefault();ev.currentTarget.requestSubmit&&ev.currentTarget.requestSubmit()}});
-$('#post-form').addEventListener('submit',ev=>{ev.preventDefault();if(!canEdit())return;const f=ev.target,v=Object.fromEntries(new FormData(f));if(!dateOK(v.date))return toast('Choose a valid date.');v.facts=f.elements.facts.checked;v.rights=f.elements.rights.checked;v.title=v.title.trim();v.caption=v.caption.trim();v.asset=v.asset.trim();if(!v.title||!v.caption||!v.asset)return toast('Add the title, caption and asset reference.');let old=state.posts.find(x=>x.id===v.id);if(old){let p=revise(old,v);if(p.version!==old.version)p.history=[...old.history,{date:isoToday(),note:`Edited to version ${p.version}; approval cleared.`}];state.posts[state.posts.indexOf(old)]=p}else{if(state.posts.length>=500)return toast('This workspace supports up to 500 posts.');v.id='P'+Date.now().toString(36);while(state.posts.some(p=>p.id===v.id))v.id+='x';state.posts.push({...v,version:1,approval:'Pending',approvedVersion:null,approver:'',evidence:'',history:[]})}f.elements.id.value=v.id;const saved=save();$('#editor').close();render();if(saved)toast('Saved.');else toast('Changes are in memory only. Export a backup before closing.')});
-$('#approval-form').addEventListener('submit',ev=>{ev.preventDefault();if(!canEdit())return;const f=ev.target,v=Object.fromEntries(new FormData(f)),p=state.posts.find(x=>x.id===v.id);if(!p||['Complete draft','Review checks'].includes(next(p)))return toast('Complete the draft and review checks first.');if(!v.person.trim()||!v.evidence.trim())return toast('Add the approver and evidence.');p.approval=v.decision;p.approvedVersion=v.decision==='Approved'?p.version:null;p.approver=v.person.trim();p.evidence=v.evidence.trim();p.history.push({date:isoToday(),note:`${v.decision} for version ${p.version} by ${p.approver}. ${p.evidence}`});const saved=save();$('#approval').close();render();toast(!saved?'Decision is in memory only. Export a backup before closing.':v.decision==='Approved'?`Approved · version ${p.version}`:'Changes requested · recorded')});
+$('#post-form').addEventListener('submit',async ev=>{ev.preventDefault();if(!canEdit())return;const f=ev.target,v=Object.fromEntries(new FormData(f));if(!dateOK(v.date))return toast('Choose a valid date.');v.facts=f.elements.facts.checked;v.rights=f.elements.rights.checked;v.title=v.title.trim();v.caption=v.caption.trim();v.asset=v.asset.trim();if(!v.title||!v.caption||!v.asset)return toast('Add the title, caption and asset reference.');let old=state.posts.find(x=>x.id===v.id);
+ const file=f.elements.mediaFile.files?.[0];
+ delete v.mediaFile;
+ delete v.removeMedia;
+ v.media=old?.media || '';
+ if (f.elements.removeMedia.checked) v.media='';
+ if (file) {
+  const submit=f.querySelector('[type=submit]');
+  const workspace=state;
+  submit.disabled=true;
+  try { v.media=await readPostImage(file); }
+  catch (err) { toast(err.message || 'Image could not be opened.'); return; }
+  finally { submit.disabled=false; }
+  if (!canEdit() || workspace!==state || !$('#editor').open || f.elements.id.value!==v.id) return;
+ }
+ v.reviewDue=dateOK(v.reviewDue)?v.reviewDue:'';
+ if(old){if(!v.media && !old.media && old.media===undefined) delete v.media;
+  let p=revise(old,v);
+  if(p.version!==old.version && old.approvedVersion===old.version) {
+   keepSnapshot(old);
+   p.versions=old.versions;
+  }if(p.version!==old.version)p.history=[...old.history,{date:isoToday(),note:`Edited to version ${p.version}; approval cleared.`}];state.posts[state.posts.indexOf(old)]=p}else{if(state.posts.length>=500)return toast('This workspace supports up to 500 posts.');v.id='P'+Date.now().toString(36);while(state.posts.some(p=>p.id===v.id))v.id+='x';state.posts.push({...v,version:1,approval:'Pending',approvedVersion:null,approver:'',evidence:'',history:[]})}f.elements.id.value=v.id;const saved=save();$('#editor').close();render();if(saved)toast('Saved.');else toast('Changes are in memory only. Export a backup before closing.')});
+$('#approval-form').addEventListener('submit',ev=>{ev.preventDefault();if(!canEdit())return;const f=ev.target,v=Object.fromEntries(new FormData(f)),p=state.posts.find(x=>x.id===v.id);if(!p||['Complete draft','Review checks'].includes(next(p)))return toast('Complete the draft and review checks first.');if(!v.person.trim()||!v.evidence.trim())return toast('Add the approver and evidence.');keepSnapshot(p);
+ p.decisions ||= [];
+ p.decisions.push({version:p.version,at:new Date().toISOString(),person:v.person.trim(),decision:v.decision,evidence:v.evidence.trim()});
+ p.approval=v.decision;p.approvedVersion=v.decision==='Approved'?p.version:null;p.approver=v.person.trim();p.evidence=v.evidence.trim();p.history.push({date:isoToday(),note:`${v.decision} for version ${p.version} by ${p.approver}. ${p.evidence}`});const saved=save();$('#approval').close();render();toast(!saved?'Decision is in memory only. Export a backup before closing.':v.decision==='Approved'?`Approved · version ${p.version}`:'Changes requested · recorded')});
 main.addEventListener('submit',ev=>{if(ev.target.getAttribute('id')==='member-form'){ev.preventDefault();if(!canEdit())return;const v=Object.fromEntries(new FormData(ev.target));v.name=v.name.trim();v.role=v.role.trim();if(!v.name||!v.role)return toast('Add a name and role.');state.members||=[];const old=state.members.find(m=>m.id===v.id);if(old)Object.assign(old,v);else{if(state.members.length>=100)return toast('Maximum 100 contacts.');v.id='M'+Date.now().toString(36);while(state.members.some(m=>m.id===v.id))v.id+='x';state.members.push({...v})}ev.target.elements.id.value=v.id;const saved=save();render();toast(saved?'Contact saved.':'Contact kept in memory. Export a backup before closing.');return}if(!['brief-form','settings-form'].includes(ev.target.id))return;ev.preventDefault();if(!canEdit())return;Object.assign(state.client,Object.fromEntries(new FormData(ev.target)));const saved=save();render();toast(saved?(ev.target.id==='brief-form'?'Brief saved.':'Workspace saved.'):'Changes are in memory only. Export a backup before closing.')});
 main.addEventListener('input',ev=>{if(ev.target.id==='search'){search=ev.target.value;$('#post-grid').innerHTML=area()}});
-main.addEventListener('change',ev=>{const t=ev.target;if((t.dataset.client||t.dataset.result)&&!canEdit()){render();return}if(t.id==='filter'){filter=t.value;render()}if(t.dataset.client){state.client[t.dataset.client]=t.value.slice(0,5000);save()}if(t.dataset.result){const val=t.value===''?null:Number(t.value);if(val!==null&&(!Number.isSafeInteger(val)||val<0)){toast('Use a safe whole number of zero or more.');render();return}state.results[t.dataset.result]??={};state.results[t.dataset.result][t.dataset.key]=val;save();render()}});
-$('#import-file').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;try{if(f.size>5e6)throw Error('Choose a backup smaller than 5 MB.');const nextState=validate(JSON.parse(await f.text()));if(confirm('Replace the current workspace with this backup? Export current work first.')&&recovery()){state=nextState;save();render();toast('Backup restored.')}}catch(err){toast(err.message||'This file could not be imported.')}ev.target.value=''});
+main.addEventListener('change',ev=>{const t=ev.target;if(t.dataset?.reviewPick){
+ const total=main.querySelectorAll('[data-review-pick]:checked').length;
+ const preview=$('#review-pack');
+ preview.disabled=total===0;
+ preview.textContent=total ? `Preview review pack (${total})` : 'Preview review pack';
+ return;
+}if(t.id==='client-switch'&&t.value!==''){activateClient(Number(t.value));return}if((t.dataset.client||t.dataset.result)&&!canEdit()){render();return}if(t.id==='filter'){filter=t.value;render()}if(t.dataset.client){state.client[t.dataset.client]=t.value.slice(0,5000);save()}if(t.dataset.result){const val=t.value===''?null:Number(t.value);if(val!==null&&(!Number.isSafeInteger(val)||val<0)){toast('Use a safe whole number of zero or more.');render();return}state.results[t.dataset.result]??={};state.results[t.dataset.result][t.dataset.key]=val;save();render()}});
+$('#import-file').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;try{const nextState=validate(JSON.parse(await f.text()));if(confirm('Replace all current clients with this backup? Export current work first.')&&recovery()){state=nextState;save();render();toast('Backup restored.')}}catch(err){toast(err.message||'This file could not be imported.')}ev.target.value=''});
 addEventListener('storage',ev=>{if(!DEMO&&ev.key===KEY){otherTabChanged=true;toast('Workspace changed in another tab. Export this tab, then reload before saving.')}});
+addEventListener('beforeprint',refreshReportPrintNotes);
 addEventListener('hashchange',route);if(typeof matchMedia==='function'){const mq=matchMedia('(prefers-color-scheme: dark)');mq.addEventListener?.('change',()=>{if(ui.theme==='auto')applyUI()})}route();openDatabase();
 if(DEMO){const bar=$('#demo-bar');if(bar)bar.hidden=false}
 else if(typeof navigator!=='undefined'&&'serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&document.querySelector('link[rel=manifest]'))navigator.serviceWorker.register('sw.js').catch(()=>{});
