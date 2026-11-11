@@ -560,6 +560,8 @@ dialog{color:var(--ink)}
 }
 
 @media screen{.home .hero{display:flex;align-items:center;width:100%}.home .hero-actions{margin-top:18px}}
+
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -599,7 +601,7 @@ dialog{color:var(--ink)}
   </div>
   <div class="checks"><label class="toggle"><input name="facts" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Facts checked</b><small>Claims match the brief</small></span></label><label class="toggle"><input name="rights" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Asset rights checked</b><small>Usage confirmed</small></span></label></div>
  </div>
- <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover, image or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
+ <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover, image or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost" id="dup-post" hidden>Duplicate</button><button type="button" class="btn btn-danger" id="del-post" hidden>Delete</button><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
 </form></dialog>
 
 <dialog id="versions" class="sheet" aria-labelledby="versions-title">
@@ -688,7 +690,8 @@ const arrow=icon('arrow');
 const ART_KEYS=['soup','menu','coffee','studio-art','thumb-soup','thumb-coffee','thumb-menu','thumb-approval'];const artOf=k=>(typeof ART!=='undefined'&&ART[ART_KEYS.includes(k)?k:'soup'])||'';
 const DEMO='0'==='1';const VERSION='4.1';
 let state,storeOK=true,unreadableData=false;if(DEMO)state=demo();else try{const saved=localStorage.getItem(KEY);try{state=saved?validate(JSON.parse(saved)):demo()}catch(err){state=demo();unreadableData=!!saved;storeOK=false}}catch(err){state=demo();storeOK=false}
-let view='overview',search='',filter='All',month=10,year=2026,hlStage='';
+let view='overview',search='',filter='All',month=new Date().getMonth(),year=new Date().getFullYear(),hlStage='';
+function calStart(){const d=state.demo&&state.posts.map(p=>p.date).filter(dateOK).sort()[0];if(d){year=+d.slice(0,4);month=+d.slice(5,7)-1}else{const t=new Date();year=t.getFullYear();month=t.getMonth()}}calStart();
 const UIKEY='brief-approved-ui-v5';let ui={theme:'light',focus:false,layout:'list'};
 try{Object.assign(ui,JSON.parse(localStorage.getItem(UIKEY)||'{}'))}catch(err){}
 function saveUI(){try{localStorage.setItem(UIKEY,JSON.stringify(ui))}catch(err){}}
@@ -705,7 +708,7 @@ function openDatabase(){if(!storageLoading){storageMode=storeOK?'localStorage':'
  request.onblocked=()=>{storageLoading=false;storageMode=storeOK?'localStorage':'memory';render();toast('Storage upgrade blocked. Close other app tabs, then reload.')};
  request.onerror=()=>{storageLoading=false;storageMode=storeOK?'localStorage':'memory';render()};
  request.onsuccess=()=>{db=request.result;db.onversionchange=()=>{db.close();db=null;otherTabChanged=true;toast('Storage version changed. Export this tab, then reload.');render()};
- try{const tx=db.transaction('workspace','readonly'),read=tx.objectStore('workspace').get('current');let raw;read.onsuccess=()=>{raw=read.result};tx.oncomplete=()=>{try{if(raw){const stored=validate(raw);if(damagedStore||(Number(stored.savedAt)||0)>(Number(state.savedAt)||0)){state=stored;damagedStore=false}}storageMode='IndexedDB';storeOK=true;if(!damagedStore&&!raw)writeDatabase(state)}catch(err){storageMode='localStorage';toast('Stored database could not be read. Using browser recovery data.')}storageLoading=false;render()};tx.onerror=tx.onabort=()=>{storageLoading=false;storageMode=storeOK?'localStorage':'memory';render()}}catch(err){storageLoading=false;storageMode=storeOK?'localStorage':'memory';render()}}
+ try{const tx=db.transaction('workspace','readonly'),read=tx.objectStore('workspace').get('current');let raw;read.onsuccess=()=>{raw=read.result};tx.oncomplete=()=>{try{if(raw){const stored=validate(raw);if(damagedStore||(Number(stored.savedAt)||0)>(Number(state.savedAt)||0)){state=stored;damagedStore=false;calStart()}}storageMode='IndexedDB';storeOK=true;if(!damagedStore&&!raw)writeDatabase(state)}catch(err){storageMode='localStorage';toast('Stored database could not be read. Using browser recovery data.')}storageLoading=false;render()};tx.onerror=tx.onabort=()=>{storageLoading=false;storageMode=storeOK?'localStorage':'memory';render()}}catch(err){storageLoading=false;storageMode=storeOK?'localStorage':'memory';render()}}
 }
 
 function canEdit(){if(storageLoading){toast('Storage is still loading.');return false}if(otherTabChanged){toast('Workspace changed in another tab. Export this tab, then reload before saving.');return false}if(damagedStore){toast('Saved data could not be read. Export the original from Settings before replacing it.');return false}return true}
@@ -773,7 +776,7 @@ function overview(){
  const lib=`<section class="card visual-card">${ch('image','Visual Library','View all assets','assets')}<div class="vgrid">${[['soup','a little lunch.','The daily soup.'],['menu','Lunch looks good on you.','Lunch menu.'],['coffee','a quiet moment.','Coffee moment.'],['studio-art','A lovely yes.','Studio still life.']].map(([id,t,caption])=>`<a class="vtile" href="#assets"><img src="${artOf(id)}" alt=""><span class="vtile-copy"><b>${t}</b><small>${caption}</small></span></a>`).join('')}</div></section>`;
  return heading('Overview','')+`<div class="page-pad home">${ui.focus?'<section class="focus-notice" aria-label="Focus mode"><div><b>Focus mode is on</b><p>Only your next step is shown. Show the full dashboard to see your other sections.</p></div><button class="btn btn-primary" type="button" data-focus>Show full dashboard</button></section>':''}${step}<div class="dashboard-grid focus-hide">${stageBar(p?stageOf(p).key:'')}<div class="trio">${coming}${approvalsCard}${star}</div>${lib}</div></div>`;
 }
-const matches=p=>(p.title+' '+p.caption+' '+p.id).toLowerCase().includes(search.toLowerCase())&&(filter==='All'||next(p)===filter);
+const matches=p=>(p.title+' '+p.caption+' '+p.id+' '+p.channel+' '+p.asset).toLowerCase().includes(search.toLowerCase())&&(filter==='All'||next(p)===filter);
 function area(){const posts=state.posts.filter(matches);if(!state.posts.length)return empty();
  if(ui.layout==='board')return `<div class="board">${STAGES.map(s=>{const items=posts.filter(p=>stageOf(p).key===s.key);return `<section class="col ${hlStage===s.key?'hl':''}" id="col-${s.key}" aria-label="${s.label}"><header>${si(s.key)}<b>${s.label}</b><span class="count">${items.length}</span></header><div class="col-body">${items.map(bcard).join('')||`<div class="col-empty">${s.hint}</div>`}</div></section>`}).join('')}</div>`;
  if(!posts.length)return `<div class="empty slim"><h2>No matching content</h2><p>Try another search or filter.</p></div>`;
@@ -816,7 +819,7 @@ function brief() {
   ['Strategy',['goal','audience','offer','voice','cta']],
   ['Client details',['name','approver','timezone','facts','assets']]
  ];
- return heading('Client brief','',`<div class="brief-progress"><progress max="${briefFields.length}" value="${filled}" aria-label="Brief completion"></progress><span>${filled} of ${briefFields.length} complete</span></div><button class="btn btn-primary" type="submit" form="brief-form">Save brief</button>`) +
+ return heading('Client brief','',`<div class="brief-progress"><progress max="${briefFields.length}" value="${filled}" aria-label="Brief completion"></progress><span>${filled} of ${briefFields.length} complete</span></div><button class="btn" type="button" data-view="team">${icon('user')} Team contacts</button><button class="btn btn-primary" type="submit" form="brief-form">Save brief</button>`) +
   `<form id="brief-form" class="page-pad brief-grid">${groups.map(([title,keys]) => `<section class="card brief-panel"><h2>${title}</h2>
    ${keys.map(key => {
     const [,label,hint] = briefFields.find(field => field[0] === key);
@@ -870,7 +873,7 @@ function reports(){let valid=state.posts.map(p=>({p,m:state.results[p.id]||{},ca
   ['Avg. engagement rate',pct(rates.length ? rates.reduce((sum,rate)=>sum+rate,0)/rates.length : null),'Average of individual post rates'],
   ['Posts with results',`${withData.length}<span class="of">/${valid.length}</span>`,'With interaction totals']
  ];
- return heading('Reports',subtitle,`<button class="btn no-print" type="button" id="print-report">${icon('print')} Print / PDF</button>`) +
+ return heading('Reports',subtitle,`<button class="btn no-print" type="button" data-view="outcomes">${icon('trend')} Key outcomes</button><button class="btn no-print" type="button" id="print-report">${icon('print')} Print / PDF</button>`) +
  printableReport(valid,summary) + `<div class="page-pad report-page">${kpis(summary)}
  <section class="card flush">${ch('sheet','Post results','','',`<span class="g-hint">Type whole numbers. Blank means not available.</span>`)}<div class="table-wrap report-table" tabindex="0" role="region" aria-label="Editable post results"><table><thead><tr><th>Post</th>${['Reach','Likes','Comments','Saves','Shares','Clicks','Interactions','Rate'].map(x=>'<th class="n">'+x+'</th>').join('')}</tr></thead><tbody>${valid.map(({p,m,calc})=>`<tr><td><span class="t-cell">${si(tone(p))}<span><b>${e(p.title)}</b><small>${e(p.id)} · ${e(p.channel)}</small></span></span></td>${reportMetrics.map(k=>`<td class="n" data-label="${k}"><input type="number" min="0" step="1" inputmode="numeric" aria-label="${e(p.id)} ${k}" data-result="${e(p.id)}" data-key="${k}" value="${m[k]??''}" placeholder="—"></td>`).join('')}<td class="n strong" data-label="Interactions">${num(calc.interactions)}</td><td class="n strong" data-label="Rate">${pct(calc.rate)}</td></tr>`).join('')}</tbody></table></div></section>
  <p class="foot-note">Interactions = likes + comments + saves + shares. Rate = interactions ÷ reach.</p>
@@ -895,7 +898,11 @@ function route(){view=location.hash.slice(1)||'overview';if(view==='studio'){vie
 function openEditor(id,date){const p=state.posts.find(x=>x.id===id),f=$('#post-form');f.reset();f.elements.reviewDue.value=p?.reviewDue||'';
  $('#attached-image-name').textContent=p?.media?'Image attached':'No image attached';
  f.elements.removeMedia.disabled=!p?.media;
- f.elements.id.value=p?.id||'';$('#editor-title').textContent=p?`${p.id} · v${p.version}`:'New content';for(const k of ['title','channel','date','role','caption','asset','cover','stage','url'])if(p)f.elements[k].value=p[k];if(!p)f.elements.date.value=dateOK(date)?date:isoToday();f.elements.facts.checked=!!p?.facts;f.elements.rights.checked=!!p?.rights;$('#editor').showModal()}
+ f.elements.id.value=p?.id||'';$('#editor-title').textContent=p?`${p.id} · v${p.version}`:'New content';for(const k of ['title','channel','date','role','caption','asset','cover','stage','url'])if(p)f.elements[k].value=p[k];if(!p)f.elements.date.value=dateOK(date)?date:isoToday();f.elements.facts.checked=!!p?.facts;f.elements.rights.checked=!!p?.rights;$('#dup-post').hidden=$('#del-post').hidden=!p;$('#editor').showModal()}
+function newId(){let id='P'+Date.now().toString(36);while(state.posts.some(p=>p.id===id))id+='x';return id}
+function dupPost(id){if(!canEdit())return;const p=state.posts.find(x=>x.id===id);if(!p)return;if(state.posts.length>=500)return toast('This workspace supports up to 500 posts.');const c={...JSON.parse(JSON.stringify(p)),id:newId(),title:(p.title+' (copy)').slice(0,140),version:1,facts:false,rights:false,approval:'Pending',approvedVersion:null,approver:'',evidence:'',stage:'Draft',url:'',history:[{date:isoToday(),note:`Duplicated from ${p.id}.`}],versions:[],decisions:[],sentAt:'',sentVersion:null};state.posts.push(c);state.results[c.id]={reach:null,likes:null,comments:null,saves:null,shares:null,clicks:null};const saved=save();$('#editor').close();render();openEditor(c.id);toast(saved?'Duplicated as a new draft. Run checks again.':'Copy is in memory only. Export a backup.')}
+function delPost(id){if(!canEdit())return;const p=state.posts.find(x=>x.id===id);if(!p||!confirm(`Delete "${p.title}"? A recovery copy will be kept.`)||!recovery())return;state.posts=state.posts.filter(x=>x!==p);delete state.results[id];const saved=save();$('#editor').close();render();toast(saved?'Content deleted. Restore it from Settings if needed.':'Deleted in memory only. Export a backup.')}
+function removeClient(){if(!canEdit()||DEMO)return;const others=state.otherClients||[];if(!others.length)return toast('Add another client before removing this one.');if(!confirm(`Remove client "${state.client.name||'Untitled client'}" with its brief, posts and reports? A recovery copy will be kept.`)||!recovery())return;const [nextClient,...rest]=others;state={...nextClient,otherClients:rest};search='';filter='All';hlStage='';calStart();save();render();toast('Client removed. Restore it from Settings if needed.')}
 function download(c,name,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([c],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 function recovery(){if(DEMO)return true;if(otherTabChanged){toast('Reload before replacing a workspace changed in another tab.');return false}try{localStorage.setItem(KEY+'-recovery',damagedStore?localStorage.getItem(KEY):JSON.stringify(state));damagedStore=false;return true}catch(err){toast('Recovery copy failed. Export a backup before replacing data.');return false}}
 function clientControls() {
@@ -903,7 +910,7 @@ function clientControls() {
   `<option value="${index}">${e(client.client.name || 'Untitled client')}</option>`).join('');
  return `<section class="setrow"><div class="set-l"><h2>Clients</h2><p>Each client has a separate brief, posts and reports.</p></div>
  <div class="set-r"><label class="field">Active client<select id="client-switch"><option value="">${e(state.client.name || 'Untitled client')}</option>${options}</select></label>
- <button type="button" class="btn" id="new-client">Add client</button></div></section>`;
+ <div class="btn-row"><button type="button" class="btn" id="new-client">Add client</button>${options?'<button type="button" class="btn btn-danger" id="remove-client">Remove active client</button>':''}</div></div></section>`;
 }
 
 function activateClient(index, name) {
@@ -916,6 +923,7 @@ function activateClient(index, name) {
  search = '';
  filter = 'All';
  hlStage = '';
+ calStart();
  save();
  render();
 }
@@ -1003,7 +1011,7 @@ function markReviewSent() {
 
 function backup(){download(JSON.stringify(state,null,2),'client-studio-backup.json','application/json');toast('Backup exported.')}
 const csvCell=v=>{let s=String(v??'');if(/^[\s]*[=+@-]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};
-function csv(){const keys=['id','date','channel','role','title','caption','asset','version','approval','approvedVersion','approver','evidence','stage','url'];download([keys.map(csvCell).join(','),...state.posts.map(p=>keys.map(k=>csvCell(p[k])).join(','))].join('\r\n'),'content-plan.csv','text/csv;charset=utf-8');toast('Content CSV exported.')}
+function csv(){const keys=['id','date','reviewDue','channel','role','title','caption','asset','version','approval','approvedVersion','approver','evidence','stage','url'];download([keys.map(csvCell).join(','),...state.posts.map(p=>keys.map(k=>csvCell(p[k])).join(','))].join('\r\n'),'content-plan.csv','text/csv;charset=utf-8');toast('Content CSV exported.')}
 function setStage(id,stage){if(!canEdit())return;const p=state.posts.find(x=>x.id===id);if(!p)return;const n=next(p);if(stage==='Scheduled'&&n!=='Ready to schedule')return toast('Only approved content can be scheduled.');if(stage==='Published'&&n!=='Scheduled')return;p.stage=stage;p.history.push({date:isoToday(),note:`Marked ${stage.toLowerCase()} (version ${p.version}).`});const saved=save();render();if(stage==='Published')openEditor(id);toast(!saved?'Changes are in memory only. Export a backup before closing.':stage==='Published'?'Marked published. Add the live URL.':'Marked scheduled.')}
 function toggleFocus(){ui.focus=!ui.focus;saveUI();if(ui.focus&&view!=='overview')location.hash='overview';else render();toast(ui.focus?'Focus on. Just the next step.':'Focus off.')}
 function openApproval(id){const p=state.posts.find(x=>x.id===id);if(!p||next(p)==='Review checks'||next(p)==='Complete draft')return;const f=$('#approval-form');f.reset();f.elements.id.value=p.id;f.elements.person.value=state.client.approver||'';$('#approval-context').textContent=`${p.title} · version ${p.version}`;$('#approval').showModal()}
@@ -1024,6 +1032,7 @@ document.addEventListener('click',ev=>{
  if(b.dataset.memberEdit){const m=(state.members||[]).find(m=>m.id===b.dataset.memberEdit),f=$('#member-form');if(m&&f){for(const k of ['id','name','role','note'])f.elements[k].value=m[k];f.elements.name.focus()}}
  if(b.dataset.memberRemove&&confirm('Remove this contact? A recovery copy will be kept.')){if(recovery()){state.members=(state.members||[]).filter(m=>m.id!==b.dataset.memberRemove);save();render()}}
  if(b.dataset.versions)showVersions(b.dataset.versions);
+ if(b.id==='dup-post')dupPost($('#post-form').elements.id.value);if(b.id==='del-post')delPost($('#post-form').elements.id.value);if(b.id==='remove-client')removeClient();
  if(b.id==='review-pack')previewReviewPack();
  if(b.id==='print-review-pack')window.print();
  if(b.id==='mark-review-sent')markReviewSent();
@@ -1042,11 +1051,11 @@ document.addEventListener('click',ev=>{
  if(b.dataset.month){month+=Number(b.dataset.month);if(month<0){month=11;year--}if(month>11){month=0;year++}render()}
  if(b.hasAttribute('data-backup')||b.id==='side-export')backup();if(b.hasAttribute('data-csv'))csv();
  if(b.id==='mobile-menu'||b.hasAttribute('data-menu')){const s=$('.sidebar');s.classList.toggle('open');const sc=$('#scrim');if(sc)sc.hidden=!s.classList.contains('open')}
- if(b.id==='restore-recovery'){try{const raw=localStorage.getItem(KEY+'-recovery');if(!raw)return toast('No recovery copy available.');const restored=validate(JSON.parse(raw));if(confirm('Restore the recovery copy? Current work will become the new recovery copy.')&&recovery()){state=restored;save();render();toast('Recovery restored.')}}catch(err){toast('Recovery copy could not be read.')}}
+ if(b.id==='restore-recovery'){try{const raw=localStorage.getItem(KEY+'-recovery');if(!raw)return toast('No recovery copy available.');const restored=validate(JSON.parse(raw));if(confirm('Restore the recovery copy? Current work will become the new recovery copy.')&&recovery()){state=restored;calStart();save();render();toast('Recovery restored.')}}catch(err){toast('Recovery copy could not be read.')}}
  if(b.id==='export-original'){const raw=localStorage.getItem(KEY);if(raw)download(raw,'original-workspace.json','application/json')}
  if(b.id==='print-report'){refreshReportPrintNotes();window.print();}if(b.id==='import')$('#import-file').click();
  if(b.id==='clear'&&confirm('Start empty? This replaces the current workspace. Export a backup first.')&&recovery()){state={schema:2,demo:false,client:{name:'Your studio',initials:'ST'},posts:[],results:{},otherClients:state.otherClients};save();render();toast('Empty workspace ready. Start with the brief.')}
- if(b.id==='reset'&&confirm('Replace this workspace with the fictional demo? Export a backup first.')&&recovery()){state={...demo(),otherClients:state.otherClients};save();render();toast('Fictional demo restored.')}});
+ if(b.id==='reset'&&confirm('Replace this workspace with the fictional demo? Export a backup first.')&&recovery()){state={...demo(),otherClients:state.otherClients};calStart();save();render();toast('Fictional demo restored.')}});
 document.addEventListener('keydown',ev=>{const k=(ev.key||'').toLowerCase();
  if((ev.metaKey||ev.ctrlKey)&&k==='k'){ev.preventDefault();const d=$('#cmdk');d.open?d.close():cmdOpen();return}
  const d=$('#cmdk');if(d&&d.open){if(k==='arrowdown'||k==='arrowup'){ev.preventDefault();cmdActive=(cmdActive+(k==='arrowdown'?1:-1)+cmdItems.length)%Math.max(1,cmdItems.length);cmdRender();const on=document.querySelector('.cmdk-item.on');on&&on.scrollIntoView&&on.scrollIntoView({block:'nearest'})}else if(k==='enter'){ev.preventDefault();cmdRun(cmdActive)}return}
@@ -1075,7 +1084,7 @@ $('#post-form').addEventListener('submit',async ev=>{ev.preventDefault();if(!can
   if(p.version!==old.version && old.approvedVersion===old.version) {
    keepSnapshot(old);
    p.versions=old.versions;
-  }if(p.version!==old.version)p.history=[...old.history,{date:isoToday(),note:`Edited to version ${p.version}; approval cleared.`}];state.posts[state.posts.indexOf(old)]=p}else{if(state.posts.length>=500)return toast('This workspace supports up to 500 posts.');v.id='P'+Date.now().toString(36);while(state.posts.some(p=>p.id===v.id))v.id+='x';state.posts.push({...v,version:1,approval:'Pending',approvedVersion:null,approver:'',evidence:'',history:[]})}f.elements.id.value=v.id;const saved=save();$('#editor').close();render();if(saved)toast('Saved.');else toast('Changes are in memory only. Export a backup before closing.')});
+  }if(p.version!==old.version)p.history=[...old.history,{date:isoToday(),note:`Edited to version ${p.version}; approval cleared.`}];state.posts[state.posts.indexOf(old)]=p}else{if(state.posts.length>=500)return toast('This workspace supports up to 500 posts.');v.id=newId();state.posts.push({...v,version:1,approval:'Pending',approvedVersion:null,approver:'',evidence:'',history:[]})}f.elements.id.value=v.id;const saved=save();$('#editor').close();render();if(saved)toast('Saved.');else toast('Changes are in memory only. Export a backup before closing.')});
 $('#approval-form').addEventListener('submit',ev=>{ev.preventDefault();if(!canEdit())return;const f=ev.target,v=Object.fromEntries(new FormData(f)),p=state.posts.find(x=>x.id===v.id);if(!p||['Complete draft','Review checks'].includes(next(p)))return toast('Complete the draft and review checks first.');if(!v.person.trim()||!v.evidence.trim())return toast('Add the approver and evidence.');keepSnapshot(p);
  p.decisions ||= [];
  p.decisions.push({version:p.version,at:new Date().toISOString(),person:v.person.trim(),decision:v.decision,evidence:v.evidence.trim()});
@@ -1089,7 +1098,7 @@ main.addEventListener('change',ev=>{const t=ev.target;if(t.dataset?.reviewPick){
  preview.textContent=total ? `Preview review pack (${total})` : 'Preview review pack';
  return;
 }if(t.id==='client-switch'&&t.value!==''){activateClient(Number(t.value));return}if((t.dataset.client||t.dataset.result)&&!canEdit()){render();return}if(t.id==='filter'){filter=t.value;render()}if(t.dataset.client){state.client[t.dataset.client]=t.value.slice(0,5000);save()}if(t.dataset.result){const val=t.value===''?null:Number(t.value);if(val!==null&&(!Number.isSafeInteger(val)||val<0)){toast('Use a safe whole number of zero or more.');render();return}state.results[t.dataset.result]??={};state.results[t.dataset.result][t.dataset.key]=val;save();render()}});
-$('#import-file').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;try{const nextState=validate(JSON.parse(await f.text()));if(confirm('Replace all current clients with this backup? Export current work first.')&&recovery()){state=nextState;save();render();toast('Backup restored.')}}catch(err){toast(err.message||'This file could not be imported.')}ev.target.value=''});
+$('#import-file').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;try{const nextState=validate(JSON.parse(await f.text()));if(confirm('Replace all current clients with this backup? Export current work first.')&&recovery()){state=nextState;calStart();save();render();toast('Backup restored.')}}catch(err){toast(err.message||'This file could not be imported.')}ev.target.value=''});
 addEventListener('storage',ev=>{if(!DEMO&&ev.key===KEY){otherTabChanged=true;toast('Workspace changed in another tab. Export this tab, then reload before saving.')}});
 addEventListener('beforeprint',refreshReportPrintNotes);
 addEventListener('hashchange',route);if(typeof matchMedia==='function'){const mq=matchMedia('(prefers-color-scheme: dark)');mq.addEventListener?.('change',()=>{if(ui.theme==='auto')applyUI()})}route();openDatabase();

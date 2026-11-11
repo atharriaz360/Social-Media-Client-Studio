@@ -56,7 +56,7 @@
   </div>
   <div class="checks"><label class="toggle"><input name="facts" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Facts checked</b><small>Claims match the brief</small></span></label><label class="toggle"><input name="rights" type="checkbox"><span class="track" aria-hidden="true"></span><span><b>Asset rights checked</b><small>Usage confirmed</small></span></label></div>
  </div>
- <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover, image or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
+ <div class="sheet-foot"><p class="hint">Editing title, caption, channel, date, role, cover, image or asset creates a new version and clears approval.</p><div class="sheet-actions"><button type="button" class="btn btn-ghost" id="dup-post" hidden>Duplicate</button><button type="button" class="btn btn-danger" id="del-post" hidden>Delete</button><button type="button" class="btn btn-ghost close">Cancel</button><button class="btn btn-primary" type="submit">Save <kbd>↵</kbd></button></div></div>
 </form></dialog>
 
 <dialog id="versions" class="sheet" aria-labelledby="versions-title">

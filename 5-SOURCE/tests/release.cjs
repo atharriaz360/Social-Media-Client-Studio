@@ -25,7 +25,7 @@ const fs=require('node:fs');
  assert.ok(await page.locator('.focus-notice').isVisible());
  await page.locator('.focus-notice [data-focus]').click();
  assert.ok(await page.locator('.trio').isVisible());
- assert.ok(await page.locator('.duo').isVisible());
+ assert.ok(await page.locator('.visual-card').isVisible());
  assert.equal(await page.locator('.focus-notice').count(),0);
  assert.equal(await page.evaluate(()=>localStorage.getItem('brief-approved-studio-v2')),workspaceBeforeFocus);
  // escaped input
@@ -38,7 +38,7 @@ const fs=require('node:fs');
  // create, approve, revise resets approval
  await page.keyboard.press('Escape');await page.evaluate(()=>{location.hash='#approvals'});await page.waitForTimeout(80);
  await page.click('[data-approve=P003]');await page.fill('#approval-form [name=evidence]','Email 28 Oct');await page.click('#approval-form button.btn-primary');await page.waitForTimeout(80);
- assert.match(await page.locator('#main').innerText(),/Approved v1/);
+ {const a3=await page.evaluate(()=>JSON.parse(localStorage.getItem('brief-approved-studio-v2')).posts.find(p=>p.id==='P003'));assert.equal(a3.approval,'Approved');assert.equal(a3.approvedVersion,1);assert.match(await page.locator('#main').innerText(),/Approved by/)}
  await page.click('#main [data-edit=P003] >> nth=0');await page.fill('#f-caption','A new caption');await page.click('#post-form [type=submit]');await page.waitForTimeout(80);
  const p3=await page.evaluate(()=>JSON.parse(localStorage.getItem('brief-approved-studio-v2')).posts.find(p=>p.id==='P003'));
  assert.equal(p3.version,2);assert.equal(p3.approval,'Pending');

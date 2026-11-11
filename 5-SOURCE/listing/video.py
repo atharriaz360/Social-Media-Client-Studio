@@ -125,7 +125,7 @@ window.setT=function(t){{
  // tablet: glides in from right 7.0-7.65, push-in to counter 7.85-8.6, pull back + left 9.0-9.6
  let tb={{x:720,y:650,s:1,o:0,ry:0}};
  if(t>=6.95){{const g=seg(t,6.95,7.7,oq);tb.x=lerp(1500,720,g);tb.ry=lerp(-24,0,g);tb.o=seg(t,6.95,7.2);
-  const pi=seg(t,7.85,8.65,ioc);const fx=(TAPS.star[0]-.5)*880,fy=(TAPS.star[1]-.5)*628;tb.s=lerp(1,1.32,pi);tb.x-=fx*(tb.s-1);tb.y-=fy*(tb.s-1)+pi*30;
+  const pi=seg(t,7.85,8.65,ioc);const fx=(TAPS.star[0]-.5)*880,fy=(TAPS.star[1]-.5)*628;tb.s=lerp(1,1.2,pi);tb.x-=fx*(tb.s-1);tb.y-=fy*(tb.s-1)-pi*40;
   const pb=seg(t,9.0,9.65,ioc);tb.s=lerp(tb.s,.86,pb);tb.x=lerp(tb.x,680,pb);tb.y=lerp(tb.y,660,pb)}}
  if(t>=11.75){{const e=seg(t,11.75,12.3,ioc);tb.y+=e*40;tb.o*=1-e}}
  dev($('tabD'),880,628,tb.x,tb.y,tb.s,0,tb.o,tb.ry);

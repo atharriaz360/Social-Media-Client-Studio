@@ -540,3 +540,5 @@ dialog{color:var(--ink)}
 }
 
 @media screen{.home .hero{display:flex;align-items:center;width:100%}.home .hero-actions{margin-top:18px}}
+
+[hidden]{display:none!important}

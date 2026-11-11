@@ -5,7 +5,7 @@ Screens are generated to the exact quad aspect so nothing is stretched."""
 import numpy as np, cv2
 from scipy import ndimage
 from PIL import Image, ImageDraw, ImageFont
-BG = '/mnt/user-data/uploads/Brief-to-Approved/5-SOURCE/_Canva-BG/'
+BG = '/home/claude/bta/5-SOURCE/_Canva-BG/'
 FONT = '/tmp/claude-0/w/inter-latin-wght-normal.woff2'
 
 def load(pid, S):

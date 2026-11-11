@@ -3,14 +3,16 @@ LAPTOP_OCC = dict(top=(.2, .8), bot=(.1, .6), lef=(.2, .8), rig=(.08, .25))   # 
 SPECS = {
  '01-Hero':            dict(plate=1, S=1.75, ox=546, oy=-10,
                             dev=[dict(kind='laptop', route='approvals', q=LAPTOP_OCC), dict(kind='phone', route='approvals')]),
- '04-Content-Board':   dict(plate=7, S=2.0, ox=760, oy=-100,
+ '05-Content-Board':   dict(plate=7, S=2.0, ox=760, oy=-100,
                             dev=[dict(kind='laptop', route='content', layout='board', q=LAPTOP_OCC), dict(kind='phone', route='content')]),
- '05-Calendar-Reports':dict(plate=5, S=2.1, ox=160, oy=-250,
+ '06-Calendar-Reports':dict(plate=5, S=2.1, ox=160, oy=-250,
                             dev=[dict(kind='tablet', route='calendar'), dict(kind='phone', route='reports')]),
- '06-Phone':           dict(plate=4, S=2.373, ox=0, oy=-250,
+ '03-Phone':           dict(plate=4, S=2.373, ox=0, oy=-250,
                             dev=[dict(kind='phone', route='overview'), dict(kind='phone', route='approvals', theme='dark')]),
- '09-Private-Offline': dict(plate=5, S=1.7, ox=880, oy=-20,
+ '10-Private-Offline': dict(plate=5, S=1.7, ox=880, oy=-20,
                             dev=[dict(kind='tablet', route='overview', theme='dark'), dict(kind='phone', route='settings', theme='dark')]),
+ '04-Approvals':       dict(plate=3, S=2.373, ox=0, oy=-330,
+                            dev=[dict(kind='laptop', route='approvals', notch=False)]),
 }
 
 # hero (01) composition, kept for reference

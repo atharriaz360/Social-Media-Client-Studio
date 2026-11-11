@@ -23,14 +23,14 @@ One-time purchase. No subscription or account. Works in Chrome, Safari and Firef
 
 WHAT'S INSIDE
 - Overview: your next step, upcoming posts and pending approvals
-- Content board: Draft, Checks, Needs Approval, Ready, Scheduled, Live. Board or list view, search, filter, CSV export
+- Content board: Draft, Checks, Needs Approval, Ready, Scheduled, Live. Board or list view, search, filter, duplicate or delete posts, CSV export
 - Content calendar: monthly view coloured by stage. Click a date to add a post
 - Client approval tracker: who approved, when, through which channel and which version
 - Printable review packs with selected posts, images, captions, version numbers and review deadlines
 - Approval history: see saved versions and recorded decisions. Editing an approved post clears its current approval
-- Separate client workspaces with a switcher and one JSON backup for all clients
+- Separate client workspaces: add, switch or remove clients, with one JSON backup for all
 - Facts and rights checks must be ticked before a post can be approved
-- Client brief: 10 guided fields with a progress indicator
+- Client brief: 10 guided fields with a progress indicator, plus team contacts
 - JPG, PNG and WebP post attachments plus four sample images
 - Monthly reports: enter reach and interactions, engagement rate calculates for you. Print or save as A4 PDF
 - Light and dark theme, CSV export, JSON backup and restore
@@ -95,7 +95,7 @@ Thank you for your purchase! HOW TO START 1. Etsy → You → Purchases and orde
 
 1. `01-Hero.jpg`
 ```
-Brief-to-Approved social media planner app on a laptop and phone: overview with next step, content stages, upcoming posts and client approvals. Chips read pay once, works offline, desktop and phone.
+Brief-to-Approved social media planner app on a laptop and phone beside dried flowers: overview with next step, content stages, upcoming posts and client approvals. Real app for freelance social media managers, instant download.
 ```
 2. `02-All-Views.jpg`
 ```
@@ -119,7 +119,7 @@ Brief-to-Approved content calendar on a tablet, coloured by post stage, beside a
 ```
 7. `07-Client-Brief.jpg`
 ```
-Brief-to-Approved client brief with ten guided fields such as goal, audience, offer, voice and approver, plus the asset library with four sample food and coffee photos.
+Brief-to-Approved client brief with ten guided fields such as goal, audience, offer, voice and approver, a team contacts button, and the asset library with sample food and coffee photos.
 ```
 8. `08-Main-Page-Unedited.jpg`
 ```

@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 APP = 'file:///tmp/claude-0/b/1-SELL-THIS/Brief-to-Approved.html'
 R = '/tmp/claude-0/r/screens/'; V = '/tmp/claude-0/v/ss/'
 VIEWS = ['overview', 'content', 'calendar', 'approvals', 'assets', 'brief', 'reports', 'library', 'settings']
-SIZES = {'desktop': (1440, 900, 2), 'tablet': (1180, 796, 2), 'phone': (393, 798, 3)}
+SIZES = {'desktop': (1512, 945, 2), 'tablet': (1180, 796, 2), 'phone': (393, 798, 3)}
 import sys
 ONLY_INTERACTIONS = '--interactions' in sys.argv
 SETS = [('desktop', 'light'), ('desktop', 'dark'), ('tablet', 'light'), ('phone', 'light'), ('phone', 'dark')]
